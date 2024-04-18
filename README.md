@@ -47,5 +47,5 @@ bash run.sh
 If you find this work interesting, welcome to cite our paper!
 
 ```
-[1] Wei, Y. et al. Derivative-free tree optimization for complex systems. arXiv preprint arXiv:2404.04062 (2024). [https://arxiv.org/abs/2404.04062](https://arxiv.org/abs/2404.04062)
+[1] Wei, Y. et al. Derivative-free tree optimization for complex systems. arXiv preprint arXiv:2404.04062 (2024). https://arxiv.org/abs/2404.04062
 ```
