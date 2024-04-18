@@ -1,6 +1,6 @@
 # Pipeline
 
-To conduct evaluations on synthetic functions using exact functions, please run the following line in terminal:
+To run the self-driving virtual laboratory for compositionally complex alloy design, please run the following line in terminal:
 
 ```shell
 bash run.sh
