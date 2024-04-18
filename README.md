@@ -32,6 +32,7 @@ The developmental version of the package has been tested on the following system
 - CUDA 11.4
 - cuDNN 8.1
 - RTX3090 Ti
+- Python 3.9
 
 ## Pipeline
 
