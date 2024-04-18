@@ -16,7 +16,7 @@ The following libraries are necessary for running the codes.
 tensorflow-gpu == 2.5.0
 keras == 2.3.1
 scipy == 1.6.2
-numpy == 1.19.2
+numpy == 1.19.5
 pandas == 1.2.4
 matplotlib==3.3.4
 ```
