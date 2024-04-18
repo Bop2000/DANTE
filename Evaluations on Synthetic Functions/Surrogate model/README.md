@@ -1,6 +1,6 @@
 # Pipeline
 
-To conduct evaluations on synthetic functions using exact functions, please run the following line in terminal:
+To conduct evaluations on synthetic functions using surrogate model, please run the following line in terminal:
 
 ```shell
 bash run.sh
