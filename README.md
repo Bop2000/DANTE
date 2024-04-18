@@ -19,6 +19,7 @@ scipy == 1.10.1
 numpy == 1.19.5
 pandas == 1.4.4
 matplotlib == 3.6.3
+matplotlib-inline == 0.1.6
 scikit-learn == 1.2.2
 scikit-image == 0.19.3
 cma == 3.3.0
