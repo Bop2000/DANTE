@@ -15,15 +15,27 @@ The following libraries are necessary for running the codes.
 ```shell
 tensorflow-gpu == 2.5.0
 keras == 2.3.1
-scipy == 1.6.2
+scipy == 1.10.1
 numpy == 1.19.5
-pandas == 1.2.4
-matplotlib==3.3.4
+pandas == 1.4.4
+matplotlib == 3.6.3
+scikit-learn == 1.2.2
+scikit-image == 0.19.3
+cma == 3.3.0
+tqdm == 4.59.0
+seaborn == 0.12.2
+openpyxl == 3.1.2
 ```
 Please install requirements using below command.
 ```
 pip install -r requirements.txt
 ```
+
+Then install `cudnn` and `cudatoolkit`:
+```
+conda install conda-forge::cudatoolkit=11.2 cudnn=8.1
+```
+
 which should install in about few minutes.
 
 ## Environements
@@ -31,6 +43,7 @@ The developmental version of the package has been tested on the following system
 - Ubuntu 18.04 and Ubuntu 22.04 
 - CUDA 11.4
 - cuDNN 8.1
+- Driver Version 470.182.03
 - RTX3090 Ti
 - Python 3.9
 
