@@ -15,6 +15,8 @@ Secondly, Please install requirements using below command.
 pip install -r requirements.txt
 ```
 
+Moreover, to use TuRBO for optimization, you need to install TuRBO first (see instruction [here](https://github.com/uber-research/TuRBO/)).
+
 # Pipeline
 
 To run the self-driving virtual laboratory for electron ptychography reconstruction optimization, please run the following line in terminal:
