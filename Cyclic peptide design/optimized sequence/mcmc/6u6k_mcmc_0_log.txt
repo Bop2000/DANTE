@@ -1,0 +1,106 @@
+core.init: Checking for fconfig files in pwd and ./rosetta/flags 
+core.init: Rosetta version: rosetta.source.release-280 r280 2021.16+release.8ee4f02 8ee4f02ac5768a8a339ffada74cb0ff5f778b3e6 https://www.rosettacommons.org 2021-04-20T20:57:38.289184
+core.init: command: InterfaceAnalyzer.default.linuxgccrelease -s 6u6k_mcmc_0_min.pdb @pack_input_options.txt
+basic.random.init_random_generator: 'RNG device' seed mode, using '/dev/urandom', seed=-46784619 seed_offset=0 real_seed=-46784619
+basic.random.init_random_generator: RandomGenerator:init: Normal mode, seed=-46784619 RG_type=mt19937
+core.init: Resolved executable path: /home/aih/yangtao.chen/tools/rosetta/main/source/build/src/release/linux/4.18/64/x86/gcc/8/default/InterfaceAnalyzer.default.linuxgccrelease
+core.init: Looking for database based on location of executable: /home/aih/yangtao.chen/tools/rosetta/main/database/
+protocols.jd2.PDBJobInputter: Instantiate PDBJobInputter
+protocols.jd2.PDBJobInputter: PDBJobInputter::fill_jobs
+protocols.jd2.PDBJobInputter: pushed 6u6k_mcmc_0_min.pdb nstruct index 1
+protocols.evaluation.ChiWellRmsdEvaluatorCreator: Evaluation Creator active ... 
+core.scoring.ScoreFunctionFactory: SCOREFUNCTION: ref2015
+core.scoring.etable: Starting energy table calculation
+core.scoring.etable: smooth_etable: changing atr/rep split to bottom of energy well
+core.scoring.etable: smooth_etable: spline smoothing lj etables (maxdis = 6)
+core.scoring.etable: smooth_etable: spline smoothing solvation etables (max_dis = 6)
+core.scoring.etable: Finished calculating energy tables.
+basic.io.database: Database file opened: scoring/score_functions/hbonds/ref2015_params/HBPoly1D.csv
+basic.io.database: Database file opened: scoring/score_functions/hbonds/ref2015_params/HBFadeIntervals.csv
+basic.io.database: Database file opened: scoring/score_functions/hbonds/ref2015_params/HBEval.csv
+basic.io.database: Database file opened: scoring/score_functions/hbonds/ref2015_params/DonStrength.csv
+basic.io.database: Database file opened: scoring/score_functions/hbonds/ref2015_params/AccStrength.csv
+core.chemical.GlobalResidueTypeSet: Finished initializing fa_standard residue type set.  Created 984 residue types
+core.chemical.GlobalResidueTypeSet: Total time to initialize 0.832571 seconds.
+basic.io.database: Database file opened: scoring/score_functions/rama/fd/all.ramaProb
+basic.io.database: Database file opened: scoring/score_functions/rama/fd/prepro.ramaProb
+basic.io.database: Database file opened: scoring/score_functions/omega/omega_ppdep.all.txt
+basic.io.database: Database file opened: scoring/score_functions/omega/omega_ppdep.gly.txt
+basic.io.database: Database file opened: scoring/score_functions/omega/omega_ppdep.pro.txt
+basic.io.database: Database file opened: scoring/score_functions/omega/omega_ppdep.valile.txt
+basic.io.database: Database file opened: scoring/score_functions/P_AA_pp/P_AA
+basic.io.database: Database file opened: scoring/score_functions/P_AA_pp/P_AA_n
+core.scoring.P_AA: shapovalov_lib::shap_p_aa_pp_smooth_level of 1( aka low_smooth ) got activated.
+basic.io.database: Database file opened: scoring/score_functions/P_AA_pp/shapovalov/10deg/kappa131/a20.prop
+protocols.jd2.PDBJobInputter: PDBJobInputter::pose_from_job
+protocols.jd2.PDBJobInputter: filling pose from PDB 6u6k_mcmc_0_min.pdb
+core.import_pose.import_pose: File '6u6k_mcmc_0_min.pdb' automatically determined to be of type PDB
+core.conformation.Conformation: [ WARNING ] missing heavyatom:  OXT on residue GLU:CtermProteinFull 126
+core.conformation.Conformation: [ WARNING ] missing heavyatom:  OXT on residue ASP:CtermProteinFull 137
+core.scoring.ScoreFunctionFactory: SCOREFUNCTION: ref2015
+apps.public.analysis.InterfaceAnalyzer: Computing interface between two chains in pose
+protocols.analysis.InterfaceAnalyzerMover: Using normal constructor
+protocols.analysis.InterfaceAnalyzerMover: Making an interface set with default calculator.
+basic.io.database: Database file opened: scoring/score_functions/elec_cp_reps.dat
+core.scoring.elec.util: Read 40 countpair representative atoms
+core.pack.dunbrack.RotamerLibrary: shapovalov_lib_fixes_enable option is true.
+core.pack.dunbrack.RotamerLibrary: shapovalov_lib::shap_dun10_smooth_level of 1( aka lowest_smooth ) got activated.
+core.pack.dunbrack.RotamerLibrary: Binary rotamer library selected: /home/aih/yangtao.chen/tools/rosetta/main/database/rotamer/shapovalov/StpDwn_0-0-0/Dunbrack10.lib.bin
+core.pack.dunbrack.RotamerLibrary: Using Dunbrack library binary file '/home/aih/yangtao.chen/tools/rosetta/main/database/rotamer/shapovalov/StpDwn_0-0-0/Dunbrack10.lib.bin'.
+core.pack.dunbrack.RotamerLibrary: Dunbrack 2010 library took 0.13908 seconds to load from binary
+protocols.analysis.InterfaceAnalyzerMover: Detecting disulfides in the separated pose.
+protocols.analysis.InterfaceAnalyzerMover: Calculating dSASA
+protocols.analysis.InterfaceAnalyzerMover: Calculating per-res dSASA data
+core.pack.task: Packer task: initialize from command line() 
+core.pack.pack_rotamers: built 209 rotamers at 20 positions.
+core.pack.interaction_graph.interaction_graph_factory: Instantiating DensePDInteractionGraph
+core.pack.task: Packer task: initialize from command line() 
+core.pack.pack_rotamers: built 229 rotamers at 20 positions.
+core.pack.interaction_graph.interaction_graph_factory: Instantiating DensePDInteractionGraph
+protocols.analysis.InterfaceAnalyzerMover: included_nres: 137
+core.scoring.ScoreFunctionFactory: SCOREFUNCTION: ref2015
+protocols.analysis.InterfaceAnalyzerMover: Computing interface packstats.
+protocols.analysis.InterfaceAnalyzerMover: Total: 137 PackScoresTotal: 137
+protocols.analysis.InterfaceAnalyzerMover: Computing delta unsat polar residues...
+basic.io.database: Database file opened: scoring/score_functions/hbonds/sp2_elec_params/HBPoly1D.csv
+basic.io.database: Database file opened: scoring/score_functions/hbonds/sp2_elec_params/HBFadeIntervals.csv
+basic.io.database: Database file opened: scoring/score_functions/hbonds/sp2_elec_params/HBEval.csv
+6u6k_mcmc_0_min: Residues missing H-bonds:
+6u6k_mcmc_0_min: Residue 	 Chain 	 Atom 
+6u6k_mcmc_0_min: 105 	 A 	 N
+6u6k_mcmc_0_min: 105 	 A 	 H
+6u6k_mcmc_0_min: 5 	 B 	 N
+6u6k_mcmc_0_min: 5 	 B 	 H
+6u6k_mcmc_0_min: 6 	 B 	 O
+6u6k_mcmc_0_min: 9 	 B 	 O
+protocols.analysis.InterfaceAnalyzerMover.missing_hbonds: pymol-style selection for unstat hbond res 
+select 6u6k_mcmc_0_min_unsat, /6u6k_mcmc_0_min//A/105+105+ + /6u6k_mcmc_0_min//B/5+5+6+9+
+basic.io.database: Database file opened: scoring/score_functions/sc/sc_radii.lib
+protocols.analysis.InterfaceAnalyzerMover: Computing Shape Complementarity Score...
+protocols.analysis.InterfaceAnalyzerMover: Upstream chain(s) numbers: 1, 
+protocols.analysis.InterfaceAnalyzerMover: Downstream chain(s) numbers: 2, 
+protocols.analysis.InterfaceAnalyzerMover.interface_selection: pymol-style selection for interface res 
+select 6u6k_mcmc_0_min_interface, /6u6k_mcmc_0_min//A/37+38+40+41+50+51+99+103+104+105+107+108+ + /6u6k_mcmc_0_min//B/1+4+5+6+7+8+9+10+
+6u6k_mcmc_0_min: TOTAL SASA: 8150.09
+6u6k_mcmc_0_min: NUMBER OF RESIDUES: 20
+6u6k_mcmc_0_min: AVG RESIDUE ENERGY: 18.262
+6u6k_mcmc_0_min: INTERFACE DELTA SASA: 1001.18
+6u6k_mcmc_0_min: INTERFACE HYDROPHOBIC SASA: 611.077
+6u6k_mcmc_0_min: INTERFACE POLAR SASA: 390.102
+6u6k_mcmc_0_min: CROSS-INTERFACE ENERGY SUMS: -18.8752
+6u6k_mcmc_0_min: SEPARATED INTERFACE ENERGY DIFFERENCE: -14.0171
+6u6k_mcmc_0_min: CROSS-INTERFACE ENERGY/INTERFACE DELTA SASA: -0.018853
+6u6k_mcmc_0_min: SEPARATED INTERFACE ENERGY/INTERFACE DELTA SASA: -0.0140006
+6u6k_mcmc_0_min: DELTA UNSTAT HBONDS: 6
+6u6k_mcmc_0_min: CROSS INTERFACE HBONDS: 1
+6u6k_mcmc_0_min: HBOND ENERGY: -0.41136
+6u6k_mcmc_0_min: HBOND ENERGY/ SEPARATED INTERFACE ENERGY: 0.0293469
+6u6k_mcmc_0_min: INTERFACE PACK STAT: 0.521312
+6u6k_mcmc_0_min: SHAPE COMPLEMENTARITY VALUE: 0.612454
+protocols.jd2.JobDistributor: 6u6k_mcmc_0_min_0001 reported success in 2 seconds
+protocols.jd2.JobDistributor: no more batches to process... 
+protocols.jd2.JobDistributor: 1 jobs considered, 1 jobs attempted in 2 seconds
+protocols.jd2.JobDistributor: [ WARNING ] The following options have been set, but have not yet been used:
+	-pose_metrics:atomic_burial_cutoff 0.01
+
+apps.public.analysis.InterfaceAnalyzer: ************************d**o**n**e**************************************

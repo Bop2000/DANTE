@@ -1,0 +1,41 @@
+7k2j.pdb
+target length: 283
+binder length: 7
+Set bug fixed cyclic peptide complex offset. The cyclic peptide binder will be hallucionated.
+Running MCMC with simulated annealing...
+apply_fn
+['GETIHMQ']
+1 models [0] recycles 6 hard 1 soft 0 temp 1 loss 4.54 i_con 4.48 plddt 0.33 ptm 0.92 i_ptm 0.34
+['GETIHEQ']
+2 models [3] recycles 6 hard 1 soft 0 temp 1 loss 3.97 i_con 3.92 plddt 0.43 ptm 0.92 i_ptm 0.52
+['GETNHEQ']
+3 models [4] recycles 6 hard 1 soft 0 temp 1 loss 3.71 i_con 3.65 plddt 0.41 ptm 0.93 i_ptm 0.55
+['GELNHEQ']
+5 models [3] recycles 6 hard 1 soft 0 temp 1 loss 3.70 i_con 3.64 plddt 0.39 ptm 0.93 i_ptm 0.56
+['GELNHEC']
+24 models [1] recycles 6 hard 1 soft 0 temp 1 loss 3.46 i_con 3.42 plddt 0.53 ptm 0.93 i_ptm 0.64
+['GEYNHEC']
+29 models [1] recycles 6 hard 1 soft 0 temp 1 loss 3.42 i_con 3.37 plddt 0.51 ptm 0.93 i_ptm 0.65
+['GEYNEEC']
+33 models [1] recycles 6 hard 1 soft 0 temp 1 loss 3.30 i_con 3.25 plddt 0.52 ptm 0.93 i_ptm 0.70
+['GEYNGEC']
+34 models [2] recycles 6 hard 1 soft 0 temp 1 loss 3.14 i_con 3.09 plddt 0.52 ptm 0.93 i_ptm 0.73
+['GEYNGEL']
+50 models [3] recycles 6 hard 1 soft 0 temp 1 loss 3.06 i_con 3.02 plddt 0.63 ptm 0.93 i_ptm 0.75
+['GEYNGED']
+57 models [4] recycles 6 hard 1 soft 0 temp 1 loss 2.87 i_con 2.84 plddt 0.66 ptm 0.94 i_ptm 0.81
+['GEYNKED']
+62 models [1] recycles 6 hard 1 soft 0 temp 1 loss 2.84 i_con 2.81 plddt 0.69 ptm 0.93 i_ptm 0.80
+['HEYNKED']
+63 models [3] recycles 6 hard 1 soft 0 temp 1 loss 2.71 i_con 2.69 plddt 0.76 ptm 0.93 i_ptm 0.85
+['HEYNAED']
+159 models [3] recycles 6 hard 1 soft 0 temp 1 loss 2.71 i_con 2.68 plddt 0.75 ptm 0.93 i_ptm 0.83
+['GEYNAED']
+205 models [3] recycles 6 hard 1 soft 0 temp 1 loss 2.61 i_con 2.59 plddt 0.77 ptm 0.93 i_ptm 0.84
+['GEYNPED']
+253 models [3] recycles 6 hard 1 soft 0 temp 1 loss 2.41 i_con 2.39 plddt 0.83 ptm 0.93 i_ptm 0.88
+['GEYGPED']
+286 models [3] recycles 6 hard 1 soft 0 temp 1 loss 2.31 i_con 2.29 plddt 0.83 ptm 0.93 i_ptm 0.88
+['GEIGPED']
+889 models [3] recycles 6 hard 1 soft 0 temp 1 loss 2.17 i_con 2.16 plddt 0.85 ptm 0.93 i_ptm 0.90
+{'con': 0.0, 'exp_res': 0.024201657623052597, 'hard': 1.0, 'i_con': 2.157238721847534, 'i_pae': 0.12245938926935196, 'i_ptm': 0.8985644578933716, 'loss': 2.1720166206359863, 'models': array([3]), 'pae': 0.17581970989704132, 'plddt': 0.8522218614816666, 'ptm': 0.9343135356903076, 'recycles': 6, 'seq_ent': 2.7129406929016113, 'soft': 0.0, 'temp': 1.0}

@@ -1,0 +1,909 @@
+1sfi.pdb
+target length: 223
+binder length: 14
+Set bug fixed cyclic peptide complex offset. The cyclic peptide binder will be hallucionated.
+Running MCMC with simulated annealing...
+apply_fn
+['DVCSGHQFVCMRGQ']
+1 models [2] recycles 6 hard 1 soft 0 temp 1 loss 3.82 i_con 3.76 plddt 0.39 ptm 0.91 i_ptm 0.40
+['DVCSGHNFVCMRGQ']
+7 models [2] recycles 6 hard 1 soft 0 temp 1 loss 3.77 i_con 3.71 plddt 0.40 ptm 0.91 i_ptm 0.40
+['DCCSGHNFVCMRGQ']
+8 models [4] recycles 6 hard 1 soft 0 temp 1 loss 3.73 i_con 3.67 plddt 0.43 ptm 0.91 i_ptm 0.47
+['DCCSGHNFVCHRGK']
+10 models [0] recycles 6 hard 1 soft 0 temp 1 loss 3.69 i_con 3.63 plddt 0.40 ptm 0.91 i_ptm 0.46
+['DCCSCHNFVCHRGK']
+11 models [0] recycles 6 hard 1 soft 0 temp 1 loss 3.30 i_con 3.25 plddt 0.52 ptm 0.92 i_ptm 0.54
+['DECSCHNFVCHRGK']
+16 models [2] recycles 6 hard 1 soft 0 temp 1 loss 2.68 i_con 2.64 plddt 0.63 ptm 0.92 i_ptm 0.68
+['DECSCHNDVCHRGK']
+53 models [4] recycles 6 hard 1 soft 0 temp 1 loss 2.41 i_con 2.38 plddt 0.70 ptm 0.93 i_ptm 0.78
+['DECSCHNDVCHRGM']
+117 models [0] recycles 6 hard 1 soft 0 temp 1 loss 2.36 i_con 2.33 plddt 0.68 ptm 0.94 i_ptm 0.77
+['DECSCHNDVCHRNM']
+118 models [4] recycles 6 hard 1 soft 0 temp 1 loss 2.14 i_con 2.12 plddt 0.80 ptm 0.94 i_ptm 0.87
+['DETSCHNDVCHRNM']
+138 models [4] recycles 6 hard 1 soft 0 temp 1 loss 2.09 i_con 2.07 plddt 0.80 ptm 0.94 i_ptm 0.87
+['DETSCHNDVCRRNM']
+154 models [0] recycles 6 hard 1 soft 0 temp 1 loss 2.04 i_con 2.01 plddt 0.78 ptm 0.94 i_ptm 0.85
+['DDTSCHNDVCRRNM']
+159 models [1] recycles 6 hard 1 soft 0 temp 1 loss 1.97 i_con 1.95 plddt 0.76 ptm 0.94 i_ptm 0.84
+['DDTSCHSDVCRRNM']
+181 models [4] recycles 6 hard 1 soft 0 temp 1 loss 1.87 i_con 1.85 plddt 0.85 ptm 0.94 i_ptm 0.89
+['MDTSCHSDVCRRNM']
+274 models [4] recycles 6 hard 1 soft 0 temp 1 loss 1.83 i_con 1.82 plddt 0.85 ptm 0.94 i_ptm 0.89
+['MDTTCHSDVCRRNM']
+514 models [4] recycles 6 hard 1 soft 0 temp 1 loss 1.83 i_con 1.81 plddt 0.87 ptm 0.94 i_ptm 0.90
+['RDTTCHSDVCRRNM']
+582 models [4] recycles 6 hard 1 soft 0 temp 1 loss 1.82 i_con 1.81 plddt 0.88 ptm 0.94 i_ptm 0.90
+['RDTTCNSDVCRRNM']
+652 models [4] recycles 6 hard 1 soft 0 temp 1 loss 1.78 i_con 1.77 plddt 0.89 ptm 0.94 i_ptm 0.91
+['RDTWCNSDVCRRNM']
+837 models [4] recycles 6 hard 1 soft 0 temp 1 loss 1.61 i_con 1.60 plddt 0.92 ptm 0.94 i_ptm 0.93
+{'con': 0.0, 'exp_res': 0.000464034965261817, 'hard': 1.0, 'i_con': 1.6019657850265503, 'i_pae': 0.07918374240398407, 'i_ptm': 0.9283031225204468, 'loss': 1.6104227304458618, 'models': array([4]), 'pae': 0.1217755451798439, 'plddt': 0.9154310896992683, 'ptm': 0.9444607496261597, 'recycles': 6, 'seq_ent': 2.7129404544830322, 'soft': 0.0, 'temp': 1.0}
+Set bug fixed cyclic peptide complex offset. The cyclic peptide binder will be hallucionated.
+Running MCMC with simulated annealing...
+['QFTNGKYIAYCSEQ']
+1 models [1] recycles 6 hard 1 soft 0 temp 1 loss 4.20 i_con 4.14 plddt 0.40 ptm 0.90 i_ptm 0.23
+['QFTNGFYIAYCSEQ']
+2 models [3] recycles 6 hard 1 soft 0 temp 1 loss 2.89 i_con 2.85 plddt 0.58 ptm 0.92 i_ptm 0.65
+['QFTPGFYIAYCSEQ']
+95 models [1] recycles 6 hard 1 soft 0 temp 1 loss 2.86 i_con 2.82 plddt 0.56 ptm 0.93 i_ptm 0.63
+['QFTPGFEIAYCSEQ']
+103 models [1] recycles 6 hard 1 soft 0 temp 1 loss 2.71 i_con 2.66 plddt 0.55 ptm 0.93 i_ptm 0.62
+['QFTPGFNIAYCSEQ']
+113 models [1] recycles 6 hard 1 soft 0 temp 1 loss 2.64 i_con 2.60 plddt 0.59 ptm 0.93 i_ptm 0.65
+['QATPGFNIAYCSEQ']
+116 models [1] recycles 6 hard 1 soft 0 temp 1 loss 2.54 i_con 2.50 plddt 0.62 ptm 0.93 i_ptm 0.66
+['QATPGFNIAYCSEV']
+118 models [3] recycles 6 hard 1 soft 0 temp 1 loss 2.37 i_con 2.34 plddt 0.70 ptm 0.93 i_ptm 0.74
+['QATPGFNIAYCSEY']
+120 models [1] recycles 6 hard 1 soft 0 temp 1 loss 2.23 i_con 2.20 plddt 0.70 ptm 0.93 i_ptm 0.74
+['QAMPGFNIAYCSEY']
+128 models [1] recycles 6 hard 1 soft 0 temp 1 loss 2.16 i_con 2.13 plddt 0.71 ptm 0.94 i_ptm 0.76
+['QAVPGFNIAYCSEY']
+133 models [4] recycles 6 hard 1 soft 0 temp 1 loss 1.97 i_con 1.95 plddt 0.81 ptm 0.94 i_ptm 0.86
+['QAVPGFNVAYCSEY']
+142 models [3] recycles 6 hard 1 soft 0 temp 1 loss 1.96 i_con 1.94 plddt 0.80 ptm 0.94 i_ptm 0.84
+['QAVPGENVAYCSEY']
+157 models [3] recycles 6 hard 1 soft 0 temp 1 loss 1.93 i_con 1.91 plddt 0.79 ptm 0.94 i_ptm 0.84
+['QAVHGENVAYCSEY']
+204 models [1] recycles 6 hard 1 soft 0 temp 1 loss 1.80 i_con 1.78 plddt 0.85 ptm 0.94 i_ptm 0.89
+['QAVHGSNVAYCSEK']
+416 models [1] recycles 6 hard 1 soft 0 temp 1 loss 1.76 i_con 1.74 plddt 0.85 ptm 0.94 i_ptm 0.89
+['LAVHGSNVAYCSEK']
+418 models [1] recycles 6 hard 1 soft 0 temp 1 loss 1.75 i_con 1.73 plddt 0.85 ptm 0.94 i_ptm 0.89
+['LFVHGSNVAYCSEK']
+864 models [1] recycles 6 hard 1 soft 0 temp 1 loss 1.74 i_con 1.73 plddt 0.87 ptm 0.94 i_ptm 0.90
+['LFVHGSNVAYCREK']
+870 models [1] recycles 6 hard 1 soft 0 temp 1 loss 1.68 i_con 1.67 plddt 0.88 ptm 0.95 i_ptm 0.91
+['LLVHGSNVAYCREK']
+965 models [1] recycles 6 hard 1 soft 0 temp 1 loss 1.64 i_con 1.63 plddt 0.88 ptm 0.95 i_ptm 0.92
+['LLVHGNNVAYCREK']
+971 models [1] recycles 6 hard 1 soft 0 temp 1 loss 1.62 i_con 1.61 plddt 0.89 ptm 0.95 i_ptm 0.92
+{'con': 0.0, 'exp_res': 0.0015034974785521626, 'hard': 1.0, 'i_con': 1.6124932765960693, 'i_pae': 0.08878753334283829, 'i_ptm': 0.9211987257003784, 'loss': 1.6233967542648315, 'models': array([1]), 'pae': 0.13675785064697266, 'plddt': 0.8909648507833481, 'ptm': 0.9463774561882019, 'recycles': 6, 'seq_ent': 2.7129404544830322, 'soft': 0.0, 'temp': 1.0}
+Set bug fixed cyclic peptide complex offset. The cyclic peptide binder will be hallucionated.
+Running MCMC with simulated annealing...
+['FRYTWNFVFLTDEA']
+1 models [1] recycles 6 hard 1 soft 0 temp 1 loss 4.63 i_con 4.56 plddt 0.30 ptm 0.90 i_ptm 0.15
+['FRYTWNFWFLTDEA']
+3 models [3] recycles 6 hard 1 soft 0 temp 1 loss 4.26 i_con 4.19 plddt 0.38 ptm 0.90 i_ptm 0.25
+['FRYTWNFWFITDEA']
+4 models [1] recycles 6 hard 1 soft 0 temp 1 loss 4.19 i_con 4.12 plddt 0.38 ptm 0.90 i_ptm 0.30
+['FRYTWAFWFITDEA']
+5 models [0] recycles 6 hard 1 soft 0 temp 1 loss 4.09 i_con 4.02 plddt 0.35 ptm 0.90 i_ptm 0.30
+['FRYTWAFWFITDMA']
+8 models [0] recycles 6 hard 1 soft 0 temp 1 loss 4.06 i_con 4.00 plddt 0.33 ptm 0.90 i_ptm 0.30
+['FRYCWAFWFITDMA']
+17 models [0] recycles 6 hard 1 soft 0 temp 1 loss 3.94 i_con 3.88 plddt 0.34 ptm 0.91 i_ptm 0.34
+['FAYCWAFWFITDMA']
+21 models [3] recycles 6 hard 1 soft 0 temp 1 loss 3.93 i_con 3.86 plddt 0.32 ptm 0.91 i_ptm 0.34
+['FPYCWAFWFITDMA']
+26 models [0] recycles 6 hard 1 soft 0 temp 1 loss 3.72 i_con 3.66 plddt 0.39 ptm 0.91 i_ptm 0.41
+['FPYCWAFQFITDMA']
+29 models [0] recycles 6 hard 1 soft 0 temp 1 loss 3.46 i_con 3.41 plddt 0.43 ptm 0.91 i_ptm 0.47
+['FPYCWCFQFITDMA']
+31 models [0] recycles 6 hard 1 soft 0 temp 1 loss 3.13 i_con 3.08 plddt 0.48 ptm 0.92 i_ptm 0.53
+['FPYCWCQQFITDMA']
+35 models [1] recycles 6 hard 1 soft 0 temp 1 loss 2.55 i_con 2.52 plddt 0.66 ptm 0.93 i_ptm 0.73
+['FPYCWCNQFITDMA']
+46 models [1] recycles 6 hard 1 soft 0 temp 1 loss 2.51 i_con 2.47 plddt 0.59 ptm 0.93 i_ptm 0.68
+['FPYCWCPQFITDMA']
+50 models [1] recycles 6 hard 1 soft 0 temp 1 loss 2.01 i_con 1.99 plddt 0.75 ptm 0.94 i_ptm 0.82
+['FPYCWCPQFHTDMA']
+84 models [0] recycles 6 hard 1 soft 0 temp 1 loss 1.94 i_con 1.92 plddt 0.72 ptm 0.94 i_ptm 0.79
+['FPYCWCPQFVTDMA']
+100 models [0] recycles 6 hard 1 soft 0 temp 1 loss 1.78 i_con 1.76 plddt 0.80 ptm 0.94 i_ptm 0.85
+['FPYCWCPQFVTDKA']
+128 models [0] recycles 6 hard 1 soft 0 temp 1 loss 1.69 i_con 1.67 plddt 0.83 ptm 0.94 i_ptm 0.87
+['FPYCWCPQFVTDKP']
+150 models [0] recycles 6 hard 1 soft 0 temp 1 loss 1.65 i_con 1.64 plddt 0.86 ptm 0.94 i_ptm 0.90
+['FPYCWCPQDVTDKP']
+191 models [0] recycles 6 hard 1 soft 0 temp 1 loss 1.64 i_con 1.62 plddt 0.86 ptm 0.94 i_ptm 0.89
+['FPYCWCPQDVTDPP']
+201 models [0] recycles 6 hard 1 soft 0 temp 1 loss 1.61 i_con 1.60 plddt 0.88 ptm 0.95 i_ptm 0.91
+['FKYCWCPQDVTDPP']
+312 models [0] recycles 6 hard 1 soft 0 temp 1 loss 1.56 i_con 1.55 plddt 0.89 ptm 0.95 i_ptm 0.91
+['FKYCWCPVDVTDPP']
+479 models [0] recycles 6 hard 1 soft 0 temp 1 loss 1.54 i_con 1.53 plddt 0.90 ptm 0.95 i_ptm 0.92
+['FKECWCPVDVTDPP']
+545 models [0] recycles 6 hard 1 soft 0 temp 1 loss 1.46 i_con 1.45 plddt 0.92 ptm 0.95 i_ptm 0.92
+{'con': 0.0, 'exp_res': 0.0022674330975860357, 'hard': 1.0, 'i_con': 1.4518389701843262, 'i_pae': 0.08013489097356796, 'i_ptm': 0.9247537851333618, 'loss': 1.4600377082824707, 'models': array([0]), 'pae': 0.11557865142822266, 'plddt': 0.9180130511522293, 'ptm': 0.9466950297355652, 'recycles': 6, 'seq_ent': 2.7129404544830322, 'soft': 0.0, 'temp': 1.0}
+1sld.pdb
+target length: 121
+binder length: 6
+Set bug fixed cyclic peptide complex offset. The cyclic peptide binder will be hallucionated.
+Running MCMC with simulated annealing...
+apply_fn
+['EDLPGK']
+1 models [0] recycles 6 hard 1 soft 0 temp 1 loss 4.33 i_con 4.27 plddt 0.36 ptm 0.79 i_ptm 0.14
+['EDLPGC']
+3 models [1] recycles 6 hard 1 soft 0 temp 1 loss 4.32 i_con 4.26 plddt 0.39 ptm 0.80 i_ptm 0.18
+['EDNPGC']
+6 models [3] recycles 6 hard 1 soft 0 temp 1 loss 4.15 i_con 4.08 plddt 0.37 ptm 0.80 i_ptm 0.20
+['EYYPGC']
+18 models [0] recycles 6 hard 1 soft 0 temp 1 loss 3.89 i_con 3.84 plddt 0.45 ptm 0.80 i_ptm 0.35
+['WYYPGC']
+35 models [0] recycles 6 hard 1 soft 0 temp 1 loss 3.83 i_con 3.78 plddt 0.50 ptm 0.81 i_ptm 0.37
+['WYLPGC']
+72 models [0] recycles 6 hard 1 soft 0 temp 1 loss 3.79 i_con 3.74 plddt 0.50 ptm 0.81 i_ptm 0.37
+['SYLPGM']
+119 models [0] recycles 6 hard 1 soft 0 temp 1 loss 3.70 i_con 3.64 plddt 0.41 ptm 0.80 i_ptm 0.38
+['SYGPGM']
+163 models [4] recycles 6 hard 1 soft 0 temp 1 loss 3.70 i_con 3.65 plddt 0.52 ptm 0.81 i_ptm 0.45
+['SYGPWM']
+176 models [0] recycles 6 hard 1 soft 0 temp 1 loss 3.62 i_con 3.57 plddt 0.54 ptm 0.81 i_ptm 0.44
+['SYGPHM']
+183 models [4] recycles 6 hard 1 soft 0 temp 1 loss 3.48 i_con 3.44 plddt 0.57 ptm 0.82 i_ptm 0.55
+['SCGPHM']
+214 models [4] recycles 6 hard 1 soft 0 temp 1 loss 3.24 i_con 3.20 plddt 0.66 ptm 0.83 i_ptm 0.64
+['SCGPHG']
+221 models [4] recycles 6 hard 1 soft 0 temp 1 loss 3.15 i_con 3.12 plddt 0.67 ptm 0.83 i_ptm 0.70
+['CCGPHG']
+357 models [4] recycles 6 hard 1 soft 0 temp 1 loss 3.05 i_con 3.02 plddt 0.69 ptm 0.83 i_ptm 0.74
+{'con': 0.0, 'exp_res': 0.004536311142146587, 'hard': 1.0, 'i_con': 3.0204343795776367, 'i_pae': 0.20106811821460724, 'i_ptm': 0.7408334612846375, 'loss': 3.0512428283691406, 'models': array([4]), 'pae': 0.2679697573184967, 'plddt': 0.6919150948524475, 'ptm': 0.8337347507476807, 'recycles': 6, 'seq_ent': 2.7129406929016113, 'soft': 0.0, 'temp': 1.0}
+Set bug fixed cyclic peptide complex offset. The cyclic peptide binder will be hallucionated.
+Running MCMC with simulated annealing...
+['YWRKAP']
+1 models [1] recycles 6 hard 1 soft 0 temp 1 loss 5.37 i_con 5.32 plddt 0.55 ptm 0.79 i_ptm 0.04
+['YWRTAP']
+3 models [0] recycles 6 hard 1 soft 0 temp 1 loss 5.13 i_con 5.07 plddt 0.40 ptm 0.78 i_ptm 0.06
+['YWMTAP']
+4 models [4] recycles 6 hard 1 soft 0 temp 1 loss 4.75 i_con 4.68 plddt 0.34 ptm 0.80 i_ptm 0.08
+['YQMTAP']
+5 models [0] recycles 6 hard 1 soft 0 temp 1 loss 4.62 i_con 4.56 plddt 0.36 ptm 0.78 i_ptm 0.08
+['QQMNAP']
+7 models [0] recycles 6 hard 1 soft 0 temp 1 loss 4.21 i_con 4.15 plddt 0.34 ptm 0.79 i_ptm 0.19
+['QKMNHP']
+25 models [0] recycles 6 hard 1 soft 0 temp 1 loss 3.98 i_con 3.93 plddt 0.43 ptm 0.80 i_ptm 0.30
+['QGMNHP']
+37 models [0] recycles 6 hard 1 soft 0 temp 1 loss 3.88 i_con 3.83 plddt 0.43 ptm 0.80 i_ptm 0.33
+['QGMVHP']
+39 models [0] recycles 6 hard 1 soft 0 temp 1 loss 3.86 i_con 3.81 plddt 0.43 ptm 0.80 i_ptm 0.35
+['CGMVHP']
+52 models [0] recycles 6 hard 1 soft 0 temp 1 loss 3.85 i_con 3.79 plddt 0.42 ptm 0.80 i_ptm 0.34
+['CNMVHP']
+64 models [0] recycles 6 hard 1 soft 0 temp 1 loss 3.83 i_con 3.77 plddt 0.40 ptm 0.81 i_ptm 0.36
+['CNGVHP']
+67 models [1] recycles 6 hard 1 soft 0 temp 1 loss 3.69 i_con 3.64 plddt 0.54 ptm 0.81 i_ptm 0.47
+['CNGHHP']
+82 models [0] recycles 6 hard 1 soft 0 temp 1 loss 3.68 i_con 3.63 plddt 0.52 ptm 0.81 i_ptm 0.44
+['CNYHHP']
+91 models [4] recycles 6 hard 1 soft 0 temp 1 loss 3.65 i_con 3.60 plddt 0.54 ptm 0.82 i_ptm 0.49
+['CNIHHP']
+117 models [1] recycles 6 hard 1 soft 0 temp 1 loss 3.50 i_con 3.46 plddt 0.62 ptm 0.82 i_ptm 0.58
+['CDIHHP']
+206 models [1] recycles 6 hard 1 soft 0 temp 1 loss 3.46 i_con 3.42 plddt 0.62 ptm 0.82 i_ptm 0.59
+{'con': 0.0, 'exp_res': 0.0058737099170684814, 'hard': 1.0, 'i_con': 3.4187064170837402, 'i_pae': 0.236927330493927, 'i_ptm': 0.5907371640205383, 'loss': 3.4564974308013916, 'models': array([1]), 'pae': 0.3069901764392853, 'plddt': 0.6220903992652893, 'ptm': 0.8247506618499756, 'recycles': 6, 'seq_ent': 2.712940216064453, 'soft': 0.0, 'temp': 1.0}
+Set bug fixed cyclic peptide complex offset. The cyclic peptide binder will be hallucionated.
+Running MCMC with simulated annealing...
+['HCAFCR']
+1 models [0] recycles 6 hard 1 soft 0 temp 1 loss 4.05 i_con 3.99 plddt 0.41 ptm 0.79 i_ptm 0.25
+['HCADCR']
+38 models [1] recycles 6 hard 1 soft 0 temp 1 loss 3.99 i_con 3.96 plddt 0.69 ptm 0.82 i_ptm 0.52
+['ECADCR']
+41 models [1] recycles 6 hard 1 soft 0 temp 1 loss 3.68 i_con 3.65 plddt 0.70 ptm 0.82 i_ptm 0.53
+['ECSDCR']
+42 models [3] recycles 6 hard 1 soft 0 temp 1 loss 3.63 i_con 3.59 plddt 0.68 ptm 0.82 i_ptm 0.49
+['YCSDCR']
+81 models [3] recycles 6 hard 1 soft 0 temp 1 loss 3.54 i_con 3.53 plddt 0.84 ptm 0.83 i_ptm 0.75
+['YCDDCR']
+121 models [4] recycles 6 hard 1 soft 0 temp 1 loss 3.31 i_con 3.29 plddt 0.77 ptm 0.83 i_ptm 0.71
+['YCDDCV']
+142 models [4] recycles 6 hard 1 soft 0 temp 1 loss 3.04 i_con 3.02 plddt 0.82 ptm 0.84 i_ptm 0.76
+['YCDDCK']
+227 models [4] recycles 6 hard 1 soft 0 temp 1 loss 2.91 i_con 2.90 plddt 0.84 ptm 0.84 i_ptm 0.80
+['YCSDCK']
+734 models [4] recycles 6 hard 1 soft 0 temp 1 loss 2.88 i_con 2.87 plddt 0.86 ptm 0.84 i_ptm 0.81
+{'con': 0.0, 'exp_res': 0.003274808404967189, 'hard': 1.0, 'i_con': 2.865137815475464, 'i_pae': 0.18725301325321198, 'i_ptm': 0.8078002333641052, 'loss': 2.879441738128662, 'models': array([4]), 'pae': 0.2352471500635147, 'plddt': 0.8569607883691788, 'ptm': 0.8373121023178101, 'recycles': 6, 'seq_ent': 2.712940216064453, 'soft': 0.0, 'temp': 1.0}
+1smf.pdb
+target length: 223
+binder length: 14
+Set bug fixed cyclic peptide complex offset. The cyclic peptide binder will be hallucionated.
+Running MCMC with simulated annealing...
+apply_fn
+['TSPQIMRIDAMYYK']
+1 models [1] recycles 6 hard 1 soft 0 temp 1 loss 3.74 i_con 3.68 plddt 0.40 ptm 0.91 i_ptm 0.42
+['TSPQIMRIDAMPYK']
+13 models [1] recycles 6 hard 1 soft 0 temp 1 loss 3.32 i_con 3.26 plddt 0.40 ptm 0.91 i_ptm 0.44
+['TSPQIMRIDAGPYK']
+15 models [0] recycles 6 hard 1 soft 0 temp 1 loss 3.18 i_con 3.12 plddt 0.39 ptm 0.91 i_ptm 0.42
+['TSPQIMRIAAGPYK']
+22 models [4] recycles 6 hard 1 soft 0 temp 1 loss 2.38 i_con 2.34 plddt 0.59 ptm 0.92 i_ptm 0.63
+['TSPQIMRIAEGPYK']
+26 models [4] recycles 6 hard 1 soft 0 temp 1 loss 2.35 i_con 2.31 plddt 0.59 ptm 0.92 i_ptm 0.63
+['TSPQIMRIAEGPPK']
+27 models [2] recycles 6 hard 1 soft 0 temp 1 loss 2.18 i_con 2.15 plddt 0.64 ptm 0.92 i_ptm 0.66
+['TSPQIMRIAERPPK']
+41 models [4] recycles 6 hard 1 soft 0 temp 1 loss 2.03 i_con 2.01 plddt 0.73 ptm 0.93 i_ptm 0.77
+['TSPQIMRIAGRPPK']
+76 models [2] recycles 6 hard 1 soft 0 temp 1 loss 2.00 i_con 1.97 plddt 0.70 ptm 0.93 i_ptm 0.73
+['TSPQIMRIAGHPPK']
+82 models [4] recycles 6 hard 1 soft 0 temp 1 loss 1.90 i_con 1.88 plddt 0.77 ptm 0.94 i_ptm 0.83
+['TSPQIMRIAGHPVK']
+90 models [2] recycles 6 hard 1 soft 0 temp 1 loss 1.77 i_con 1.75 plddt 0.77 ptm 0.93 i_ptm 0.83
+['NVPQIMRIAGHPVL']
+202 models [2] recycles 6 hard 1 soft 0 temp 1 loss 1.73 i_con 1.72 plddt 0.85 ptm 0.94 i_ptm 0.88
+['NVPQIMRIAGHPCL']
+276 models [2] recycles 6 hard 1 soft 0 temp 1 loss 1.69 i_con 1.68 plddt 0.85 ptm 0.94 i_ptm 0.88
+['TVPQIMRIAGHPCL']
+279 models [0] recycles 6 hard 1 soft 0 temp 1 loss 1.69 i_con 1.68 plddt 0.85 ptm 0.94 i_ptm 0.89
+['TVPQIMRIAGFPCL']
+281 models [0] recycles 6 hard 1 soft 0 temp 1 loss 1.68 i_con 1.67 plddt 0.86 ptm 0.94 i_ptm 0.90
+['TVPQIMRIAGFPCA']
+295 models [0] recycles 6 hard 1 soft 0 temp 1 loss 1.66 i_con 1.65 plddt 0.86 ptm 0.94 i_ptm 0.90
+['TVPQIMRIAGFPCV']
+300 models [2] recycles 6 hard 1 soft 0 temp 1 loss 1.64 i_con 1.62 plddt 0.89 ptm 0.94 i_ptm 0.91
+['TVPKIMRIAGFPCV']
+307 models [2] recycles 6 hard 1 soft 0 temp 1 loss 1.63 i_con 1.62 plddt 0.88 ptm 0.94 i_ptm 0.91
+['TVPKIMRIAGLPCV']
+355 models [0] recycles 6 hard 1 soft 0 temp 1 loss 1.61 i_con 1.59 plddt 0.88 ptm 0.94 i_ptm 0.91
+['TVPKIMRIAGLPCA']
+398 models [2] recycles 6 hard 1 soft 0 temp 1 loss 1.58 i_con 1.57 plddt 0.89 ptm 0.94 i_ptm 0.91
+['TVPKITRIAGLPCA']
+455 models [4] recycles 6 hard 1 soft 0 temp 1 loss 1.57 i_con 1.56 plddt 0.89 ptm 0.94 i_ptm 0.92
+['QVPKITRIAGLPCA']
+458 models [2] recycles 6 hard 1 soft 0 temp 1 loss 1.46 i_con 1.45 plddt 0.90 ptm 0.94 i_ptm 0.92
+['QVPKITRIAGLPCT']
+847 models [2] recycles 6 hard 1 soft 0 temp 1 loss 1.44 i_con 1.44 plddt 0.91 ptm 0.94 i_ptm 0.93
+{'con': 0.0, 'exp_res': 0.001367781893350184, 'hard': 1.0, 'i_con': 1.4356659650802612, 'i_pae': 0.08266901969909668, 'i_ptm': 0.9294519424438477, 'loss': 1.4442187547683716, 'models': array([2]), 'pae': 0.12062154710292816, 'plddt': 0.9144725725054741, 'ptm': 0.9412260055541992, 'recycles': 6, 'seq_ent': 2.7129404544830322, 'soft': 0.0, 'temp': 1.0}
+Set bug fixed cyclic peptide complex offset. The cyclic peptide binder will be hallucionated.
+Running MCMC with simulated annealing...
+['LGQELCSDFQPINK']
+1 models [4] recycles 6 hard 1 soft 0 temp 1 loss 4.12 i_con 4.05 plddt 0.29 ptm 0.90 i_ptm 0.28
+['LGFELCSDFQPINK']
+2 models [4] recycles 6 hard 1 soft 0 temp 1 loss 3.78 i_con 3.72 plddt 0.42 ptm 0.91 i_ptm 0.44
+['FGFELCSDFQPINK']
+5 models [3] recycles 6 hard 1 soft 0 temp 1 loss 3.28 i_con 3.23 plddt 0.50 ptm 0.91 i_ptm 0.51
+['FGFALCSDFQPINK']
+14 models [3] recycles 6 hard 1 soft 0 temp 1 loss 2.54 i_con 2.50 plddt 0.68 ptm 0.93 i_ptm 0.74
+['FGFALCSDFQPINC']
+15 models [0] recycles 6 hard 1 soft 0 temp 1 loss 2.53 i_con 2.49 plddt 0.55 ptm 0.92 i_ptm 0.59
+['FGFALCSDPQPINC']
+20 models [1] recycles 6 hard 1 soft 0 temp 1 loss 2.33 i_con 2.29 plddt 0.56 ptm 0.93 i_ptm 0.65
+['FGFALCSTPQPINC']
+32 models [1] recycles 6 hard 1 soft 0 temp 1 loss 2.29 i_con 2.25 plddt 0.58 ptm 0.93 i_ptm 0.65
+['FGFALCSKPQPINC']
+65 models [1] recycles 6 hard 1 soft 0 temp 1 loss 2.15 i_con 2.12 plddt 0.65 ptm 0.93 i_ptm 0.71
+['FGFALCSKPQPIQC']
+143 models [1] recycles 6 hard 1 soft 0 temp 1 loss 2.15 i_con 2.11 plddt 0.62 ptm 0.93 i_ptm 0.69
+['FGFALCIKPQPIQC']
+160 models [1] recycles 6 hard 1 soft 0 temp 1 loss 2.13 i_con 2.10 plddt 0.63 ptm 0.93 i_ptm 0.70
+['FGFALCIKGQPIQC']
+211 models [1] recycles 6 hard 1 soft 0 temp 1 loss 2.01 i_con 1.98 plddt 0.72 ptm 0.93 i_ptm 0.77
+['IGFALCIKGQPIQC']
+222 models [0] recycles 6 hard 1 soft 0 temp 1 loss 1.88 i_con 1.85 plddt 0.74 ptm 0.93 i_ptm 0.77
+['RGFALCIKGQPIQC']
+249 models [0] recycles 6 hard 1 soft 0 temp 1 loss 1.83 i_con 1.80 plddt 0.73 ptm 0.93 i_ptm 0.77
+['RGFALCIKGGPIQC']
+289 models [0] recycles 6 hard 1 soft 0 temp 1 loss 1.72 i_con 1.70 plddt 0.81 ptm 0.94 i_ptm 0.84
+['RGFALCIKGGPIEC']
+345 models [1] recycles 6 hard 1 soft 0 temp 1 loss 1.70 i_con 1.68 plddt 0.82 ptm 0.94 i_ptm 0.86
+['RGRALCIKGGPIEC']
+353 models [2] recycles 6 hard 1 soft 0 temp 1 loss 1.69 i_con 1.67 plddt 0.84 ptm 0.94 i_ptm 0.87
+['IGRALCIKGGPIEC']
+368 models [2] recycles 6 hard 1 soft 0 temp 1 loss 1.65 i_con 1.63 plddt 0.85 ptm 0.94 i_ptm 0.87
+['IGRALCIKGGGIEC']
+422 models [0] recycles 6 hard 1 soft 0 temp 1 loss 1.64 i_con 1.62 plddt 0.82 ptm 0.94 i_ptm 0.86
+['IGRALCIPGGGIEC']
+465 models [0] recycles 6 hard 1 soft 0 temp 1 loss 1.63 i_con 1.61 plddt 0.83 ptm 0.94 i_ptm 0.87
+['IGRALCIPGGEIEC']
+474 models [2] recycles 6 hard 1 soft 0 temp 1 loss 1.62 i_con 1.61 plddt 0.86 ptm 0.94 i_ptm 0.89
+['IGRALCIPGGEIPC']
+573 models [0] recycles 6 hard 1 soft 0 temp 1 loss 1.62 i_con 1.60 plddt 0.86 ptm 0.94 i_ptm 0.89
+['IGRALCQPGGEIPC']
+595 models [0] recycles 6 hard 1 soft 0 temp 1 loss 1.59 i_con 1.58 plddt 0.86 ptm 0.94 i_ptm 0.89
+['IGRALCQPGGEPPC']
+613 models [0] recycles 6 hard 1 soft 0 temp 1 loss 1.55 i_con 1.54 plddt 0.88 ptm 0.94 i_ptm 0.91
+['IGRALCQTGGEPPC']
+644 models [0] recycles 6 hard 1 soft 0 temp 1 loss 1.55 i_con 1.54 plddt 0.88 ptm 0.94 i_ptm 0.90
+['IGRALCQTGREPPC']
+786 models [0] recycles 6 hard 1 soft 0 temp 1 loss 1.55 i_con 1.54 plddt 0.88 ptm 0.94 i_ptm 0.91
+['IGRALCQTGQEPPC']
+895 models [0] recycles 6 hard 1 soft 0 temp 1 loss 1.54 i_con 1.53 plddt 0.89 ptm 0.94 i_ptm 0.91
+{'con': 0.0, 'exp_res': 0.0035714167170226574, 'hard': 1.0, 'i_con': 1.5250451564788818, 'i_pae': 0.09152450412511826, 'i_ptm': 0.9107347726821899, 'loss': 1.5362223386764526, 'models': array([0]), 'pae': 0.13101565837860107, 'plddt': 0.8882286697626114, 'ptm': 0.9438683390617371, 'recycles': 6, 'seq_ent': 2.7129404544830322, 'soft': 0.0, 'temp': 1.0}
+Set bug fixed cyclic peptide complex offset. The cyclic peptide binder will be hallucionated.
+Running MCMC with simulated annealing...
+['FRCGACMLLLHHEI']
+1 models [1] recycles 6 hard 1 soft 0 temp 1 loss 4.03 i_con 3.96 plddt 0.35 ptm 0.91 i_ptm 0.34
+['FRCGACMLLLHVEI']
+2 models [2] recycles 6 hard 1 soft 0 temp 1 loss 3.20 i_con 3.14 plddt 0.42 ptm 0.91 i_ptm 0.47
+['FRCGACMLLLHVEK']
+4 models [4] recycles 6 hard 1 soft 0 temp 1 loss 3.10 i_con 3.05 plddt 0.44 ptm 0.91 i_ptm 0.52
+['FRCGACMLLLHSEK']
+11 models [2] recycles 6 hard 1 soft 0 temp 1 loss 2.83 i_con 2.77 plddt 0.49 ptm 0.91 i_ptm 0.55
+['FRCGACMLLVHSEK']
+25 models [2] recycles 6 hard 1 soft 0 temp 1 loss 2.82 i_con 2.77 plddt 0.45 ptm 0.91 i_ptm 0.54
+['FRCGACFLLVHSEK']
+47 models [2] recycles 6 hard 1 soft 0 temp 1 loss 2.76 i_con 2.71 plddt 0.47 ptm 0.91 i_ptm 0.56
+['PRCGACFLLVHSEK']
+58 models [4] recycles 6 hard 1 soft 0 temp 1 loss 2.38 i_con 2.33 plddt 0.55 ptm 0.92 i_ptm 0.64
+['PRCGACFLLVHSHK']
+59 models [2] recycles 6 hard 1 soft 0 temp 1 loss 2.26 i_con 2.22 plddt 0.57 ptm 0.92 i_ptm 0.63
+['PRCGACFLLVHMHK']
+75 models [2] recycles 6 hard 1 soft 0 temp 1 loss 2.25 i_con 2.21 plddt 0.58 ptm 0.92 i_ptm 0.63
+['PRCGACFKLVHMHK']
+82 models [2] recycles 6 hard 1 soft 0 temp 1 loss 2.23 i_con 2.19 plddt 0.58 ptm 0.92 i_ptm 0.64
+['PRCGACFKLVHMPK']
+90 models [2] recycles 6 hard 1 soft 0 temp 1 loss 2.22 i_con 2.18 plddt 0.57 ptm 0.92 i_ptm 0.62
+['PRCGACFKLVHGPK']
+91 models [2] recycles 6 hard 1 soft 0 temp 1 loss 2.12 i_con 2.09 plddt 0.63 ptm 0.92 i_ptm 0.68
+['PRCGHCFKLVHGPK']
+93 models [2] recycles 6 hard 1 soft 0 temp 1 loss 2.07 i_con 2.03 plddt 0.64 ptm 0.93 i_ptm 0.70
+['PRCIHCFKLVHGPK']
+97 models [1] recycles 6 hard 1 soft 0 temp 1 loss 2.02 i_con 1.99 plddt 0.71 ptm 0.94 i_ptm 0.79
+['PRCIHCFKLDHGPK']
+99 models [2] recycles 6 hard 1 soft 0 temp 1 loss 1.97 i_con 1.94 plddt 0.69 ptm 0.93 i_ptm 0.76
+['PRCIHCFKLAHGPK']
+114 models [0] recycles 6 hard 1 soft 0 temp 1 loss 1.94 i_con 1.92 plddt 0.73 ptm 0.94 i_ptm 0.78
+['PRCIHCFYLAHGPK']
+116 models [0] recycles 6 hard 1 soft 0 temp 1 loss 1.88 i_con 1.85 plddt 0.76 ptm 0.94 i_ptm 0.80
+['PRCIHCFYLAHDPK']
+130 models [2] recycles 6 hard 1 soft 0 temp 1 loss 1.76 i_con 1.74 plddt 0.77 ptm 0.93 i_ptm 0.83
+['PRCIHCFMLAHDPK']
+145 models [0] recycles 6 hard 1 soft 0 temp 1 loss 1.71 i_con 1.69 plddt 0.80 ptm 0.94 i_ptm 0.85
+['PRCIHCFMLADDPK']
+213 models [2] recycles 6 hard 1 soft 0 temp 1 loss 1.71 i_con 1.69 plddt 0.80 ptm 0.94 i_ptm 0.85
+['PRCIMCFMLADDPK']
+251 models [2] recycles 6 hard 1 soft 0 temp 1 loss 1.67 i_con 1.65 plddt 0.80 ptm 0.94 i_ptm 0.85
+['PRCIMCKMLADDPK']
+337 models [2] recycles 6 hard 1 soft 0 temp 1 loss 1.64 i_con 1.62 plddt 0.81 ptm 0.94 i_ptm 0.87
+['PRCIMCKMPADDPK']
+412 models [0] recycles 6 hard 1 soft 0 temp 1 loss 1.60 i_con 1.59 plddt 0.85 ptm 0.94 i_ptm 0.90
+['PRCIMCKMPKDDPK']
+413 models [0] recycles 6 hard 1 soft 0 temp 1 loss 1.59 i_con 1.58 plddt 0.86 ptm 0.94 i_ptm 0.90
+['PRCIGCKMPKDDPK']
+445 models [1] recycles 6 hard 1 soft 0 temp 1 loss 1.49 i_con 1.48 plddt 0.90 ptm 0.95 i_ptm 0.93
+['PRCIGCKIPKDDPK']
+447 models [2] recycles 6 hard 1 soft 0 temp 1 loss 1.47 i_con 1.46 plddt 0.91 ptm 0.94 i_ptm 0.92
+['PRCIGCKIPKEDPK']
+465 models [0] recycles 6 hard 1 soft 0 temp 1 loss 1.38 i_con 1.37 plddt 0.92 ptm 0.95 i_ptm 0.94
+['PRCIGCKIPKTDPK']
+479 models [0] recycles 6 hard 1 soft 0 temp 1 loss 1.38 i_con 1.37 plddt 0.92 ptm 0.95 i_ptm 0.93
+['PRCIGCKIPGTDPK']
+706 models [0] recycles 6 hard 1 soft 0 temp 1 loss 1.37 i_con 1.37 plddt 0.91 ptm 0.95 i_ptm 0.93
+['PRCIGCKIPETDPK']
+950 models [0] recycles 6 hard 1 soft 0 temp 1 loss 1.36 i_con 1.35 plddt 0.92 ptm 0.95 i_ptm 0.93
+{'con': 0.0, 'exp_res': 0.002862040651962161, 'hard': 1.0, 'i_con': 1.353133201599121, 'i_pae': 0.07201498001813889, 'i_ptm': 0.9347196221351624, 'loss': 1.3609566688537598, 'models': array([0]), 'pae': 0.10783205181360245, 'plddt': 0.9217653721570969, 'ptm': 0.9464770555496216, 'recycles': 6, 'seq_ent': 2.7129404544830322, 'soft': 0.0, 'temp': 1.0}
+3p72.pdb
+target length: 269
+binder length: 11
+Set bug fixed cyclic peptide complex offset. The cyclic peptide binder will be hallucionated.
+Running MCMC with simulated annealing...
+apply_fn
+['YHRLNAIKMVY']
+1 models [2] recycles 6 hard 1 soft 0 temp 1 loss 4.01 i_con 3.94 plddt 0.31 ptm 0.90 i_ptm 0.42
+['YKRLNEIKMVY']
+4 models [4] recycles 6 hard 1 soft 0 temp 1 loss 4.01 i_con 3.94 plddt 0.29 ptm 0.91 i_ptm 0.43
+['NKRLNEINMVY']
+7 models [1] recycles 6 hard 1 soft 0 temp 1 loss 3.97 i_con 3.90 plddt 0.33 ptm 0.91 i_ptm 0.46
+['NKRLNEINGVY']
+8 models [3] recycles 6 hard 1 soft 0 temp 1 loss 3.93 i_con 3.87 plddt 0.36 ptm 0.91 i_ptm 0.48
+['NKRLNERNGVY']
+14 models [3] recycles 6 hard 1 soft 0 temp 1 loss 3.91 i_con 3.85 plddt 0.37 ptm 0.91 i_ptm 0.50
+['NDRLNERNDVY']
+30 models [3] recycles 6 hard 1 soft 0 temp 1 loss 3.89 i_con 3.83 plddt 0.37 ptm 0.91 i_ptm 0.46
+['NDRLNERNSVY']
+31 models [3] recycles 6 hard 1 soft 0 temp 1 loss 3.88 i_con 3.81 plddt 0.37 ptm 0.91 i_ptm 0.47
+['NDFLNERNSVY']
+36 models [1] recycles 6 hard 1 soft 0 temp 1 loss 3.84 i_con 3.78 plddt 0.39 ptm 0.91 i_ptm 0.49
+['NDFLRERMSPY']
+59 models [1] recycles 6 hard 1 soft 0 temp 1 loss 3.82 i_con 3.75 plddt 0.34 ptm 0.91 i_ptm 0.48
+['NSFLRERMSPY']
+63 models [1] recycles 6 hard 1 soft 0 temp 1 loss 3.80 i_con 3.74 plddt 0.34 ptm 0.91 i_ptm 0.48
+['NSFLRYRMSPY']
+66 models [1] recycles 6 hard 1 soft 0 temp 1 loss 3.79 i_con 3.72 plddt 0.35 ptm 0.91 i_ptm 0.48
+['NSFLRQRMSPY']
+72 models [1] recycles 6 hard 1 soft 0 temp 1 loss 3.78 i_con 3.71 plddt 0.36 ptm 0.91 i_ptm 0.49
+['NSFLRQRMSPI']
+82 models [1] recycles 6 hard 1 soft 0 temp 1 loss 3.77 i_con 3.70 plddt 0.35 ptm 0.91 i_ptm 0.50
+['NSFLRQRMSTI']
+85 models [1] recycles 6 hard 1 soft 0 temp 1 loss 3.68 i_con 3.62 plddt 0.39 ptm 0.91 i_ptm 0.53
+['NSFLRQHMSTI']
+102 models [1] recycles 6 hard 1 soft 0 temp 1 loss 3.58 i_con 3.52 plddt 0.39 ptm 0.91 i_ptm 0.56
+['NSFLRQHMSTR']
+127 models [1] recycles 6 hard 1 soft 0 temp 1 loss 3.54 i_con 3.48 plddt 0.38 ptm 0.92 i_ptm 0.57
+['NSMLRQHMSTR']
+201 models [1] recycles 6 hard 1 soft 0 temp 1 loss 3.39 i_con 3.33 plddt 0.39 ptm 0.92 i_ptm 0.58
+['NSMLRQHMSTM']
+210 models [1] recycles 6 hard 1 soft 0 temp 1 loss 3.36 i_con 3.30 plddt 0.39 ptm 0.92 i_ptm 0.57
+['NSMLRQHMNTM']
+228 models [1] recycles 6 hard 1 soft 0 temp 1 loss 3.36 i_con 3.30 plddt 0.39 ptm 0.92 i_ptm 0.59
+['TSMLRQHMNTM']
+383 models [1] recycles 6 hard 1 soft 0 temp 1 loss 3.33 i_con 3.27 plddt 0.40 ptm 0.92 i_ptm 0.56
+['TSMLRQHMRTM']
+396 models [1] recycles 6 hard 1 soft 0 temp 1 loss 3.31 i_con 3.25 plddt 0.41 ptm 0.92 i_ptm 0.63
+['TSMLRQHTRTM']
+424 models [1] recycles 6 hard 1 soft 0 temp 1 loss 3.22 i_con 3.16 plddt 0.43 ptm 0.92 i_ptm 0.63
+['TSMLRDHTRTM']
+448 models [1] recycles 6 hard 1 soft 0 temp 1 loss 3.18 i_con 3.12 plddt 0.41 ptm 0.92 i_ptm 0.63
+['TSKLRDHTRTM']
+541 models [1] recycles 6 hard 1 soft 0 temp 1 loss 3.17 i_con 3.11 plddt 0.40 ptm 0.92 i_ptm 0.61
+['TSKLRDHTRTR']
+552 models [1] recycles 6 hard 1 soft 0 temp 1 loss 3.05 i_con 3.00 plddt 0.58 ptm 0.92 i_ptm 0.67
+['TSKLRDHTRHR']
+707 models [1] recycles 6 hard 1 soft 0 temp 1 loss 2.57 i_con 2.53 plddt 0.56 ptm 0.93 i_ptm 0.82
+{'con': 0.0, 'exp_res': 0.04155047982931137, 'hard': 1.0, 'i_con': 2.528139114379883, 'i_pae': 0.20605653524398804, 'i_ptm': 0.8227342367172241, 'loss': 2.5725343227386475, 'models': array([1]), 'pae': 0.267532080411911, 'plddt': 0.5560469031333923, 'ptm': 0.928774356842041, 'recycles': 6, 'seq_ent': 2.712940216064453, 'soft': 0.0, 'temp': 1.0}
+Set bug fixed cyclic peptide complex offset. The cyclic peptide binder will be hallucionated.
+Running MCMC with simulated annealing...
+['QWNELQADNLR']
+1 models [3] recycles 6 hard 1 soft 0 temp 1 loss 3.95 i_con 3.88 plddt 0.34 ptm 0.91 i_ptm 0.46
+['QWNELQASNLN']
+6 models [3] recycles 6 hard 1 soft 0 temp 1 loss 3.83 i_con 3.77 plddt 0.39 ptm 0.91 i_ptm 0.50
+['QWRELQASNLN']
+192 models [1] recycles 6 hard 1 soft 0 temp 1 loss 3.82 i_con 3.76 plddt 0.45 ptm 0.91 i_ptm 0.48
+['QWRMLQASNLN']
+274 models [1] recycles 6 hard 1 soft 0 temp 1 loss 3.70 i_con 3.65 plddt 0.50 ptm 0.91 i_ptm 0.54
+['QWRMLQAENLN']
+279 models [1] recycles 6 hard 1 soft 0 temp 1 loss 3.70 i_con 3.65 plddt 0.51 ptm 0.91 i_ptm 0.55
+['QWRMLQAGNLN']
+463 models [1] recycles 6 hard 1 soft 0 temp 1 loss 3.60 i_con 3.55 plddt 0.53 ptm 0.91 i_ptm 0.58
+{'con': 0.0, 'exp_res': 0.01188814640045166, 'hard': 1.0, 'i_con': 3.549468517303467, 'i_pae': 0.32458749413490295, 'i_ptm': 0.5795786380767822, 'loss': 3.596130132675171, 'models': array([1]), 'pae': 0.40564098954200745, 'plddt': 0.5333839654922485, 'ptm': 0.9139958620071411, 'recycles': 6, 'seq_ent': 2.712940216064453, 'soft': 0.0, 'temp': 1.0}
+Set bug fixed cyclic peptide complex offset. The cyclic peptide binder will be hallucionated.
+Running MCMC with simulated annealing...
+['QQESQSNKLVM']
+1 models [3] recycles 6 hard 1 soft 0 temp 1 loss 4.05 i_con 3.98 plddt 0.32 ptm 0.91 i_ptm 0.38
+['QQESQSIKLVM']
+2 models [1] recycles 6 hard 1 soft 0 temp 1 loss 3.98 i_con 3.91 plddt 0.34 ptm 0.91 i_ptm 0.42
+['QQESYSIKLVM']
+6 models [1] recycles 6 hard 1 soft 0 temp 1 loss 3.94 i_con 3.88 plddt 0.34 ptm 0.91 i_ptm 0.44
+['GQESYSIKLVM']
+21 models [2] recycles 6 hard 1 soft 0 temp 1 loss 3.92 i_con 3.86 plddt 0.33 ptm 0.90 i_ptm 0.41
+['GQNSYSIKLVM']
+28 models [1] recycles 6 hard 1 soft 0 temp 1 loss 3.84 i_con 3.78 plddt 0.37 ptm 0.91 i_ptm 0.47
+['GQNSYSIKLQM']
+29 models [2] recycles 6 hard 1 soft 0 temp 1 loss 3.82 i_con 3.76 plddt 0.34 ptm 0.91 i_ptm 0.44
+['GQNSYSIKLRM']
+30 models [2] recycles 6 hard 1 soft 0 temp 1 loss 3.82 i_con 3.75 plddt 0.35 ptm 0.91 i_ptm 0.44
+['GQNSMSIKLRM']
+38 models [2] recycles 6 hard 1 soft 0 temp 1 loss 3.81 i_con 3.74 plddt 0.35 ptm 0.91 i_ptm 0.44
+['GSNSMSIKLRM']
+46 models [3] recycles 6 hard 1 soft 0 temp 1 loss 3.71 i_con 3.64 plddt 0.34 ptm 0.91 i_ptm 0.46
+['GSNSMEIKLRM']
+74 models [1] recycles 6 hard 1 soft 0 temp 1 loss 3.68 i_con 3.62 plddt 0.36 ptm 0.91 i_ptm 0.49
+['GSNSMEIRLRM']
+92 models [1] recycles 6 hard 1 soft 0 temp 1 loss 3.58 i_con 3.51 plddt 0.37 ptm 0.91 i_ptm 0.52
+['GSHSMEIRLRM']
+298 models [1] recycles 6 hard 1 soft 0 temp 1 loss 3.55 i_con 3.48 plddt 0.37 ptm 0.92 i_ptm 0.54
+['GSHSMEIRHRM']
+312 models [1] recycles 6 hard 1 soft 0 temp 1 loss 3.51 i_con 3.45 plddt 0.39 ptm 0.92 i_ptm 0.57
+['GSHSMEIRGRM']
+314 models [1] recycles 6 hard 1 soft 0 temp 1 loss 3.09 i_con 3.05 plddt 0.64 ptm 0.92 i_ptm 0.71
+['GSHSMWIRGRM']
+323 models [1] recycles 6 hard 1 soft 0 temp 1 loss 2.99 i_con 2.96 plddt 0.67 ptm 0.92 i_ptm 0.76
+['GSHSMWIRGEM']
+557 models [1] recycles 6 hard 1 soft 0 temp 1 loss 2.97 i_con 2.93 plddt 0.68 ptm 0.92 i_ptm 0.76
+['GSHMMWIRGEM']
+758 models [1] recycles 6 hard 1 soft 0 temp 1 loss 2.83 i_con 2.80 plddt 0.69 ptm 0.92 i_ptm 0.78
+['GSYMMWIRGEM']
+776 models [3] recycles 6 hard 1 soft 0 temp 1 loss 2.81 i_con 2.78 plddt 0.69 ptm 0.92 i_ptm 0.73
+['GSYMDWIRGEM']
+780 models [1] recycles 6 hard 1 soft 0 temp 1 loss 2.52 i_con 2.50 plddt 0.76 ptm 0.93 i_ptm 0.83
+['GSYMDWIRGNM']
+796 models [1] recycles 6 hard 1 soft 0 temp 1 loss 2.51 i_con 2.49 plddt 0.76 ptm 0.93 i_ptm 0.83
+['GSYMDWIRGHM']
+797 models [1] recycles 6 hard 1 soft 0 temp 1 loss 2.50 i_con 2.48 plddt 0.75 ptm 0.93 i_ptm 0.83
+['GSYMDWIRGFM']
+799 models [1] recycles 6 hard 1 soft 0 temp 1 loss 2.50 i_con 2.48 plddt 0.76 ptm 0.93 i_ptm 0.84
+['GSYMDQIRGFM']
+804 models [4] recycles 6 hard 1 soft 0 temp 1 loss 2.43 i_con 2.41 plddt 0.77 ptm 0.92 i_ptm 0.82
+['GSYRDQIRGFM']
+807 models [1] recycles 6 hard 1 soft 0 temp 1 loss 2.26 i_con 2.24 plddt 0.81 ptm 0.93 i_ptm 0.87
+['GSYRDQIRAFM']
+826 models [1] recycles 6 hard 1 soft 0 temp 1 loss 2.24 i_con 2.22 plddt 0.80 ptm 0.93 i_ptm 0.86
+['GSYRDQIRARM']
+844 models [1] recycles 6 hard 1 soft 0 temp 1 loss 2.14 i_con 2.13 plddt 0.83 ptm 0.93 i_ptm 0.88
+['GSYRDQVRARM']
+875 models [1] recycles 6 hard 1 soft 0 temp 1 loss 2.14 i_con 2.12 plddt 0.84 ptm 0.93 i_ptm 0.89
+{'con': 0.0, 'exp_res': 0.00912255048751831, 'hard': 1.0, 'i_con': 2.123126983642578, 'i_pae': 0.1247292086482048, 'i_ptm': 0.8902652263641357, 'loss': 2.1394522190093994, 'models': array([1]), 'pae': 0.17942768335342407, 'plddt': 0.8367487192153931, 'ptm': 0.9308567047119141, 'recycles': 6, 'seq_ent': 2.712940216064453, 'soft': 0.0, 'temp': 1.0}
+3zgc.pdb
+target length: 285
+binder length: 7
+Set bug fixed cyclic peptide complex offset. The cyclic peptide binder will be hallucionated.
+Running MCMC with simulated annealing...
+apply_fn
+['SFNGMMD']
+1 models [0] recycles 6 hard 1 soft 0 temp 1 loss 4.01 i_con 3.94 plddt 0.32 ptm 0.93 i_ptm 0.42
+['WFNGMMD']
+2 models [2] recycles 6 hard 1 soft 0 temp 1 loss 4.00 i_con 3.93 plddt 0.35 ptm 0.93 i_ptm 0.44
+['WINGMMD']
+3 models [1] recycles 6 hard 1 soft 0 temp 1 loss 3.86 i_con 3.80 plddt 0.39 ptm 0.93 i_ptm 0.49
+['WINGEMD']
+5 models [3] recycles 6 hard 1 soft 0 temp 1 loss 3.79 i_con 3.73 plddt 0.40 ptm 0.94 i_ptm 0.55
+['WINGETD']
+11 models [3] recycles 6 hard 1 soft 0 temp 1 loss 3.75 i_con 3.69 plddt 0.41 ptm 0.94 i_ptm 0.56
+['WINHETD']
+12 models [4] recycles 6 hard 1 soft 0 temp 1 loss 3.72 i_con 3.67 plddt 0.43 ptm 0.94 i_ptm 0.57
+['WPNHETD']
+45 models [4] recycles 6 hard 1 soft 0 temp 1 loss 3.67 i_con 3.62 plddt 0.46 ptm 0.94 i_ptm 0.59
+['WPNGETD']
+63 models [4] recycles 6 hard 1 soft 0 temp 1 loss 3.66 i_con 3.60 plddt 0.46 ptm 0.94 i_ptm 0.60
+['WPCGEED']
+128 models [2] recycles 6 hard 1 soft 0 temp 1 loss 3.63 i_con 3.58 plddt 0.51 ptm 0.93 i_ptm 0.57
+['WPCGEKD']
+133 models [1] recycles 6 hard 1 soft 0 temp 1 loss 3.57 i_con 3.53 plddt 0.53 ptm 0.94 i_ptm 0.61
+['WPCGEED']
+156 models [3] recycles 6 hard 1 soft 0 temp 1 loss 3.54 i_con 3.49 plddt 0.52 ptm 0.94 i_ptm 0.63
+['WPCGEEL']
+158 models [4] recycles 6 hard 1 soft 0 temp 1 loss 3.46 i_con 3.42 plddt 0.57 ptm 0.94 i_ptm 0.66
+['CPCGEEL']
+234 models [1] recycles 6 hard 1 soft 0 temp 1 loss 3.10 i_con 3.06 plddt 0.65 ptm 0.94 i_ptm 0.75
+['CPCGQEL']
+678 models [1] recycles 6 hard 1 soft 0 temp 1 loss 2.78 i_con 2.75 plddt 0.75 ptm 0.94 i_ptm 0.84
+['CPCGAEL']
+700 models [1] recycles 6 hard 1 soft 0 temp 1 loss 2.75 i_con 2.73 plddt 0.75 ptm 0.94 i_ptm 0.84
+['CNCGAEL']
+836 models [1] recycles 6 hard 1 soft 0 temp 1 loss 2.75 i_con 2.72 plddt 0.73 ptm 0.94 i_ptm 0.84
+{'con': 0.0, 'exp_res': 0.006098790094256401, 'hard': 1.0, 'i_con': 2.7215726375579834, 'i_pae': 0.18227367103099823, 'i_ptm': 0.8356364369392395, 'loss': 2.7481205463409424, 'models': array([1]), 'pae': 0.22026531398296356, 'plddt': 0.734520673751831, 'ptm': 0.9421851634979248, 'recycles': 6, 'seq_ent': 2.7129406929016113, 'soft': 0.0, 'temp': 1.0}
+Set bug fixed cyclic peptide complex offset. The cyclic peptide binder will be hallucionated.
+Running MCMC with simulated annealing...
+['LPHEWDT']
+1 models [4] recycles 6 hard 1 soft 0 temp 1 loss 3.81 i_con 3.75 plddt 0.40 ptm 0.94 i_ptm 0.56
+['LPHEWLT']
+16 models [4] recycles 6 hard 1 soft 0 temp 1 loss 3.78 i_con 3.72 plddt 0.41 ptm 0.94 i_ptm 0.56
+['GPHEWLT']
+31 models [4] recycles 6 hard 1 soft 0 temp 1 loss 3.75 i_con 3.69 plddt 0.41 ptm 0.94 i_ptm 0.56
+['GPNHWLT']
+50 models [1] recycles 6 hard 1 soft 0 temp 1 loss 3.70 i_con 3.64 plddt 0.45 ptm 0.94 i_ptm 0.53
+['GPVHWLT']
+55 models [4] recycles 6 hard 1 soft 0 temp 1 loss 3.67 i_con 3.61 plddt 0.40 ptm 0.94 i_ptm 0.56
+['GPNHWLT']
+94 models [4] recycles 6 hard 1 soft 0 temp 1 loss 3.66 i_con 3.61 plddt 0.43 ptm 0.94 i_ptm 0.57
+['GCNHWLT']
+160 models [4] recycles 6 hard 1 soft 0 temp 1 loss 3.65 i_con 3.60 plddt 0.48 ptm 0.94 i_ptm 0.62
+['GCKHWLT']
+178 models [1] recycles 6 hard 1 soft 0 temp 1 loss 3.61 i_con 3.56 plddt 0.51 ptm 0.94 i_ptm 0.60
+['GCKHWET']
+179 models [4] recycles 6 hard 1 soft 0 temp 1 loss 3.58 i_con 3.53 plddt 0.51 ptm 0.94 i_ptm 0.64
+['GCKWWET']
+202 models [1] recycles 6 hard 1 soft 0 temp 1 loss 3.52 i_con 3.48 plddt 0.55 ptm 0.94 i_ptm 0.62
+['GCRWWET']
+207 models [1] recycles 6 hard 1 soft 0 temp 1 loss 3.39 i_con 3.35 plddt 0.59 ptm 0.94 i_ptm 0.67
+{'con': 0.0, 'exp_res': 0.005346307065337896, 'hard': 1.0, 'i_con': 3.345505714416504, 'i_pae': 0.2985362410545349, 'i_ptm': 0.6715093851089478, 'loss': 3.386164665222168, 'models': array([1]), 'pae': 0.3571869432926178, 'plddt': 0.5934110581874847, 'ptm': 0.9381216168403625, 'recycles': 6, 'seq_ent': 2.7129404544830322, 'soft': 0.0, 'temp': 1.0}
+Set bug fixed cyclic peptide complex offset. The cyclic peptide binder will be hallucionated.
+Running MCMC with simulated annealing...
+['TMASNDN']
+1 models [3] recycles 6 hard 1 soft 0 temp 1 loss 3.47 i_con 3.41 plddt 0.45 ptm 0.94 i_ptm 0.65
+['TMASNEN']
+151 models [3] recycles 6 hard 1 soft 0 temp 1 loss 3.42 i_con 3.36 plddt 0.44 ptm 0.94 i_ptm 0.68
+['TMVSNEN']
+206 models [1] recycles 6 hard 1 soft 0 temp 1 loss 3.35 i_con 3.29 plddt 0.49 ptm 0.94 i_ptm 0.69
+['TMVDNEN']
+293 models [1] recycles 6 hard 1 soft 0 temp 1 loss 3.31 i_con 3.26 plddt 0.53 ptm 0.94 i_ptm 0.71
+['TMDDNEN']
+360 models [3] recycles 6 hard 1 soft 0 temp 1 loss 3.15 i_con 3.12 plddt 0.66 ptm 0.94 i_ptm 0.80
+['TMDDNLN']
+422 models [4] recycles 6 hard 1 soft 0 temp 1 loss 2.83 i_con 2.80 plddt 0.72 ptm 0.94 i_ptm 0.84
+{'con': 0.0, 'exp_res': 0.06344835460186005, 'hard': 1.0, 'i_con': 2.8047451972961426, 'i_pae': 0.18641522526741028, 'i_ptm': 0.8373497128486633, 'loss': 2.8323352336883545, 'models': array([4]), 'pae': 0.25855207443237305, 'plddt': 0.7240990102291107, 'ptm': 0.9418557286262512, 'recycles': 6, 'seq_ent': 2.7129404544830322, 'soft': 0.0, 'temp': 1.0}
+4ib5.pdb
+target length: 329
+binder length: 13
+Set bug fixed cyclic peptide complex offset. The cyclic peptide binder will be hallucionated.
+Running MCMC with simulated annealing...
+apply_fn
+['NSWVVDSTFRMDH']
+1 models [4] recycles 6 hard 1 soft 0 temp 1 loss 4.09 i_con 4.03 plddt 0.41 ptm 0.91 i_ptm 0.33
+['NSWVVDSTFRHDH']
+5 models [1] recycles 6 hard 1 soft 0 temp 1 loss 4.01 i_con 3.96 plddt 0.44 ptm 0.91 i_ptm 0.39
+['NSWVVDSTFRHDM']
+12 models [1] recycles 6 hard 1 soft 0 temp 1 loss 3.67 i_con 3.62 plddt 0.52 ptm 0.92 i_ptm 0.53
+['NNWVVDSTFRHDM']
+103 models [1] recycles 6 hard 1 soft 0 temp 1 loss 3.66 i_con 3.61 plddt 0.53 ptm 0.91 i_ptm 0.53
+['NWWVVDSTFRHDM']
+119 models [1] recycles 6 hard 1 soft 0 temp 1 loss 2.56 i_con 2.54 plddt 0.73 ptm 0.92 i_ptm 0.77
+['NWKVVDSTFRHDM']
+124 models [1] recycles 6 hard 1 soft 0 temp 1 loss 2.49 i_con 2.46 plddt 0.68 ptm 0.92 i_ptm 0.76
+['NWKVVDSTFRHFM']
+126 models [2] recycles 6 hard 1 soft 0 temp 1 loss 2.42 i_con 2.38 plddt 0.66 ptm 0.92 i_ptm 0.75
+['NWKVVDSTFRTFM']
+128 models [4] recycles 6 hard 1 soft 0 temp 1 loss 2.31 i_con 2.28 plddt 0.75 ptm 0.92 i_ptm 0.79
+['NWKVVDSTKRTFM']
+134 models [1] recycles 6 hard 1 soft 0 temp 1 loss 2.22 i_con 2.20 plddt 0.75 ptm 0.92 i_ptm 0.80
+['NWKVVDSTKRTIM']
+148 models [2] recycles 6 hard 1 soft 0 temp 1 loss 2.17 i_con 2.15 plddt 0.78 ptm 0.93 i_ptm 0.81
+['NWKVVDKTKRTIM']
+151 models [1] recycles 6 hard 1 soft 0 temp 1 loss 2.17 i_con 2.15 plddt 0.79 ptm 0.92 i_ptm 0.83
+['NWKVVDKTKRKIM']
+190 models [2] recycles 6 hard 1 soft 0 temp 1 loss 2.15 i_con 2.13 plddt 0.84 ptm 0.93 i_ptm 0.83
+['NWKVVDATKRKIM']
+206 models [2] recycles 6 hard 1 soft 0 temp 1 loss 2.14 i_con 2.13 plddt 0.83 ptm 0.93 i_ptm 0.83
+['NWKVVDKPKRKIM']
+278 models [2] recycles 6 hard 1 soft 0 temp 1 loss 2.06 i_con 2.05 plddt 0.85 ptm 0.93 i_ptm 0.87
+['NWKWVDKPKRKIM']
+550 models [1] recycles 6 hard 1 soft 0 temp 1 loss 2.05 i_con 2.02 plddt 0.77 ptm 0.93 i_ptm 0.84
+['NWKWVDKPIRKIM']
+578 models [1] recycles 6 hard 1 soft 0 temp 1 loss 2.04 i_con 2.03 plddt 0.81 ptm 0.93 i_ptm 0.85
+['NWKWVDKPIRKVM']
+696 models [1] recycles 6 hard 1 soft 0 temp 1 loss 2.03 i_con 2.02 plddt 0.82 ptm 0.93 i_ptm 0.86
+['NWKWVDKPQRKVM']
+699 models [1] recycles 6 hard 1 soft 0 temp 1 loss 2.01 i_con 1.99 plddt 0.80 ptm 0.93 i_ptm 0.86
+['NWKWVAKPQRKVM']
+714 models [4] recycles 6 hard 1 soft 0 temp 1 loss 2.00 i_con 1.98 plddt 0.78 ptm 0.93 i_ptm 0.85
+['NWKWVAKPQTKVM']
+715 models [4] recycles 6 hard 1 soft 0 temp 1 loss 1.99 i_con 1.97 plddt 0.78 ptm 0.93 i_ptm 0.86
+['NWKWVNKPQTKVM']
+728 models [4] recycles 6 hard 1 soft 0 temp 1 loss 1.98 i_con 1.96 plddt 0.78 ptm 0.93 i_ptm 0.86
+['NWKWVNEPQTKVM']
+812 models [4] recycles 6 hard 1 soft 0 temp 1 loss 1.97 i_con 1.95 plddt 0.77 ptm 0.93 i_ptm 0.85
+['NWKWVNAPQTKVM']
+879 models [4] recycles 6 hard 1 soft 0 temp 1 loss 1.96 i_con 1.94 plddt 0.78 ptm 0.93 i_ptm 0.86
+['NWKWVNSPQTKVM']
+936 models [4] recycles 6 hard 1 soft 0 temp 1 loss 1.96 i_con 1.94 plddt 0.77 ptm 0.93 i_ptm 0.86
+['NWKWVNSGQTKVM']
+965 models [4] recycles 6 hard 1 soft 0 temp 1 loss 1.95 i_con 1.93 plddt 0.84 ptm 0.93 i_ptm 0.88
+['NWKWVNSGQTQVM']
+970 models [4] recycles 6 hard 1 soft 0 temp 1 loss 1.92 i_con 1.90 plddt 0.86 ptm 0.93 i_ptm 0.89
+{'con': 0.0, 'exp_res': 0.029161615297198296, 'hard': 1.0, 'i_con': 1.9022998809814453, 'i_pae': 0.1454818695783615, 'i_ptm': 0.8912265300750732, 'loss': 1.9159120321273804, 'models': array([4]), 'pae': 0.24370406568050385, 'plddt': 0.8638788759708405, 'ptm': 0.9279049038887024, 'recycles': 6, 'seq_ent': 2.712940216064453, 'soft': 0.0, 'temp': 1.0}
+Set bug fixed cyclic peptide complex offset. The cyclic peptide binder will be hallucionated.
+Running MCMC with simulated annealing...
+['PFQGIAYQWKNQY']
+1 models [2] recycles 6 hard 1 soft 0 temp 1 loss 4.00 i_con 3.94 plddt 0.37 ptm 0.91 i_ptm 0.42
+['PFKGIAYQWKNQY']
+3 models [2] recycles 6 hard 1 soft 0 temp 1 loss 3.75 i_con 3.70 plddt 0.47 ptm 0.91 i_ptm 0.48
+['PFKGIAMQWKNQY']
+4 models [2] recycles 6 hard 1 soft 0 temp 1 loss 3.52 i_con 3.47 plddt 0.52 ptm 0.92 i_ptm 0.55
+['PFKGQAMQWKNQY']
+7 models [2] recycles 6 hard 1 soft 0 temp 1 loss 3.46 i_con 3.41 plddt 0.51 ptm 0.92 i_ptm 0.52
+['PFKGQAGQWKNQY']
+11 models [4] recycles 6 hard 1 soft 0 temp 1 loss 3.10 i_con 3.06 plddt 0.60 ptm 0.92 i_ptm 0.67
+['PFKGQAGQWKNTY']
+15 models [4] recycles 6 hard 1 soft 0 temp 1 loss 3.07 i_con 3.03 plddt 0.61 ptm 0.92 i_ptm 0.68
+['PFKAQAGQWKNTY']
+22 models [2] recycles 6 hard 1 soft 0 temp 1 loss 2.96 i_con 2.93 plddt 0.65 ptm 0.92 i_ptm 0.69
+['PFKAQAGQWRNTY']
+25 models [4] recycles 6 hard 1 soft 0 temp 1 loss 2.91 i_con 2.87 plddt 0.65 ptm 0.92 i_ptm 0.72
+['PFKAQHGQWRNTY']
+36 models [2] recycles 6 hard 1 soft 0 temp 1 loss 2.81 i_con 2.77 plddt 0.70 ptm 0.92 i_ptm 0.73
+['PFKAQNGQWRNTY']
+46 models [4] recycles 6 hard 1 soft 0 temp 1 loss 2.72 i_con 2.69 plddt 0.69 ptm 0.92 i_ptm 0.77
+['HFKAQNGQWRNTY']
+87 models [1] recycles 6 hard 1 soft 0 temp 1 loss 2.48 i_con 2.46 plddt 0.80 ptm 0.92 i_ptm 0.84
+['HFKAQNGQWRNKY']
+95 models [4] recycles 6 hard 1 soft 0 temp 1 loss 2.42 i_con 2.40 plddt 0.81 ptm 0.93 i_ptm 0.83
+['HFKAQNKQWRNKY']
+100 models [0] recycles 6 hard 1 soft 0 temp 1 loss 2.37 i_con 2.35 plddt 0.84 ptm 0.92 i_ptm 0.85
+['HFKAQNKQWRNRY']
+102 models [2] recycles 6 hard 1 soft 0 temp 1 loss 2.34 i_con 2.32 plddt 0.85 ptm 0.93 i_ptm 0.85
+['HFKAQNKQWRQRY']
+104 models [4] recycles 6 hard 1 soft 0 temp 1 loss 2.32 i_con 2.31 plddt 0.84 ptm 0.93 i_ptm 0.86
+['HFKAQNHQWRQRY']
+105 models [1] recycles 6 hard 1 soft 0 temp 1 loss 2.30 i_con 2.29 plddt 0.86 ptm 0.92 i_ptm 0.85
+['HFKAQNKQWRQRY']
+108 models [1] recycles 6 hard 1 soft 0 temp 1 loss 2.26 i_con 2.24 plddt 0.86 ptm 0.93 i_ptm 0.86
+['HFKAQNKQWRQMY']
+192 models [1] recycles 6 hard 1 soft 0 temp 1 loss 2.25 i_con 2.24 plddt 0.86 ptm 0.93 i_ptm 0.86
+['HFKAQNKQWRQMT']
+254 models [4] recycles 6 hard 1 soft 0 temp 1 loss 2.24 i_con 2.23 plddt 0.85 ptm 0.93 i_ptm 0.87
+['HFKAQNKKWRQMT']
+259 models [2] recycles 6 hard 1 soft 0 temp 1 loss 2.24 i_con 2.23 plddt 0.85 ptm 0.93 i_ptm 0.85
+['HFKAQNKKWREMT']
+292 models [2] recycles 6 hard 1 soft 0 temp 1 loss 2.22 i_con 2.21 plddt 0.86 ptm 0.93 i_ptm 0.86
+['HFKAHNKKWREMT']
+322 models [1] recycles 6 hard 1 soft 0 temp 1 loss 2.19 i_con 2.18 plddt 0.87 ptm 0.93 i_ptm 0.85
+['HFKAHNKKWREQT']
+331 models [1] recycles 6 hard 1 soft 0 temp 1 loss 2.18 i_con 2.17 plddt 0.87 ptm 0.92 i_ptm 0.85
+['HFKSHNKKWREQT']
+438 models [1] recycles 6 hard 1 soft 0 temp 1 loss 2.13 i_con 2.12 plddt 0.88 ptm 0.93 i_ptm 0.86
+['HFKSHNKKWREET']
+696 models [1] recycles 6 hard 1 soft 0 temp 1 loss 2.11 i_con 2.10 plddt 0.88 ptm 0.93 i_ptm 0.86
+['HFKSHNKKWVEET']
+753 models [1] recycles 6 hard 1 soft 0 temp 1 loss 2.05 i_con 2.04 plddt 0.89 ptm 0.93 i_ptm 0.88
+['HFKSENKKWVEET']
+839 models [1] recycles 6 hard 1 soft 0 temp 1 loss 2.02 i_con 2.01 plddt 0.90 ptm 0.93 i_ptm 0.88
+{'con': 0.0, 'exp_res': 0.02276609092950821, 'hard': 1.0, 'i_con': 2.0065414905548096, 'i_pae': 0.13157057762145996, 'i_ptm': 0.8844802379608154, 'loss': 2.016847848892212, 'models': array([1]), 'pae': 0.20245876908302307, 'plddt': 0.8969374224543571, 'ptm': 0.9257974028587341, 'recycles': 6, 'seq_ent': 2.712940216064453, 'soft': 0.0, 'temp': 1.0}
+Set bug fixed cyclic peptide complex offset. The cyclic peptide binder will be hallucionated.
+Running MCMC with simulated annealing...
+['FYFDSFEHCQIFT']
+1 models [1] recycles 6 hard 1 soft 0 temp 1 loss 4.10 i_con 4.03 plddt 0.33 ptm 0.91 i_ptm 0.33
+['FYFDSQEHCQIFT']
+3 models [4] recycles 6 hard 1 soft 0 temp 1 loss 3.93 i_con 3.86 plddt 0.35 ptm 0.91 i_ptm 0.38
+['FYFSSQEHCQIFT']
+6 models [3] recycles 6 hard 1 soft 0 temp 1 loss 3.87 i_con 3.80 plddt 0.34 ptm 0.91 i_ptm 0.39
+['FYFSSQEHCQIFR']
+8 models [2] recycles 6 hard 1 soft 0 temp 1 loss 3.58 i_con 3.52 plddt 0.38 ptm 0.91 i_ptm 0.52
+['FYFNSQEHCQIFR']
+44 models [0] recycles 6 hard 1 soft 0 temp 1 loss 3.16 i_con 3.12 plddt 0.67 ptm 0.92 i_ptm 0.67
+['KYFNSQEHCQIFR']
+62 models [1] recycles 6 hard 1 soft 0 temp 1 loss 2.97 i_con 2.94 plddt 0.72 ptm 0.92 i_ptm 0.71
+['KYFNSQQHCQIFR']
+71 models [3] recycles 6 hard 1 soft 0 temp 1 loss 2.93 i_con 2.90 plddt 0.73 ptm 0.92 i_ptm 0.75
+['KYFNSQQHCQMFR']
+80 models [4] recycles 6 hard 1 soft 0 temp 1 loss 2.64 i_con 2.62 plddt 0.78 ptm 0.93 i_ptm 0.81
+['KYFNSQRHCQMFR']
+88 models [4] recycles 6 hard 1 soft 0 temp 1 loss 2.54 i_con 2.52 plddt 0.80 ptm 0.93 i_ptm 0.81
+['KYFNSQRHCGMFR']
+106 models [1] recycles 6 hard 1 soft 0 temp 1 loss 2.41 i_con 2.39 plddt 0.82 ptm 0.93 i_ptm 0.82
+['KYFNSQRHQGMFR']
+130 models [1] recycles 6 hard 1 soft 0 temp 1 loss 2.25 i_con 2.23 plddt 0.86 ptm 0.93 i_ptm 0.85
+['SYFNSQRHQGMFR']
+156 models [3] recycles 6 hard 1 soft 0 temp 1 loss 2.16 i_con 2.14 plddt 0.87 ptm 0.93 i_ptm 0.87
+['RYFNSQRHQGMFR']
+209 models [4] recycles 6 hard 1 soft 0 temp 1 loss 2.14 i_con 2.13 plddt 0.86 ptm 0.93 i_ptm 0.86
+['RYFNSERHQGMFR']
+253 models [0] recycles 6 hard 1 soft 0 temp 1 loss 2.12 i_con 2.10 plddt 0.87 ptm 0.93 i_ptm 0.88
+['RYFNSERHPGMFR']
+262 models [1] recycles 6 hard 1 soft 0 temp 1 loss 2.10 i_con 2.09 plddt 0.89 ptm 0.93 i_ptm 0.88
+['RYFNSYRHPGMFR']
+264 models [2] recycles 6 hard 1 soft 0 temp 1 loss 2.06 i_con 2.05 plddt 0.88 ptm 0.93 i_ptm 0.86
+['RYFNSPRHPGMFR']
+302 models [4] recycles 6 hard 1 soft 0 temp 1 loss 2.00 i_con 1.99 plddt 0.89 ptm 0.93 i_ptm 0.89
+['RYFNSPAHPGMFR']
+349 models [4] recycles 6 hard 1 soft 0 temp 1 loss 1.99 i_con 1.98 plddt 0.89 ptm 0.93 i_ptm 0.89
+['RYFNSPEHPGMFR']
+365 models [2] recycles 6 hard 1 soft 0 temp 1 loss 1.97 i_con 1.96 plddt 0.90 ptm 0.93 i_ptm 0.89
+['EYFNSPEHPGMFR']
+376 models [2] recycles 6 hard 1 soft 0 temp 1 loss 1.86 i_con 1.85 plddt 0.92 ptm 0.93 i_ptm 0.90
+['EYFKDPRHPGMFR']
+599 models [2] recycles 6 hard 1 soft 0 temp 1 loss 1.86 i_con 1.85 plddt 0.92 ptm 0.93 i_ptm 0.90
+['EYFKDARHPGMFR']
+607 models [2] recycles 6 hard 1 soft 0 temp 1 loss 1.86 i_con 1.85 plddt 0.92 ptm 0.93 i_ptm 0.90
+['EYFKDAKHPGMFR']
+685 models [2] recycles 6 hard 1 soft 0 temp 1 loss 1.85 i_con 1.84 plddt 0.92 ptm 0.93 i_ptm 0.90
+['EYFKDQKHPGMFR']
+707 models [2] recycles 6 hard 1 soft 0 temp 1 loss 1.85 i_con 1.84 plddt 0.93 ptm 0.93 i_ptm 0.91
+['EYFKDQKHRGMFR']
+747 models [2] recycles 6 hard 1 soft 0 temp 1 loss 1.80 i_con 1.79 plddt 0.92 ptm 0.93 i_ptm 0.91
+['QYFKDQKHRGMFR']
+912 models [2] recycles 6 hard 1 soft 0 temp 1 loss 1.77 i_con 1.77 plddt 0.93 ptm 0.93 i_ptm 0.91
+['QYFHDQKHRGMFR']
+924 models [2] recycles 6 hard 1 soft 0 temp 1 loss 1.77 i_con 1.76 plddt 0.92 ptm 0.93 i_ptm 0.91
+['QYFKDQKHRGMFR']
+977 models [4] recycles 6 hard 1 soft 0 temp 1 loss 1.73 i_con 1.73 plddt 0.92 ptm 0.93 i_ptm 0.92
+{'con': 0.0, 'exp_res': 0.013592871837317944, 'hard': 1.0, 'i_con': 1.7272974252700806, 'i_pae': 0.0936877653002739, 'i_ptm': 0.9157949686050415, 'loss': 1.7348891496658325, 'models': array([4]), 'pae': 0.18458148837089539, 'plddt': 0.9240831211209297, 'ptm': 0.9295434951782227, 'recycles': 6, 'seq_ent': 2.712940216064453, 'soft': 0.0, 'temp': 1.0}
+4kel.pdb
+target length: 223
+binder length: 14
+Set bug fixed cyclic peptide complex offset. The cyclic peptide binder will be hallucionated.
+Running MCMC with simulated annealing...
+apply_fn
+['KCDSKNWVHDCMDI']
+1 models [3] recycles 6 hard 1 soft 0 temp 1 loss 3.81 i_con 3.75 plddt 0.34 ptm 0.91 i_ptm 0.43
+['KCDSKNWVHDCCDI']
+2 models [3] recycles 6 hard 1 soft 0 temp 1 loss 3.77 i_con 3.70 plddt 0.36 ptm 0.91 i_ptm 0.46
+['KCDSKDWVHDCCDI']
+5 models [4] recycles 6 hard 1 soft 0 temp 1 loss 3.29 i_con 3.24 plddt 0.49 ptm 0.92 i_ptm 0.59
+['KCISKDYQHDCCDI']
+39 models [4] recycles 6 hard 1 soft 0 temp 1 loss 3.23 i_con 3.18 plddt 0.50 ptm 0.92 i_ptm 0.62
+['KCISKDYWHDCCDI']
+50 models [4] recycles 6 hard 1 soft 0 temp 1 loss 2.50 i_con 2.46 plddt 0.60 ptm 0.92 i_ptm 0.71
+['KCISKDYWHDCVDI']
+55 models [2] recycles 6 hard 1 soft 0 temp 1 loss 2.48 i_con 2.45 plddt 0.64 ptm 0.92 i_ptm 0.73
+['KCIVKDYWHDCVDI']
+78 models [4] recycles 6 hard 1 soft 0 temp 1 loss 2.21 i_con 2.18 plddt 0.73 ptm 0.93 i_ptm 0.80
+['KMIVKDYWHDCVDI']
+90 models [4] recycles 6 hard 1 soft 0 temp 1 loss 2.02 i_con 2.00 plddt 0.84 ptm 0.93 i_ptm 0.86
+['KMIVKDYWHDCVAI']
+94 models [1] recycles 6 hard 1 soft 0 temp 1 loss 1.95 i_con 1.93 plddt 0.87 ptm 0.94 i_ptm 0.88
+['KMIVKDYWHDCEAI']
+107 models [3] recycles 6 hard 1 soft 0 temp 1 loss 1.92 i_con 1.91 plddt 0.87 ptm 0.94 i_ptm 0.88
+['KRIVKDYWHDCEAI']
+111 models [4] recycles 6 hard 1 soft 0 temp 1 loss 1.85 i_con 1.84 plddt 0.88 ptm 0.94 i_ptm 0.89
+['KRIVKDIWHDCEAI']
+112 models [4] recycles 6 hard 1 soft 0 temp 1 loss 1.75 i_con 1.74 plddt 0.88 ptm 0.94 i_ptm 0.90
+['KAIVKDIWHDCEAI']
+152 models [4] recycles 6 hard 1 soft 0 temp 1 loss 1.73 i_con 1.72 plddt 0.89 ptm 0.94 i_ptm 0.91
+['KAQVKDIWHDCEAI']
+176 models [4] recycles 6 hard 1 soft 0 temp 1 loss 1.67 i_con 1.66 plddt 0.90 ptm 0.94 i_ptm 0.92
+['KAQVKDIWIDCEAI']
+179 models [4] recycles 6 hard 1 soft 0 temp 1 loss 1.55 i_con 1.54 plddt 0.91 ptm 0.94 i_ptm 0.92
+['KAQVKDIWIDCEMI']
+188 models [3] recycles 6 hard 1 soft 0 temp 1 loss 1.53 i_con 1.52 plddt 0.92 ptm 0.94 i_ptm 0.91
+['KAQVKDIWIDCEII']
+298 models [3] recycles 6 hard 1 soft 0 temp 1 loss 1.49 i_con 1.49 plddt 0.93 ptm 0.94 i_ptm 0.92
+['KAQVKDIWIDCEPI']
+555 models [3] recycles 6 hard 1 soft 0 temp 1 loss 1.49 i_con 1.48 plddt 0.93 ptm 0.94 i_ptm 0.93
+['KKQVKDIWIDCEPI']
+567 models [3] recycles 6 hard 1 soft 0 temp 1 loss 1.47 i_con 1.46 plddt 0.93 ptm 0.94 i_ptm 0.93
+['KKQVQDIWIDCEPI']
+659 models [3] recycles 6 hard 1 soft 0 temp 1 loss 1.46 i_con 1.45 plddt 0.94 ptm 0.94 i_ptm 0.93
+{'con': 0.0, 'exp_res': 0.002036179881542921, 'hard': 1.0, 'i_con': 1.4504789113998413, 'i_pae': 0.07408993691205978, 'i_ptm': 0.9276782870292664, 'loss': 1.45677649974823, 'models': array([3]), 'pae': 0.11803214997053146, 'plddt': 0.9370235279202461, 'ptm': 0.9394673705101013, 'recycles': 6, 'seq_ent': 2.7129404544830322, 'soft': 0.0, 'temp': 1.0}
+Set bug fixed cyclic peptide complex offset. The cyclic peptide binder will be hallucionated.
+Running MCMC with simulated annealing...
+['DTLAHPCFMDAHPN']
+1 models [2] recycles 6 hard 1 soft 0 temp 1 loss 3.75 i_con 3.69 plddt 0.40 ptm 0.90 i_ptm 0.44
+['DTLAHPCPMDAHPN']
+2 models [1] recycles 6 hard 1 soft 0 temp 1 loss 3.49 i_con 3.44 plddt 0.47 ptm 0.91 i_ptm 0.52
+['DTLAFPCPMDAHPN']
+7 models [1] recycles 6 hard 1 soft 0 temp 1 loss 3.37 i_con 3.32 plddt 0.49 ptm 0.91 i_ptm 0.55
+['DTMAFPCPMDAHPN']
+24 models [3] recycles 6 hard 1 soft 0 temp 1 loss 2.88 i_con 2.83 plddt 0.52 ptm 0.92 i_ptm 0.58
+['DTMAFKCPMDAHPN']
+325 models [1] recycles 6 hard 1 soft 0 temp 1 loss 2.69 i_con 2.65 plddt 0.56 ptm 0.92 i_ptm 0.61
+['DTMAFKCPMDAWPN']
+327 models [0] recycles 6 hard 1 soft 0 temp 1 loss 2.58 i_con 2.54 plddt 0.54 ptm 0.92 i_ptm 0.60
+['GTMAFKCPMDAWPN']
+351 models [4] recycles 6 hard 1 soft 0 temp 1 loss 2.45 i_con 2.42 plddt 0.66 ptm 0.93 i_ptm 0.74
+['GTMAFKCGMDAWPN']
+359 models [0] recycles 6 hard 1 soft 0 temp 1 loss 2.38 i_con 2.34 plddt 0.67 ptm 0.93 i_ptm 0.72
+['GTMAFKCFMDAWPN']
+364 models [0] recycles 6 hard 1 soft 0 temp 1 loss 2.33 i_con 2.30 plddt 0.64 ptm 0.92 i_ptm 0.69
+['GTMAFKCFMDNWPN']
+393 models [1] recycles 6 hard 1 soft 0 temp 1 loss 2.33 i_con 2.29 plddt 0.65 ptm 0.93 i_ptm 0.72
+['GTMAFKCFMDNWPI']
+403 models [0] recycles 6 hard 1 soft 0 temp 1 loss 2.19 i_con 2.16 plddt 0.68 ptm 0.93 i_ptm 0.74
+['GTMAFRCFMDNWPI']
+423 models [1] recycles 6 hard 1 soft 0 temp 1 loss 2.17 i_con 2.15 plddt 0.73 ptm 0.93 i_ptm 0.80
+['GTMAFRCFMENWPI']
+424 models [1] recycles 6 hard 1 soft 0 temp 1 loss 2.17 i_con 2.14 plddt 0.72 ptm 0.93 i_ptm 0.79
+['GTMAFRCFMEVWPI']
+428 models [1] recycles 6 hard 1 soft 0 temp 1 loss 2.15 i_con 2.12 plddt 0.72 ptm 0.93 i_ptm 0.80
+['GTMAFRCFMEVEPI']
+452 models [1] recycles 6 hard 1 soft 0 temp 1 loss 1.90 i_con 1.88 plddt 0.81 ptm 0.94 i_ptm 0.87
+['GTMAFRCFMEHEPI']
+455 models [3] recycles 6 hard 1 soft 0 temp 1 loss 1.81 i_con 1.79 plddt 0.83 ptm 0.94 i_ptm 0.86
+['GTMAFRCFMEHEPV']
+463 models [1] recycles 6 hard 1 soft 0 temp 1 loss 1.68 i_con 1.67 plddt 0.88 ptm 0.94 i_ptm 0.91
+['GDMAFRCFMEHEPV']
+487 models [1] recycles 6 hard 1 soft 0 temp 1 loss 1.63 i_con 1.62 plddt 0.89 ptm 0.94 i_ptm 0.92
+['GDMAYRCFMEHEPV']
+495 models [3] recycles 6 hard 1 soft 0 temp 1 loss 1.60 i_con 1.59 plddt 0.89 ptm 0.94 i_ptm 0.91
+['GDMAYRCFIEHEPV']
+560 models [3] recycles 6 hard 1 soft 0 temp 1 loss 1.58 i_con 1.57 plddt 0.89 ptm 0.94 i_ptm 0.91
+['GDMYYRCFIEHEPV']
+569 models [3] recycles 6 hard 1 soft 0 temp 1 loss 1.53 i_con 1.52 plddt 0.90 ptm 0.94 i_ptm 0.91
+['GDMYYRCFIEWEPV']
+576 models [3] recycles 6 hard 1 soft 0 temp 1 loss 1.53 i_con 1.52 plddt 0.90 ptm 0.94 i_ptm 0.91
+['GDMYYRCFIEWEPF']
+633 models [3] recycles 6 hard 1 soft 0 temp 1 loss 1.51 i_con 1.50 plddt 0.90 ptm 0.94 i_ptm 0.91
+['GDMYYRCFLEWEPF']
+654 models [3] recycles 6 hard 1 soft 0 temp 1 loss 1.46 i_con 1.45 plddt 0.91 ptm 0.94 i_ptm 0.91
+['GDMYYRCFLEWPPF']
+802 models [3] recycles 6 hard 1 soft 0 temp 1 loss 1.42 i_con 1.41 plddt 0.92 ptm 0.94 i_ptm 0.92
+['GDMVYRCFLEWPPF']
+811 models [3] recycles 6 hard 1 soft 0 temp 1 loss 1.38 i_con 1.37 plddt 0.92 ptm 0.94 i_ptm 0.93
+['GDMVYKCFLEWPPF']
+956 models [3] recycles 6 hard 1 soft 0 temp 1 loss 1.37 i_con 1.36 plddt 0.92 ptm 0.94 i_ptm 0.92
+['GDMVYKSFLEWPPF']
+988 models [3] recycles 6 hard 1 soft 0 temp 1 loss 1.37 i_con 1.36 plddt 0.92 ptm 0.94 i_ptm 0.93
+{'con': 0.0, 'exp_res': 0.001867077313363552, 'hard': 1.0, 'i_con': 1.358305811882019, 'i_pae': 0.07450512051582336, 'i_ptm': 0.9262458086013794, 'loss': 1.3662952184677124, 'models': array([3]), 'pae': 0.12190855294466019, 'plddt': 0.9201065078377724, 'ptm': 0.9415032863616943, 'recycles': 6, 'seq_ent': 2.7129404544830322, 'soft': 0.0, 'temp': 1.0}
+Set bug fixed cyclic peptide complex offset. The cyclic peptide binder will be hallucionated.
+Running MCMC with simulated annealing...
+['VPRCNCLSYTMVHI']
+1 models [0] recycles 6 hard 1 soft 0 temp 1 loss 3.91 i_con 3.84 plddt 0.33 ptm 0.90 i_ptm 0.36
+['VPRCNCLSETMVHI']
+4 models [2] recycles 6 hard 1 soft 0 temp 1 loss 3.68 i_con 3.62 plddt 0.41 ptm 0.90 i_ptm 0.45
+['VPRCNCLSETMHHI']
+5 models [3] recycles 6 hard 1 soft 0 temp 1 loss 1.98 i_con 1.95 plddt 0.66 ptm 0.93 i_ptm 0.73
+['VPRCNCISETHHHI']
+16 models [3] recycles 6 hard 1 soft 0 temp 1 loss 1.86 i_con 1.83 plddt 0.74 ptm 0.93 i_ptm 0.80
+['VPRCNCISETHRHI']
+29 models [3] recycles 6 hard 1 soft 0 temp 1 loss 1.82 i_con 1.80 plddt 0.75 ptm 0.93 i_ptm 0.81
+['VPRCNCISEDHRHI']
+34 models [1] recycles 6 hard 1 soft 0 temp 1 loss 1.80 i_con 1.78 plddt 0.79 ptm 0.94 i_ptm 0.85
+['VPRCNCPSEDHRHI']
+62 models [1] recycles 6 hard 1 soft 0 temp 1 loss 1.75 i_con 1.73 plddt 0.81 ptm 0.94 i_ptm 0.87
+['VPRCNCPKEDHRHI']
+66 models [2] recycles 6 hard 1 soft 0 temp 1 loss 1.73 i_con 1.71 plddt 0.84 ptm 0.93 i_ptm 0.87
+['VPRCNCPYEDHRHI']
+68 models [3] recycles 6 hard 1 soft 0 temp 1 loss 1.67 i_con 1.65 plddt 0.84 ptm 0.94 i_ptm 0.88
+['VPRCNCPYEDYRHI']
+148 models [3] recycles 6 hard 1 soft 0 temp 1 loss 1.64 i_con 1.62 plddt 0.86 ptm 0.94 i_ptm 0.89
+['VPRCNCPKEDYRHI']
+169 models [3] recycles 6 hard 1 soft 0 temp 1 loss 1.60 i_con 1.58 plddt 0.85 ptm 0.94 i_ptm 0.89
+['VFRCNMIKEDYGHI']
+423 models [1] recycles 6 hard 1 soft 0 temp 1 loss 1.54 i_con 1.53 plddt 0.89 ptm 0.94 i_ptm 0.92
+['VYRCNMIKEDYGHI']
+476 models [1] recycles 6 hard 1 soft 0 temp 1 loss 1.52 i_con 1.50 plddt 0.89 ptm 0.94 i_ptm 0.92
+['VYRCNMEKEDYGHI']
+507 models [1] recycles 6 hard 1 soft 0 temp 1 loss 1.50 i_con 1.49 plddt 0.89 ptm 0.94 i_ptm 0.91
+{'con': 0.0, 'exp_res': 0.006450402084738016, 'hard': 1.0, 'i_con': 1.4850648641586304, 'i_pae': 0.09441839903593063, 'i_ptm': 0.9131087064743042, 'loss': 1.4964845180511475, 'models': array([1]), 'pae': 0.15035928785800934, 'plddt': 0.8858032822608948, 'ptm': 0.9401270151138306, 'recycles': 6, 'seq_ent': 2.7129404544830322, 'soft': 0.0, 'temp': 1.0}
