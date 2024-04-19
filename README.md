@@ -66,5 +66,10 @@ To conduct evaluations on synthetic functions, find `run.sh` in `Evaluations on 
 If you find this work interesting, welcome to cite our paper!
 
 ```
-[1] Wei, Y. et al. Derivative-free tree optimization for complex systems. arXiv preprint arXiv:2404.04062 (2024). https://arxiv.org/abs/2404.04062
+@article{wei2024derivative,
+  title={Derivative-free tree optimization for complex systems},
+  author={Wei, Ye and Peng, Bo and Xie, Ruiwen and Chen, Yangtao and Qin, Yu and Wen, Peng and Bauer, Stefan and Tung, Po-Yen},
+  journal={arXiv preprint arXiv:2404.04062},
+  year={2024}
+}
 ```
