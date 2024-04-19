@@ -56,6 +56,8 @@ To run the DOTS on various tasks, please run the following line in terminal:
 bash run.sh
 ```
 **Note:** The codes and data of different tasks are separated in their standalone file folders, you can find a `run.sh` in each folder.
+To run the self-driving virtual labs, find `run.sh` in `Architected Materials`, `CCAs`, `Cyclic Peptide Design`, `Electron Ptychography` folders.
+To conduct evaluations on synthetic functions, find `run.sh` in `Evaluations on Synthetic Functions/Exact Function` and `Evaluations on Synthetic Functions/Surrogate Model` folders.
 
 ## CItation
 
