@@ -39,7 +39,7 @@ conda install conda-forge::cudatoolkit=11.2 cudnn=8.1
 
 which should install in about few minutes.
 
-## Environements
+## Environments
 The developmental version of the package has been tested on the following systems and drivers.
 - Ubuntu 18.04 and Ubuntu 22.04 
 - CUDA 11.4
