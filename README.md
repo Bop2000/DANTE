@@ -61,7 +61,7 @@ To run the self-driving virtual labs, find `run.sh` in `Architected Materials`, 
 
 To conduct evaluations on synthetic functions, find `run.sh` in `Evaluations on Synthetic Functions/Exact function` and `Evaluations on Synthetic Functions/Surrogate model` folders.
 
-## CItation
+## Citation
 
 If you find this work interesting, welcome to cite our paper!
 
