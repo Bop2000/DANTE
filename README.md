@@ -3,7 +3,7 @@
 ## Paper
 Click [here](https://arxiv.org/abs/2404.04062)
 
-## Abstract
+## Introduction
 
 A tremendous range of design tasks in materials, physics, and biology can be formulated as finding the optimum of an objective function depending on many parameters, without knowing its closed-form expression or the derivative. Traditional derivative-free optimization techniques often rely on strong assumptions about the objective functions, thereby often failing at optimizing non-convex systems beyond 100 dimensions. Here, we present a tree search method for derivative-free optimization that enables accelerated optimal design of high-dimensional complex systems. Specifically, Our method introduces a novel stochastic tree expansion with a dynamic upper confidence bound and short-range backpropagation to evade local optima, iteratively approximating the global optimum using machine learning models. These contributions effectively address challenging problems by achieving convergence to global optima across various benchmark functions up to 2,000 dimensions, surpassing existing methods by 10- to 20-fold. Our method demonstrates applicability to a wide range of real-world complex systems spanning materials, physics, and biology, considerably outperforming state-of-the-art algorithms. This enables efficient autonomous knowledge discovery and opens the door towards scalable self-driving virtual laboratories. Although we focus on problems within the realm of natural science, the advancements in optimization techniques achieved herein are applicable to a broader spectrum of challenges across all quantitative disciplines.
 ![alt text](https://github.com/Bop2000/DOTS/blob/main/flowchart.jpg)
