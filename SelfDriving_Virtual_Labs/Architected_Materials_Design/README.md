@@ -1,6 +1,9 @@
 # Pipeline
 
-To run the self-driving virtual laboratory for architected materials design using DOTS, see `DOTS_VL_Architected_Materials_Design.ipynb` for detailed instruction
+**To run the self-driving virtual laboratory for architected materials design using DOTS, see `DOTS_VL_Architected_Materials_Design.ipynb` for detailed instruction**
+
+**Note:** If you can not open it in Github, please download it.
+
 
 To have a quick start, please run the following line in terminal:
 
