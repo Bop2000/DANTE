@@ -1,1 +1,0 @@
-slurmstepd: error: *** JOB 16030340 ON gpusrv62 CANCELLED AT 2024-01-24T11:38:48 ***
