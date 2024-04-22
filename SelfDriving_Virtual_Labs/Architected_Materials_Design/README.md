@@ -1,6 +1,8 @@
 # Pipeline
 
-To run the self-driving virtual laboratory for architected materials design, please run the following line in terminal:
+To run the self-driving virtual laboratory for architected materials design using DOTS, see `DOTS_VL_Architected_Materials_Design.ipynb` for detailed instruction
+
+To have a quick start, please run the following line in terminal:
 
 ```shell
 bash run.sh
