@@ -8,36 +8,22 @@ Click [here](https://arxiv.org/abs/2404.04062)
 A tremendous range of design tasks in materials, physics, and biology can be formulated as finding the optimum of an objective function depending on many parameters, without knowing its closed-form expression or the derivative. Traditional derivative-free optimization techniques often rely on strong assumptions about the objective functions, thereby often failing at optimizing non-convex systems beyond 100 dimensions. Here, we present a tree search method for derivative-free optimization that enables accelerated optimal design of high-dimensional complex systems. Specifically, Our method introduces a novel stochastic tree expansion with a dynamic upper confidence bound and short-range backpropagation to evade local optima, iteratively approximating the global optimum using machine learning models. These contributions effectively address challenging problems by achieving convergence to global optima across various benchmark functions up to 2,000 dimensions, surpassing existing methods by 10- to 20-fold. Our method demonstrates applicability to a wide range of real-world complex systems spanning materials, physics, and biology, considerably outperforming state-of-the-art algorithms. This enables efficient autonomous knowledge discovery and opens the door towards scalable self-driving virtual laboratories. Although we focus on problems within the realm of natural science, the advancements in optimization techniques achieved herein are applicable to a broader spectrum of challenges across all quantitative disciplines.
 ![alt text](https://github.com/Bop2000/DOTS/blob/main/flowchart.jpg)
 
-## Packages
+## Installation
 
-The following libraries are necessary for running the codes.
+The code requires `python>=3.9`. Installation Tensorflow and Keras with CUDA support is stroongly recommended.
 
-```shell
-tensorflow-gpu == 2.5.0
-keras == 2.3.1
-scipy == 1.10.1
-numpy == 1.19.5
-pandas == 1.4.4
-matplotlib == 3.6.3
-matplotlib-inline == 0.1.6
-scikit-learn == 1.2.2
-scikit-image == 0.19.3
-cma == 3.3.0
-tqdm == 4.59.0
-seaborn == 0.12.2
-openpyxl == 3.1.2
+Install DOTS:
+
 ```
-Please install requirements using below command.
-```
-pip install -r requirements.txt
+pip install git+https://github.com/Bop2000/DOTS.git
 ```
 
-Then install `cudnn` and `cudatoolkit`:
-```
-conda install conda-forge::cudatoolkit=11.2 cudnn=8.1
-```
+or clone the repository to local devices:
 
-which should install in about few minutes.
+```
+git clone git@github.com:Bop2000/DOTS.git
+cd DOTS; pip install -e .
+```
 
 ## Environments
 The developmental version of the package has been tested on the following systems and drivers.
@@ -46,7 +32,6 @@ The developmental version of the package has been tested on the following system
 - cuDNN 8.1
 - Driver Version 470.182.03
 - RTX3090 Ti
-- Python 3.9
 
 ## Pipeline
 

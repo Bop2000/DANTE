@@ -2,8 +2,8 @@ from functions import *
 import argparse
 import os
 import numpy as np
-from search_method import *
-from NN import *
+from dots.search_method import *
+from dots.NN import *
 parser = argparse.ArgumentParser(description='Process inputs')
 parser.add_argument('--func', help='specify the test function')
 parser.add_argument('--dims', type=int, help='specify the problem dimensions')

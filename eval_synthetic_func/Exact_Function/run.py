@@ -1,4 +1,4 @@
-from functions import *
+from dots.functions import *
 import argparse
 import os
 import numpy as np
