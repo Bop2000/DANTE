@@ -18,7 +18,7 @@ from get_sc import *
 pdb = '4ib5.pdb' # Define the pdb file. Here take the 4ib5 as an example
 seq_len = 13 # Define the length of cyclic peptide here.
 
-seq_folder = './result/MCTS_peptide_' + pdb[:4] + '_' + time.strftime("%Y-%m-%d_%H-%M", time.localtime())
+seq_folder = './result/DOTS_peptide_' + pdb[:4] + '_' + time.strftime("%Y-%m-%d_%H-%M", time.localtime())
 if not os.path.exists(seq_folder):
 # If it doesn't exist, create it
     os.makedirs(seq_folder)
@@ -145,7 +145,7 @@ class DOTS:
 class Node(ABC):
     """
     A representation of a single board state.
-    MCTS works by constructing a tree of these Nodes.
+    DOTS works by constructing a tree of these Nodes.
     Could be e.g. a chess or checkers board state.
     """
 
