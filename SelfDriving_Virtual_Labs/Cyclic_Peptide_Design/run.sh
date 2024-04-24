@@ -20,4 +20,4 @@ conda activate peptide
 
 python3 ./scripts/DOTS_Cyclic_Peptide_Design.py
 python3 ./scripts/MCMC_Cyclic_Peptide_Design.py
-python3 ./scripts/GD_Cyclic_Peptide_Design.py
+python3 GD_Cyclic_Peptide_Design.py
