@@ -1,0 +1,15 @@
+# specific options for InterfaceAnalyzer
+-use_input_sc 
+-compute_packstat true # Whether to output packstat values for calculations, to evaluate the fit of the protein interaction interface.
+-tracer_data_print true # Whether to print results on screen
+
+# Protein side chain optimization options.
+-out:file:score_only pack_input_score.sc # Output scoring file name
+-pack_input true     # Whether to optimize amino acid side chain rearrangement for the interaction interface of the input file?
+-pack_separated true # Separate each protein chain and perform side chain optimization, useful for interface ddG analysis
+-add_regular_scores_to_scorefile true # Whether to use standard scoring functions?
+
+# these are some tweaks that we have found helpful
+-atomic_burial_cutoff 0.01 # Criteria for identifying buried polar atoms.
+-sasa_calculator_probe_radius 1.4 # Radius of the surface probe for proteins
+-pose_metrics::interface_cutoff 8.0
