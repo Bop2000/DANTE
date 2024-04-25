@@ -20,3 +20,8 @@ bash run.sh
 --dims (specify the problem dimensions) can be: any integer more than 1
 
 --samples (specify the number of samples to collect in the search) can be: any integer more than 0
+
+
+
+# 
+![alt text](https://github.com/Bop2000/DOTS/blob/main/flowchart.jpg)
