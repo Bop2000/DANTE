@@ -242,7 +242,7 @@ class DOTS:
 class Node(ABC):
     """
     A representation of a single board state.
-    MCTS works by constructing a tree of these Nodes.
+    DOTS works by constructing a tree of these Nodes.
     Could be e.g. a chess or checkers board state.
     """
     @abstractmethod
