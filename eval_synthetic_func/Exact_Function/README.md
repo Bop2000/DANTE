@@ -15,4 +15,3 @@ bash run.sh
 --dims (specify the problem dimensions) can be: any integer more than 1
 
 --iterations (specify the number of samples to collect in the search) can be: any integer more than 0
-
