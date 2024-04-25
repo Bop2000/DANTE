@@ -11,4 +11,12 @@ To have a quick start, please run the following line in terminal:
 ```shell
 bash run.sh
 ```
-**Note:** The environment name should be replaced by yours in `run.sh`. You can change the number of iteration by replace `1` in `python3 run.py --iter 1`
+**Note:** The environment name should be replaced by yours in `run.sh`. 
+
+--func (specify the test function) can be: ackley rastrigin rosenbrock schwefel michalewicz griewank levy
+
+--method (specify the method to search) can be: DOTS here, but extended to DOTS-Greedy DOTS-eGreedy Random DualAnnealing DifferentialEvolution CMA-ES in `more_algorithms_available`
+
+--dims (specify the problem dimensions) can be: any integer more than 1
+
+--samples (specify the number of samples to collect in the search) can be: any integer more than 0
