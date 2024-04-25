@@ -1,11 +1,6 @@
 from .dots import (
-    MCTS_ubt, 
+    DOTS, 
     Node,
-    opt_task,
-    opt_task, 
-    MCTS_Greedy, 
-    MCTS_eGreedy, 
-    MCMC,
 )
 from .functions import (
     tracker,
