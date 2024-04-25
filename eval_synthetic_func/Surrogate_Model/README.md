@@ -23,5 +23,8 @@ bash run.sh
 
 
 
-# 
-![alt text](https://github.com/Bop2000/DOTS/blob/main/flowchart.jpg)
+# Evaluations on synthetic functions using surrogate model
+
+We run extensive tests on well-known non-convex functions (Ackley, Rastrigin, Rosenbrock) of diverse types using surrogate model predictions and compare the performance of DOTS with other state-of-the-art algorithms. DOTS-based methods outperform other benchmark methods.
+
+![alt text](https://github.com/Bop2000/DOTS/blob/main/synthetic_func_surrogate_model.png)
