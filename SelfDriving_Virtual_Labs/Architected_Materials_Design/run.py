@@ -1,4 +1,28 @@
+"""################################################################################
+> # **Introduction**
+> The notebook is divided into 4 major parts :
+
+*   **Part I** : voxelization of the architected materials
+*   **Part II** : define DOTS algorithm
+*   **Part III** : define and train the CNN model
+*   **Part IV** : optimization using DOTS
+
+################################################################################
+
+################################################################################
+> # **Part - I**
+
+*   Import initial dataset
+*   Set parameters
+*   Voxelization of the architected materials
+
+################################################################################
+"""
+
+############################### Import libraries ###############################
+
 import numpy as np
+from numpy import pi
 import matplotlib.pyplot as plt
 import pandas as pd
 from tqdm import tqdm
@@ -25,13 +49,15 @@ args = parser.parse_args()
 
 
 
-#########################################################
-#round
+
+
+
+############################### Creat Initial Folder ###############################
+
+#Number of iteration
 round_num  = args.iter
 round_name = 'Round'+str(round_num)
 
-#######################################################
-n_model=5
 model_folder = "Results"
 # Check if the directory exists
 if not os.path.exists(model_folder):
@@ -40,118 +66,71 @@ if not os.path.exists(model_folder):
 if not os.path.exists(model_folder+'/'+round_name):
     # If it doesn't exist, create it
     os.makedirs(model_folder+'/'+round_name)
+    
 
 
-#####################################
-mode = 'PiMCTS'
-#######################
-n_dim=27
-#######################
-rollout_round=100#num of steps
+
+
+
+
+
+############################### Import Initial Dataset ###############################
+
+all_input=np.load("input333.npy", allow_pickle=True)
+data = pd.read_excel("data.xlsx")
+
+rate=100
+all_data = np.array(data['E'])/rate # rescaled for cnn model training
+all_data2 = np.array(data['Y'])
+
+if round_num  == 1:
+  plt.figure()
+  plt.scatter(all_data*rate,all_data2,label='Inital data')
+  plt.legend()
+  plt.title('E vesus Y')
+  plt.xlabel('Elastic Modulus (MPa)')
+  plt.ylabel('Yield Strength (MPa)')
+  plt.savefig(f'round{round_num-1}.png')
+else:
+  plt.figure()
+  plt.scatter(all_data*rate,all_data2,label='before')
+  plt.scatter(all_data[-20:],all_data2[-20:],label=f'round{round_num-1}')
+  plt.legend()
+  plt.title('E vesus Y')
+  plt.xlabel('Elastic Modulus (MPa)')
+  plt.ylabel('Yield Strength (MPa)')
+  plt.savefig(f'round{round_num-1}.png')
+
+
+
+
+
+
+
+############################### Set Paramaters ###############################
+
+top_sample=20 # number of newly selected samples
+n_model=5 # number of cnn models for predictions
+n_dim=27  # Dimension of this optimization problem
+rollout_round=100 #number of roullout steps for DOTS algorithm,By default, DOTS performs 100 rollout
 UCT_low=False
 weight = 0.2 # exploration weight = weight * max(score)
-##[run times, top start points, random start points, top score samples, top visit samples, random samples]
-list1=[5,8,2,5,1,1]
-#####################################
-
-#Choose a elastic modulus target, such as target = 2500 MPa
-target = 2500
-n_size=6
-n_accu=60
-pi=3.14159265358979323846264
+list1=[5,8,2,5,1,1] ##[run times, top start points, random start points, top score samples, top visit samples, random samples]
+target = 2500 #Choose a elastic modulus target, such as target = 2500 MPa
+n_size=6 # dimension of the architected materials to optimize, where is 6 mm here
+n_accu=60 # The number of points in the three directions of x, y and z after voxelization of the architected material
 xxx=(1/2)*2*pi
-sizeofdata0=[3,3,3]
-accu=20
+sizeofdata0=[3,3,3] # an architected material with 3*3*3 units
+accu=int(n_accu / 3)
 x_axis, y_axis,z_axis = np.linspace(n_size/(n_accu*2), n_size-n_size/(n_accu*2), n_accu),  np.linspace(n_size/(n_accu*2), n_size-n_size/(n_accu*2), n_accu),  np.linspace(n_size/(n_accu*2), n_size-n_size/(n_accu*2), n_accu)
 x, y,z = np.meshgrid(x_axis, y_axis,z_axis)
 
 
 
-###########load data
-all_input=np.load("input333.npy", allow_pickle=True)
-data = pd.read_excel("data.xlsx")
-# all_input2=all_input.reshape(-1,27)
-# all_input3=np.unique(all_input2,axis=0)
-
-rate=100
-all_data = np.array(data['E'])/rate
-all_data2 = np.array(data['Y'])
-
-plt.figure()
-plt.scatter(all_data,all_data2,label='before')
-plt.scatter(all_data[-20:],all_data2[-20:],label=f'round{round_num-1}')
-plt.legend()
-plt.title('E vesus Y')
-plt.savefig(f'round{round_num-1}.png')
-###########combine new data
-
-#########slice the data to five parts
-index_random=np.arange(len(all_data2))
-random.shuffle(index_random)
-index_random1=index_random[:]
-def model_training(X,y,name,i,lr):
-      ind=index_random[round(i*len(index_random)/5):round((1+i)*len(index_random)/5)]####1/5 data as test set
-      ind2=np.setdiff1d(index_random, ind)
-      X_train, X_test, y_train, y_test = X[ind2],X[ind], y[ind2],y[ind]
-      # X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=i)
-      inputs = keras.Input((60, 60, 60, 1))
-      x = layers.Conv3D(filters=8, kernel_size=3, activation="elu",padding='same')(inputs)
-      x = layers.MaxPool3D(pool_size=2,padding='same')(x)
-      # x = layers.BatchNormalization()(x)
-      # x = layers.Dropout(0.2)(x)
-      x = layers.Conv3D(filters=4, kernel_size=3, activation="elu",padding='same')(x)
-      x = layers.MaxPool3D(pool_size=2,padding='same')(x)
-      x = layers.Conv3D(filters=2, kernel_size=3, activation="elu",padding='same')(x)
-      # x = layers.Dropout(0.2)(x)
-      x = layers.MaxPool3D(pool_size=2,padding='same')(x)
-      x = layers.Flatten()(x)
-      x = layers.Dense(units=128, activation="elu")(x)
-      x = layers.Dense(units=64, activation="elu")(x)
-      x = layers.Dense(units=32, activation="elu")(x)
-      outputs = layers.Dense(units=1, activation="linear")(x)
-      model = keras.Model(inputs, outputs, name="3dcnn")
-      mc = ModelCheckpoint(model_folder+'/'+round_name+f"/{name}.h5", monitor='val_loss', mode='min', verbose=1, save_best_only=True)
-      early_stop = EarlyStopping(monitor='val_loss', patience=100, restore_best_weights=True)
-      # model.compile(optimizer=Adam(learning_rate=0.002), loss='mean_absolute_error')
-      model.compile(optimizer=Adam(learning_rate=lr), loss='mean_squared_error')
-      model.fit(X_train, y_train, batch_size=32, epochs=5000, validation_data=(X_test, y_test), callbacks=[early_stop,mc])
-      model=keras.models.load_model(model_folder+'/'+round_name+f"/{name}.h5")
-
-      R2,MAE=mar_r2(model,X_test,y_test)
-
-      return model,X_test,y_test,R2,MAE
-
-def model_performance(model,X_test,y_test):
-    perform_list=pd.read_csv(model_folder+'/'+round_name+f'/model_performance_{n_dim}d.csv')
-    y_pred = model.predict(X_test.reshape(len(X_test),60,60,60,1))
-    R2=stats.pearsonr(y_pred.reshape(-1), y_test.reshape(-1))[0]
-    R2=np.asarray(R2).round(5)
-    MAE= metrics.mean_absolute_error(y_test.reshape(-1), y_pred.reshape(-1))
-    ###plot R2 and MAE of test data
-    plt.figure()
-    sns.set()
-    sns.regplot(x=y_pred, y=y_test, color='k')
-    plt.title(('R2:',R2,'MAE:',MAE))
-    y_test = pd.DataFrame(y_test)
-    y_test.columns= ['ground truth']
-    y_pred = pd.DataFrame(y_pred)
-    y_pred.columns= ['pred']
-    print("R2",R2,"MAE",MAE)
-    R2MAE = pd.DataFrame([R2,MAE])
-    R2MAE.columns= ['R2&MAE']
-    perform_list2=pd.concat((perform_list,y_test,y_pred,R2MAE),axis=1)
-    perform_list2.drop([perform_list2.columns[0]],axis=1, inplace=True)
-    # perform_list2.drop([perform_list2.columns[0]],axis=1, inplace=True)
-    perform_list2.to_csv(model_folder+'/'+round_name+f'/model_performance_{n_dim}d.csv')
-    return R2,MAE
 
 
-def mar_r2(model,X_test,y_test):
-    y_pred = model.predict(X_test.reshape(len(X_test),60,60,60,1))
-    R2=stats.pearsonr(y_pred.reshape(-1), y_test.reshape(-1))[0]
-    R2=np.asarray(R2).round(5)
-    MAE= metrics.mean_absolute_error(y_test.reshape(-1), y_pred.reshape(-1))
-    return R2,MAE
+
+############################### voxelization of the architected materials ###############################
 
 def findneighbour(inputdata,position):
     neighbourhoods=np.zeros((3,3,3))
@@ -320,9 +299,27 @@ def To60(matrix):
     the606060_cell=np.where(the606060_cell<0.9,1,0)
     return the606060_cell
 
-class MCTS_ubt:
-    "Monte Carlo tree searcher. First rollout the tree then choose a move."
+################################# End of Part I ################################
 
+
+
+
+
+
+
+
+"""################################################################################
+> # **Part - II**
+
+*   Define the DOTS alghorithm
+
+################################################################################
+"""
+
+################################# DOTS alghorithm ################################
+
+
+class DOTS:
     def __init__(self, exploration_weight=1):
         self.Q = defaultdict(int)  # total reward of each node
         self.N = defaultdict(int)  # total visit count for each node
@@ -330,7 +327,7 @@ class MCTS_ubt:
         self.exploration_weight = exploration_weight
 
     def choose(self, node):
-        "Choose the best successor of node. (Choose a move in the game)"
+        "Choose the best successor of node."
         if node.is_terminal():
             raise RuntimeError(f"choose called on terminal node {node}")
 
@@ -354,6 +351,7 @@ class MCTS_ubt:
         media_node = max(self.children[node], key=uct)#self._uct_select(node)
         rand_index = random.randint(0, len(list(self.children[node]))-1)
         node_rand = list(self.children[node])[rand_index]
+
         if uct(media_node) > uct(node):
             print(f'media node is{media_node}')
             print(f'uct of the node is{uct(media_node)} ')
@@ -425,7 +423,7 @@ class MCTS_ubt:
 class Node(ABC):
     """
     A representation of a single board state.
-    MCTS works by constructing a tree of these Nodes.
+    DOTS works by constructing a tree of these Nodes.
     Could be e.g. a chess or checkers board state.
     """
 
@@ -461,6 +459,10 @@ class Node(ABC):
 
 _OT = namedtuple("opt_task", "tup value terminal")
 class opt_task(_OT, Node):
+
+    ############################ design the action space ############################
+    # for this task, xi belongs to [0.1,0.8] with an interval of 0.1
+
     def find_children(board,action):
         if board.terminal:
             return set()
@@ -476,17 +478,13 @@ class opt_task(_OT, Node):
                 tup[index] -= turn
 
             elif flip ==2:
-                #tup[index] -= 5*turn
               for i in range(int(n_dim/5)):
                 index_2 = random.randint(0, len(tup)-1)
                 tup[index_2] = random.randint(1, 8)/10
-              #tup[index] = random.randint(-50, 50)/10
             elif flip ==3:
-              #tup[index] += 5*turn
               for i in range(int(n_dim/10)):
                 index_2 = random.randint(0, len(tup)-1)
                 tup[index_2] = random.randint(1, 8)/10
-              #tup[index] = random.randint(-50, 50)/10
             elif flip ==5:
               tup[index] = random.randint(1, 8)/10
             else:
@@ -503,22 +501,12 @@ class opt_task(_OT, Node):
         is_terminal=False
         return  {opt_task(tuple(t), v, is_terminal) for t, v in  zip(all_tup,all_value)}
 
-    def find_random_child(board):
-        pass
-
-    def find_uct_child(board, action):
-        pass
     def reward(board):
-        # return  oracle1(board.tup, model1,model2)[0][0]
         return  oracle(board.tup)
     def is_terminal(board):
         return board.terminal
 
-    def make_move(board, index, turn):
-        pass
-    def make_random_move(board, index, turn):
-        pass
-
+# return the mostly visited nodes
 def most_visit_node(tree_ubt, X,top_n):
   N_visit = tree_ubt.N
   childrens = [i for i in tree_ubt.children]
@@ -537,9 +525,170 @@ def most_visit_node(tree_ubt, X,top_n):
   X_topN = X_top[ind]
   return X_topN
 
+# return random nodes
 def random_node(new_x,n):
   X_rand1 = [new_x[random.randint(0, len(new_x)-1)] for i in range(n)]
   return X_rand1
+
+################################ End of Part II ################################
+
+
+
+
+
+
+
+
+"""################################################################################
+> # **Part - III**
+
+*   Define and train the CNN model
+
+################################################################################
+"""
+
+################################ Define the CNN model ################################
+
+#########slice the data to five parts
+index_random=np.arange(len(all_data2))
+random.shuffle(index_random)
+index_random1=index_random[:]
+
+def model_training(X,y,name,i,lr):
+      ind=index_random[round(i*len(index_random)/5):round((1+i)*len(index_random)/5)]####1/5 data as test set
+      ind2=np.setdiff1d(index_random, ind)
+      X_train, X_test, y_train, y_test = X[ind2],X[ind], y[ind2],y[ind]
+      inputs = keras.Input((60, 60, 60, 1))
+      x = layers.Conv3D(filters=8, kernel_size=3, activation="elu",padding='same')(inputs)
+      x = layers.MaxPool3D(pool_size=2,padding='same')(x)
+      x = layers.Conv3D(filters=4, kernel_size=3, activation="elu",padding='same')(x)
+      x = layers.MaxPool3D(pool_size=2,padding='same')(x)
+      x = layers.Conv3D(filters=2, kernel_size=3, activation="elu",padding='same')(x)
+      x = layers.MaxPool3D(pool_size=2,padding='same')(x)
+      x = layers.Flatten()(x)
+      x = layers.Dense(units=128, activation="elu")(x)
+      x = layers.Dense(units=64, activation="elu")(x)
+      x = layers.Dense(units=32, activation="elu")(x)
+      outputs = layers.Dense(units=1, activation="linear")(x)
+      model = keras.Model(inputs, outputs, name="3dcnn")
+      mc = ModelCheckpoint(model_folder+'/'+round_name+f"/{name}.h5", monitor='val_loss', mode='min', verbose=1, save_best_only=True)
+      early_stop = EarlyStopping(monitor='val_loss', patience=100, restore_best_weights=True)
+      model.compile(optimizer=Adam(learning_rate=lr), loss='mean_squared_error')
+      model.fit(X_train, y_train, batch_size=32, epochs=5000, validation_data=(X_test, y_test), callbacks=[early_stop,mc])
+      model=keras.models.load_model(model_folder+'/'+round_name+f"/{name}.h5")
+
+      R2,MAE=mar_r2(model,X_test,y_test)
+
+      return model,X_test,y_test,R2,MAE
+
+def model_performance(model,X_test,y_test):
+    perform_list=pd.read_csv(model_folder+'/'+round_name+f'/model_performance_{n_dim}d.csv')
+    y_pred = model.predict(X_test.reshape(len(X_test),60,60,60,1))
+    R2=stats.pearsonr(y_pred.reshape(-1), y_test.reshape(-1))[0]
+    R2=np.asarray(R2).round(5)
+    MAE= metrics.mean_absolute_error(y_test.reshape(-1), y_pred.reshape(-1))
+
+    plt.figure()
+    sns.set()
+    sns.regplot(x=y_pred, y=y_test, color='k')
+    plt.title(('R2:',R2,'MAE:',MAE))
+
+    y_test = pd.DataFrame(y_test)
+    y_test.columns= ['ground truth']
+    y_pred = pd.DataFrame(y_pred)
+    y_pred.columns= ['pred']
+    print("R2",R2,"MAE",MAE)
+    R2MAE = pd.DataFrame([R2,MAE])
+    R2MAE.columns= ['R2&MAE']
+    perform_list2=pd.concat((perform_list,y_test,y_pred,R2MAE),axis=1)
+    perform_list2.drop([perform_list2.columns[0]],axis=1, inplace=True)
+    perform_list2.to_csv(model_folder+'/'+round_name+f'/model_performance_{n_dim}d.csv')
+    return R2,MAE
+
+
+def mar_r2(model,X_test,y_test):
+    y_pred = model.predict(X_test.reshape(len(X_test),60,60,60,1))
+    R2=stats.pearsonr(y_pred.reshape(-1), y_test.reshape(-1))[0]
+    R2=np.asarray(R2).round(5)
+    MAE= metrics.mean_absolute_error(y_test.reshape(-1), y_pred.reshape(-1))
+    return R2,MAE
+
+
+
+
+
+
+
+################################ Train the CNN model ################################
+
+X60 = To60(np.array(all_input).reshape(-1,3,3,3)) # voxelization
+
+### train 5 models for Elastic modulus prediction
+pd.DataFrame(np.empty(0)).to_csv(model_folder+'/'+round_name+f'/model_performance_{n_dim}d.csv')
+for i in range(5):
+    trytime=0
+    model1,X_test1,y_test1,R21,MAE1 = model_training(X60,all_data,f'E{i}',i,0.001) # train the model of E
+    R20=R21
+    while R21 < 0.95 and trytime<5:
+        trytime+=1
+        model1,X_test1,y_test1,R21,MAE1 = model_training(X60,all_data,f'E{i+10}',i,0.002) # train the model of E
+        if R21>R20:
+            R20=R21
+            model1.save("Results/"+round_name+f'/E{i}.h5')
+    model1=keras.models.load_model(model_folder+'/'+round_name+f'/E{i}.h5')
+    R21,MAE1=model_performance(model1,X_test1,y_test1) # show and save the performance of the model
+
+### train 5 models for Yield strength prediction
+for i in range(5):
+    trytime=0
+    model2,X_test2,y_test2,R22,MAE2 = model_training(X60,all_data2,f'Y{i}',i,0.005) # train the model of Y
+    R20=R22
+    while R22 < 0.95 and trytime<5:
+        trytime+=1
+        model2,X_test2,y_test2,R22,MAE2 = model_training(X60,all_data2,f'Y{i+10}',i,0.002) # train the model of Y
+        if R22>R20:
+            R20=R22
+            model2.save("Results/"+round_name+f'/Y{i}.h5')
+    model2=keras.models.load_model(model_folder+'/'+round_name+f'/Y{i}.h5')
+    R22,MAE2=model_performance(model2,X_test2,y_test2) # show and save the performance of the model
+
+
+
+
+
+
+################################ Load and use the CNN model ################################
+
+path = os.getcwd()
+name2=path+'/Results/'+round_name+'/'
+models=dict()
+model_E_list=[]
+for i in range(0,n_model):
+    modelname = f'E{i}'
+    model_E_list.append(modelname)
+    models[modelname]= keras.models.load_model(name2+modelname+'.h5')
+model_Y_list=[]
+for i in range(0,n_model):
+    modelname = f'Y{i}'
+    model_Y_list.append(modelname)
+    models[modelname]= keras.models.load_model(name2+modelname+'.h5')
+
+###emsemble all models to predict
+def emsemble_predict1(S,n_model=5):##E
+    pred_all=0
+    for i in range(n_model):
+        temp=models[model_E_list[i]].predict(S.reshape(len(S),60,60,60,1))
+        pred_all+=temp
+    pred_all/=n_model
+    return pred_all
+
+def emsemble_predict2(S,n_model=5):##Y
+    pred_all=0
+    for i in range(n_model):
+        temp=models[model_Y_list[i]].predict(S.reshape(len(S),60,60,60,1))
+        pred_all+=temp
+    pred_all/=n_model
+    return pred_all
 
 def oracle(x):
     try:
@@ -547,11 +696,9 @@ def oracle(x):
        pred = emsemble_predict1(np.array(x60).reshape(len(x60),60,60,60,1))
        pred = np.array(pred).reshape(len(x60))
        whe=np.where((pred>2650/rate)|(pred<2350/rate))
-       # pred[whe[0]]=2500/rate
        pred2 = emsemble_predict2(np.array(x60).reshape(len(x60),60,60,60,1))
        pred2 = np.array(pred2).reshape(len(x60))
        pred2[whe[0]]=0
-       # pred3 = pred2/pred
     except:
        x60=To60(np.array(x).reshape(1,3,3,3))
        pred = emsemble_predict1(np.array(x60).reshape(1,60,60,60,1))
@@ -565,7 +712,94 @@ def oracle(x):
     return pred2
 
 
-def single_run(X,y,initial_X,initial_y,greedy_UCT,UCT_low):#[ 3*3*3 matrices, yield, model1, model2, top 3*3*3 matrix,greedy_UCT,UCT_low]
+
+
+
+
+################################ model performance visualization ################################
+
+def model_visual1(X,y,i): # E
+    model1=models[model_E_list[i]]
+    ind=index_random[round(i*len(index_random)/5):round((1+i)*len(index_random)/5)]####1/5 data as test set
+    ind2=np.setdiff1d(index_random, ind)
+    X_train, X_test, y_train, y_test = X[ind2],X[ind], y[ind2],y[ind]
+
+    y_pred = model1.predict(X_test.reshape(len(X_test),60,60,60,1))
+    R2=stats.pearsonr(y_pred.reshape(-1), y_test.reshape(-1))[0]
+    R2=np.asarray(R2).round(3)
+    MAE= metrics.mean_absolute_error(y_test.reshape(-1), y_pred.reshape(-1))
+    MAE=np.asarray(MAE).round(5)
+    MAPE= metrics.mean_absolute_percentage_error(y_test.reshape(-1), y_pred.reshape(-1))
+    MAPE=np.asarray(MAPE).round(5)
+    plt.figure()
+    sns.set()
+    sns.regplot(x=y_pred, y=y_test, color='k')
+    plt.title((f'E prediction by model #{i+1}: ','R2:',R2,'MAE:',MAE,'MAPE:',MAPE))
+    plt.xlabel('Predicted elasctic modulus')
+    plt.xlabel('Simulated elasctic modulus')
+
+def model_visual2(X,y,i):# Y
+    model2=models[model_Y_list[i]]
+    ind=index_random[round(i*len(index_random)/5):round((1+i)*len(index_random)/5)]####1/5 data as test set
+    ind2=np.setdiff1d(index_random, ind)
+    X_train, X_test, y_train, y_test = X[ind2],X[ind], y[ind2],y[ind]
+
+    y_pred = model2.predict(X_test.reshape(len(X_test),60,60,60,1))
+    R2=stats.pearsonr(y_pred.reshape(-1), y_test.reshape(-1))[0]
+    R2=np.asarray(R2).round(3)
+    MAE= metrics.mean_absolute_error(y_test.reshape(-1), y_pred.reshape(-1))
+    MAE=np.asarray(MAE).round(5)
+    MAPE= metrics.mean_absolute_percentage_error(y_test.reshape(-1), y_pred.reshape(-1))
+    MAPE=np.asarray(MAPE).round(5)
+    plt.figure()
+    sns.set()
+    sns.regplot(x=y_pred, y=y_test, color='k')
+    plt.title((f'Y prediction by model #{i+1}: ','R2:',R2,'MAE:',MAE,'MAPE:',MAPE))
+    plt.xlabel('Predicted yield strength')
+    plt.xlabel('Simulated yield strength')
+
+models[model_Y_list[0]].summary()
+for i in range(5):
+    model_visual1(X60,all_data,i)
+for i in range(5):
+    model_visual2(X60,all_data2,i)
+
+################################ End of Part III ###############################
+
+
+
+
+
+
+
+
+"""################################################################################
+> # **Part - IV**
+
+*   Optimization using DOTS
+
+################################################################################
+
+Input description:
+*   all_input: initial data (Density matrix)
+*   X60      : voxelized architected materials
+*   all_data : initial label (Elastic modulus)
+*   all_data2: initial label (Yield strength)
+
+Output description:
+
+*   top_all    : newly sampled data (Density matrix)
+*   top_select2: final selected sampled data (Density matrix)
+"""
+
+
+
+
+
+################################ Optimization using DOTS ###############################
+
+
+def single_run(X,y,initial_X,initial_y,greedy_UCT,UCT_low):
     initial_X=initial_X.reshape(27)
     if greedy_UCT== True:
         values = max(y)
@@ -575,7 +809,7 @@ def single_run(X,y,initial_X,initial_y,greedy_UCT,UCT_low):#[ 3*3*3 matrices, yi
         exp_weight = weight * values
 
     board_uct = opt_task(tup=tuple(initial_X), value=initial_y, terminal=False)
-    tree_ubt = MCTS_ubt(exploration_weight=exp_weight)
+    tree_ubt = DOTS(exploration_weight=exp_weight)
     boards = []
     boards_rand = []
     for i in tqdm(range(0, rollout_round, 1)):
@@ -598,7 +832,6 @@ def single_run(X,y,initial_X,initial_y,greedy_UCT,UCT_low):#[ 3*3*3 matrices, yi
       if has_true == False:
         new_pred.append(j)
         new_x.append(temp_x)
-    #print(new_pred)
     new_x= np.array(new_x)
     new_pred = np.array(new_pred)
 
@@ -611,8 +844,8 @@ def single_run(X,y,initial_X,initial_y,greedy_UCT,UCT_low):#[ 3*3*3 matrices, yi
     return X_next,exp_weight
 
 
-def run(X60,X,y,yy2, rollout_round):#[60*60*60 matrix, 3*3*3 matrix, E, yield, rollout round]
-    
+def run(X60,X,y,yy2, rollout_round):
+
     y2=np.array(yy2)
     whe=np.where((y>2650/rate)|(y<2350/rate))
     y2[whe[0]]=0
@@ -636,7 +869,7 @@ def run(X60,X,y,yy2, rollout_round):#[60*60*60 matrix, 3*3*3 matrix, E, yield, r
       top_temp = x_current_top[i]
       print("true of top:",y_top[i])
       print("top_temp:",top_temp)
-      x,exp_weight = single_run(X,y2,top_temp,y_top[i],greedy_UCT,UCT_low)#[ 3*3*3 matrices, yield, model1, model2, top 3*3*3 matrix,greedy_UCT,UCT_low]
+      x,exp_weight = single_run(X,y2,top_temp,y_top[i],greedy_UCT,UCT_low)
       X_top.append(x)
       top_selections.append(top_temp)
 
@@ -649,71 +882,6 @@ def run(X60,X,y,yy2, rollout_round):#[60*60*60 matrix, 3*3*3 matrix, E, yield, r
     return top_X
 
 
-###emsemble all models to predict
-def emsemble_predict1(S,n_model=5):##E
-    pred_all=0
-    for i in range(n_model):
-        temp=models[model_E_list[i]].predict(S.reshape(len(S),60,60,60,1))
-        # print(temp.shape)
-        pred_all+=temp
-    pred_all/=n_model
-    return pred_all 
-
-def emsemble_predict2(S,n_model=5):##Y
-    pred_all=0
-    for i in range(n_model):
-        temp=models[model_Y_list[i]].predict(S.reshape(len(S),60,60,60,1))
-        # print(temp.shape)
-        pred_all+=temp
-    pred_all/=n_model
-    return pred_all 
-
-X60 = To60(np.array(all_input).reshape(-1,3,3,3))
-###train 5 models for each task
-pd.DataFrame(np.empty(0)).to_csv(model_folder+'/'+round_name+f'/model_performance_{n_dim}d.csv')
-for i in range(5):
-    trytime=0
-    model1,X_test1,y_test1,R21,MAE1 = model_training(X60,all_data,f'E{i}',i,0.001)#train the model of E
-    R20=R21
-    while R21 < 0.95 and trytime<5:
-        trytime+=1
-        model1,X_test1,y_test1,R21,MAE1 = model_training(X60,all_data,f'E{i+10}',i,0.002)#train the model of E
-        if R21>R20:
-            R20=R21
-            model1.save("Results/"+round_name+f'/E{i}.h5')
-    model1=keras.models.load_model(model_folder+'/'+round_name+f'/E{i}.h5')
-    R21,MAE1=model_performance(model1,X_test1,y_test1)#show and save the performance of the model
-
-for i in range(5):
-    trytime=0
-    model2,X_test2,y_test2,R22,MAE2 = model_training(X60,all_data2,f'Y{i}',i,0.005)#train the model of Y
-    R20=R22
-    while R22 < 0.95 and trytime<5:
-        trytime+=1
-        model2,X_test2,y_test2,R22,MAE2 = model_training(X60,all_data2,f'Y{i+10}',i,0.002)#train the model of Y
-        if R22>R20:
-            R20=R22
-            model2.save("Results/"+round_name+f'/Y{i}.h5')
-    model2=keras.models.load_model(model_folder+'/'+round_name+f'/Y{i}.h5')
-    R22,MAE2=model_performance(model2,X_test2,y_test2)#show and save the performance of the model
-
-
-
-#####load all models and store in a dict "models"
-path = os.getcwd()
-name2=path+'/Results/'+round_name+'/'
-models=dict()
-model_E_list=[]
-for i in range(0,n_model):
-    modelname = f'E{i}'
-    model_E_list.append(modelname)
-    models[modelname]= keras.models.load_model(name2+modelname+'.h5')
-model_Y_list=[]
-for i in range(0,n_model):
-    modelname = f'Y{i}'
-    model_Y_list.append(modelname)
-    models[modelname]= keras.models.load_model(name2+modelname+'.h5')
-################################################
 
 top_all=[]
 for i in range(list1[0]):
@@ -721,6 +889,11 @@ for i in range(list1[0]):
     print(top_X)
     top_all.append(top_X)
 
+
+
+
+
+################################ Select final samples ###############################
 
 def TSNEPCA(all_input, sample_input, sample_score):
     from sklearn.manifold import TSNE
@@ -742,7 +915,7 @@ def TSNEPCA(all_input, sample_input, sample_score):
     total_tsne0 = total_tsne[:, 0]
     total_tsne1 = total_tsne[:, 1]
     print('TSNE done!')
-    ###########################nearest neighbor distance ranking
+    ########################### nearest neighbor distance ranking ###########################
     sample_dist=[]##nearest neighbor distance
     for i in range(len(sample_input)):
         x1 = total_tsne0[len(all_input)+i]
@@ -759,16 +932,12 @@ def TSNEPCA(all_input, sample_input, sample_score):
         sample_dist.append(dist_temp)
     sample_dist=np.array(sample_dist)
     dist_rank=np.argsort(sample_dist)
-    # print(sample_dist)
-    # print(dist_rank)
-    ###############################score ranking
+
+    ############################### score ranking ###########################
     score_rank=np.argsort(sample_score.reshape(-1))
-    # print(sample_input2)
-    # print(sample_score)
-    # print(score_rank)
-    ###################################
+
+    ############################## ranking by score and distance ###########################
     all_rank=dist_rank+score_rank
-    # ind = np.argpartition(all_rank, -top_sample)[-top_sample:]
     top_select = round(top_sample*3/4)
     random_select = round(top_sample/4)
     ind = np.argpartition(all_rank, -top_select)[-top_select:]
@@ -777,12 +946,12 @@ def TSNEPCA(all_input, sample_input, sample_score):
     print(ind)
     ind = np.concatenate((ind,ind2))
     print(ind)
-    
+
     plt.figure()
     plt.hist(sample_dist, bins=50, color='green', edgecolor='black',
-             label='all samples') 
+             label='all samples')
     plt.hist(sample_dist[ind], bins=30, color='yellow', edgecolor='black',
-             label='top samples') 
+             label='top samples')
     plt.title('nearest neighbor distance')
     plt.xlabel('Value')
     plt.ylabel('Frequency')
@@ -798,7 +967,7 @@ def TSNEPCA(all_input, sample_input, sample_score):
     plt.scatter(total_tsne0[len(all_input)+ind], total_tsne1[len(
         all_input)+ind], color='green', label='top-sampled data')
     plt.title('TSNE ')
-    plt.colorbar()
+    # plt.colorbar()
     plt.legend()
     plt.savefig(model_folder+'/'+round_name+'/TSNE.png')
 
@@ -815,20 +984,14 @@ def TSNEPCA(all_input, sample_input, sample_score):
     plt.scatter(total_pca[len(all_input)+ind, 0], total_pca[len(all_input) +
                 ind, 1], color='green', label='top-sampled data')
     plt.title('PCA')
-    plt.colorbar()
+    # plt.colorbar()
     plt.legend()
     plt.savefig(model_folder+'/'+round_name+'/PCA.png')
-    
+
     return ind
 
 
-top_sample=20
 
-# sample_score=[]
-# for i in range(5):
-#     model2=keras.models.load_model(f'Y{i}.h5')
-#     mat60=To60(top_all[i].reshape(-1,3,3,3))
-#     sample_score.append(model2.predict(mat60))
 top_all2=np.array(top_all).reshape(-1,3,3,3)
 top_all3=np.unique(top_all2,axis=0)
 
@@ -844,9 +1007,34 @@ scipy.io.savemat(model_folder+'/'+round_name+'/top_matrix_3x3x3.mat', {'mydata':
 
 
 
-# umat=np.ones((10,27))
-# range1=np.arange(0.25,0.35,0.01).reshape(-1,1)##coefficient such as a in a*sinx
-# umat2=umat*range1
-# umat3=umat2.reshape(-1,3,3,3)
-# scipy.io.savemat('uniform.mat', {'mydata':np.array(umat3)})
 
+
+################################ Visualization ###############################
+
+sample_score0=emsemble_predict1(mat60) # predicted E values of sampled points
+
+
+mat60_top=To60(top_select2)
+top_sample_E = emsemble_predict1(mat60_top) # predicted E values of top-sampled points
+top_sample_Y = emsemble_predict2(mat60_top) # predicted Y values of top-sampled points
+
+initial_E = emsemble_predict1(X60) # predicted E values of initial points
+initial_Y = emsemble_predict2(X60) # predicted Y values of initial points
+
+plt.figure()
+plt.scatter(initial_E * 100, initial_Y, label='initial data')
+plt.scatter(sample_score0 * 100,sample_score, label='sampled data')
+plt.scatter(top_sample_E * 100, top_sample_Y, label='top-sampled data')
+plt.xlabel('predicted elastic modulus (MPa)')
+plt.ylabel('predicted yield strength (MPa)')
+plt.legend()
+
+################################ End of Part IV ################################
+
+"""################################################################################
+
+---------------------------------------------------------------------------- That's all folks ! ----------------------------------------------------------------------------
+
+
+################################################################################
+"""
