@@ -12,16 +12,16 @@ A tremendous range of design tasks in materials, physics, and biology can be for
 
 The code requires `python>=3.9`. Installation Tensorflow and Keras with CUDA support is stroongly recommended.
 
-Install DOTS:
+Install MLTS:
 
 ```
-pip install git+https://github.com/Bop2000/DOTS.git
+pip install git+https://github.com/Bop2000/MLTS.git
 ```
 
 or clone the repository to local devices:
 
 ```
-git clone git@github.com:Bop2000/DOTS.git
+git clone git@github.com:Bop2000/MLTS.git
 cd DOTS; pip install -e .
 ```
 
