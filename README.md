@@ -1,4 +1,4 @@
-# Derivative-free stOchastic Tree Search (DOTS)
+# Autonomous virtual laboratories driven by machine learning tree search (AVL-MLTS)
 
 ## Paper
 Click [here](https://arxiv.org/abs/2404.04062)
