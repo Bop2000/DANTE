@@ -1,4 +1,4 @@
-# Autonomous virtual laboratories driven by machine learning tree search (AVL-MLTS)
+# Autonomous materials design with machine learning and tree search (AMD-MLTS)
 
 ## Paper
 Click [here](https://arxiv.org/abs/2404.04062)
