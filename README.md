@@ -1,6 +1,6 @@
 # Deep Active learning with Neural-surrogate-guided Tree Exploration (DANTE)
 
-## Paper
+## What is DANTE
 Click [here](https://arxiv.org/abs/2404.04062)
 
 ## Introduction
