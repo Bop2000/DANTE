@@ -14,3 +14,8 @@ wheels/
 .idea
 .vscode
 _darcs
+
+# General mac
+.DS_Store
+.AppleDouble
+.LSOverride
