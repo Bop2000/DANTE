@@ -36,7 +36,6 @@ setup(
         "openpyxl           == 3.1.2",
     ],
     package_data={
-        "": ["LICENSE", "README.md"],
-        "sigma": ["*.py"],
+        "": ["LICENSE", "README.md"]
     },
 )
