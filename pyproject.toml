@@ -1,0 +1,46 @@
+[build-system]
+requires = ["setuptools>=75.1.0", "wheel>=0.44.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "dante"
+version = "0.1.0"
+description = "Dante: Deep Active Learning using Neural Surrogates and Tree Exploration"
+readme = "README.md"
+requires-python = ">=3.10"
+license = {text = "MIT"}
+authors = [
+    {name = "Po-Yen Tung", email = "poyentung@gmail.com"},
+    {name = "Bo Peng", email = "bop2000@gmail.com"},
+    {name = "Ye Wei", email = "ye.wei@epfl.ch"},
+]
+
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+]
+
+[project.dependencies]
+numpy = "^1.26.4"
+pandas = "^1.4.4"
+matplotlib = "^3.6.3"
+seaborn = "^0.12.2"
+scikit-learn = "^1.2.2"
+tensorflow = "^2.16.2"
+hydra-core = "^1.3.2"
+pytest = "^8.3.3"
+jupyter = "^1.0.0"
+tqdm = "^4.66.4"
+pytest-sugar = "^1.0.0"
+
+[project.urls]
+"Homepage" = "https://github.com/Bop2000/DANTE"
+
+[tool.setuptools]
+packages = ["dante"]
+
+[tool.setuptools.package-data]
+dante = ["LICENSE", "README.md"]
