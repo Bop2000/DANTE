@@ -6,7 +6,9 @@ DANTE is a deep active learning pipeline that combines deep neural surrogate mod
 
 For more details, please refer to our [paper](https://arxiv.org/abs/2404.04062).
 
-<img src="assets/dante_flowchart.png" alt="DANTE Flowchart" width="600">
+<p align="center">
+  <img src="assets/dante_flowchart.png" alt="DANTE Flowchart" width="600">
+</p>
 
 ## Installation
 
