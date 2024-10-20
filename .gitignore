@@ -19,3 +19,8 @@ _darcs
 .DS_Store
 .AppleDouble
 .LSOverride
+
+
+# test files
+*.keras
+.pytest_cache
