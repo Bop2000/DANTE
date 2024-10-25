@@ -22,6 +22,7 @@ class TreeExploration:
     ratio: float = 0.1
     exploration_weight: float = 0.1
     num_list: list[int] = field(default_factory=lambda: [15, 3, 2])
+    num_samples_per_acquisition: int = 20
 
     def choose(self, node):
         """Choose the best successor of node."""
@@ -193,7 +194,7 @@ class TreeExploration:
             self.exploration_weight = exp_weight
             board_uct = OptTask(tup=tuple(initial_X), value=values, terminal=False)
             x_top.append(self.single_rollout(x, board_uct, self.num_list))
-        return np.vstack(x_top)[:20]
+        return np.vstack(x_top)[:self.num_samples_per_acquisition]
 
     def _get_unique_top_points(self, X: np.ndarray, y: np.ndarray) -> np.ndarray:
         ind = np.argsort(y)
