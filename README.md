@@ -41,27 +41,50 @@ python -m pytest -m "not slow"
 Here's a minimal example of how to use DANTE:
 
 ```python
-from dante.deep_active_learning import DeepActiveLearning
-from dante.neural_surrogate import AckleySurrogateModel
+import numpy as np
 from dante.obj_functions import Ackley
+from dante.neural_surrogate import AckleySurrogateModel
+from dante.tree_exploration import TreeExploration
+from dante.utils import generate_initial_samples
 
-# Initialise the Ackley objective function with 3 dimensions
-obj_function = Ackley(dims=3)
+# Define parameters
+NUM_DIMENSIONS = 10
+NUM_INITIAL_SAMPLES = 100
+NUM_ACQUISITIONS = 30
+SAMPLES_PER_ACQUISITION = 20
 
-# Create a surrogate model for the Ackley function, training for 5 epochs
-surrogate = AckleySurrogateModel(input_dims=obj_function.dims, epochs=5)
+# Initialise the objective function and surrogate model
+obj_function = Ackley(dims=NUM_DIMENSIONS)
+surrogate = AckleySurrogateModel(input_dims=NUM_DIMENSIONS, epochs=5)
 
-# Set up the Deep Active Learning process
-# We'll use 30 number of data acquisition in total and start with 10 initial samples
-dal = DeepActiveLearning(
-    func=obj_function,
-    num_data_acquisition=30,
-    surrogate=surrogate,
-    num_init_samples=10,
+# Generate initial samples
+input_x, input_y = generate_initial_samples(
+    obj_function, num_init_samples=NUM_INITIAL_SAMPLES, apply_scaling=True
 )
 
-# Begin the iterative Deep Active Learning process
-dal.run()
+# Main optimisation loop
+for i in range(NUM_ACQUISITIONS):
+    # Train surrogate model and create tree explorer
+    trained_surrogate = surrogate(input_x, input_y)
+    
+    # Perform tree exploration to find promising samples
+    tree_explorer = TreeExploration(func=obj_function, model=trained_surrogate, num_samples_per_acquisition=SAMPLES_PER_ACQUISITION)
+    new_x = tree_explorer.rollout(input_x, input_y, iteration=i)
+    new_y = np.array([obj_function(x, apply_scaling=True) for x in new_x])
+    
+    # Update dataset with new samples
+    input_x = np.concatenate((input_x, new_x), axis=0)
+    input_y = np.concatenate((input_y, new_y))
+    
+    # Check for convergence
+    if np.isclose(input_y.min(), 0.0):
+        print(f"Optimal solution found after {i+1} iterations.")
+        break
+
+# Print results
+best_index = np.argmin(input_y)
+print(f"Best solution: {input_x[best_index]}")
+print(f"Best objective value: {obj_function(input_x[best_index], apply_scaling=False)}")
 ```
 
 ## How to use DANTE to optimise your own function?
