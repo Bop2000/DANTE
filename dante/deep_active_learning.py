@@ -31,7 +31,10 @@ class DeepActiveLearning:
         for i in range(self.num_data_acquisition // self.num_samples_per_acquisition):
             model = self.surrogate(self.input_x, self.input_scaled_y, verbose=True)
             tree_explorer = TreeExploration(
-                func=self.func, model=model, **self.tree_explorer_args
+                func=self.func,
+                model=model,
+                num_samples_per_acquisition=self.num_samples_per_acquisition,
+                **self.tree_explorer_args,
             )
             top_x = tree_explorer.rollout(
                 self.input_x,
