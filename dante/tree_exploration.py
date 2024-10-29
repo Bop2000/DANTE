@@ -107,7 +107,9 @@ class TreeExploration:
         # highest pred value nodes and random nodes
         new_x = self.data_process(X, boards)
         try:
-            new_pred = self.model.predict(np.array(new_x).reshape(len(new_x), -1, 1))
+            new_pred = self.model.predict(
+                np.array(new_x).reshape(len(new_x), -1, 1), verbose=False
+            )
             new_pred = np.array(new_pred).reshape(len(new_x))
         except:
             pass
@@ -123,7 +125,7 @@ class TreeExploration:
             ]
         elif len(new_x) == 0:
             new_pred = self.model.predict(
-                np.array(new_rands).reshape(len(new_rands), -1, 1)
+                np.array(new_rands).reshape(len(new_rands), -1, 1), verbose=False
             ).reshape(-1)
             ind = np.argsort(new_pred)[-top_n:]
             top_X = new_rands[ind]
@@ -146,10 +148,10 @@ class TreeExploration:
         return top_X
 
     def rollout(
-            self,
-            x: np.ndarray,
-            y: np.ndarray,
-            iteration: int,
+        self,
+        x: np.ndarray,
+        y: np.ndarray,
+        iteration: int,
     ) -> np.ndarray:
         """Perform rollout based on the function type."""
         if self.func.name in [
@@ -159,26 +161,33 @@ class TreeExploration:
         ]:
             return self._rollout_for_specific_functions(x, y)
         else:
-            return self._rollout_for_other_functions(
-                x, y, self.rollout_round)
+            return self._rollout_for_other_functions(x, y, self.rollout_round)
 
     def _rollout_for_specific_functions(
-            self, x: np.ndarray, y: np.ndarray,
+        self,
+        x: np.ndarray,
+        y: np.ndarray,
     ) -> np.ndarray:
         index_max = np.argmax(y)
         print(max(y))
         initial_x = x[index_max, :]
-        values = float(self.model.predict(initial_x.reshape(1, -1, 1)).reshape(1))
+        values = float(
+            self.model.predict(initial_x.reshape(1, -1, 1), verbose=False).reshape(1)
+        )
         board_uct = OptTask(tup=tuple(initial_x), value=values, terminal=False)
         self.exploration_weight = self.ratio * abs(max(y))
-        num_list = [18, 2, 0] if self.func.name == BuiltInSyntheticFunction.RASTRIGIN else [15, 3, 2]
+        num_list = (
+            [18, 2, 0]
+            if self.func.name == BuiltInSyntheticFunction.RASTRIGIN
+            else [15, 3, 2]
+        )
         return self.single_rollout(x, self.rollout_round, board_uct, num_list=num_list)
 
     def _rollout_for_other_functions(
-            self,
-            x: np.ndarray,
-            y: np.ndarray,
-            iteration: int,
+        self,
+        x: np.ndarray,
+        y: np.ndarray,
+        iteration: int,
     ) -> np.ndarray:
         UCT_low = iteration % 100 >= 80
         x_current_top = self._get_unique_top_points(x, y)
@@ -188,13 +197,15 @@ class TreeExploration:
             exp_weight = self.ratio * abs(values)
             if UCT_low:
                 values = float(
-                    self.model.predict(initial_X.reshape(1, -1, 1)).reshape(1)
+                    self.model.predict(
+                        initial_X.reshape(1, -1, 1), verbose=False
+                    ).reshape(1)
                 )
                 exp_weight = self.ratio * 0.5 * values
             self.exploration_weight = exp_weight
             board_uct = OptTask(tup=tuple(initial_X), value=values, terminal=False)
             x_top.append(self.single_rollout(x, board_uct, self.num_list))
-        return np.vstack(x_top)[:self.num_samples_per_acquisition]
+        return np.vstack(x_top)[: self.num_samples_per_acquisition]
 
     def _get_unique_top_points(self, X: np.ndarray, y: np.ndarray) -> np.ndarray:
         ind = np.argsort(y)
@@ -225,7 +236,9 @@ class TreeExploration:
         """Update the `children` dict with the children of `node`"""
         if node not in self.children:
             action = list(range(len(node.tup)))
-            self.children[node] = node.find_children(node, action, self.func, self.model)
+            self.children[node] = node.find_children(
+                node, action, self.func, self.model
+            )
 
     def _simulate(self, node) -> float:
         """Returns the reward for a random simulation (to completion) of `node`"""
@@ -302,7 +315,7 @@ class OptTask(_OT, Node):
 
         all_tuples = OptTask._generate_child_tuples(board, action, func)
         all_values = model.predict(
-            np.array(all_tuples).reshape(len(all_tuples), func.dims, 1)
+            np.array(all_tuples).reshape(len(all_tuples), func.dims, 1), verbose=False
         )
 
         return {OptTask(tuple(t), v[0], False) for t, v in zip(all_tuples, all_values)}
@@ -311,7 +324,9 @@ class OptTask(_OT, Node):
     def _generate_child_tuples(board, action, func):
         """Generate child tuples based on the current board state and function parameters."""
         turn = func.turn
-        possible_values = np.arange(func.lb[0], func.ub[0] + func.turn, func.turn).round(5)
+        possible_values = np.arange(
+            func.lb[0], func.ub[0] + func.turn, func.turn
+        ).round(5)
         all_tuples = []
 
         for index in action:
@@ -350,7 +365,7 @@ class OptTask(_OT, Node):
     @staticmethod
     def reward(board, model):
         """Calculate the reward for the current board state."""
-        values = model.predict(np.array(board.tup).reshape(1, -1, 1))
+        values = model.predict(np.array(board.tup).reshape(1, -1, 1), verbose=False)
         return float(np.array(values).reshape(1))
 
     def is_terminal(self):

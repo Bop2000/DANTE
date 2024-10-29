@@ -3,9 +3,11 @@ This module provides classes for training neural network models for various synt
 It includes an abstract base class and specific implementations for different synthetic functions.
 """
 
-from enum import Enum, auto
 from abc import ABC, abstractmethod
+from dataclasses import dataclass, field
+from enum import Enum, auto
 from pathlib import Path
+
 import matplotlib.pyplot as plt
 import numpy as np
 import seaborn as sns
@@ -25,9 +27,6 @@ from tensorflow.keras.layers import (
 )
 from tensorflow.keras.models import Sequential
 from tensorflow.keras.optimizers import Adam
-
-
-from dataclasses import dataclass, field
 
 
 @dataclass
@@ -68,7 +67,7 @@ class SurrogateModel(ABC):
         """
         pass
 
-    def __call__(self, x, y, verbose=False):
+    def __call__(self, x, y, verbose=0):
         """
         Train the model on the given data.
 
@@ -113,7 +112,9 @@ class SurrogateModel(ABC):
         )
 
         self.model = keras.models.load_model(self.check_point_path)
-        y_pred = self.model.predict(x_test.reshape(len(x_test), self.input_dims, 1))
+        y_pred = self.model.predict(
+            x_test.reshape(len(x_test), self.input_dims, 1), verbose=verbose
+        )
 
         self.evaluate_model(y_test, y_pred)
 
@@ -138,7 +139,7 @@ class SurrogateModel(ABC):
         mae = np.asarray(mae).round(5)
         mape = np.asarray(mape).round(5)
         print(
-            f"Model performance: R2 {r_squared**2:.3f}, MAE {mae:.5f}, MAPE {mape:.5f}"
+            f"Model performance: R2 {r_squared ** 2:.3f}, MAE {mae:.5f}, MAPE {mape:.5f}"
         )
 
         plt.figure()
@@ -492,7 +493,7 @@ class PredefinedSurrogateModel(Enum):
 
 
 def get_surrogate_model(
-    f: PredefinedSurrogateModel | str | None = None
+    f: PredefinedSurrogateModel | str | None = None,
 ) -> SurrogateModel:
     """
     Factory function to get the appropriate SurrogateModel.
