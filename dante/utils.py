@@ -41,7 +41,7 @@ class Tracker:
         )
 
     def track(
-            self, result: float, x: Optional[np.ndarray] = None, save: bool = False
+        self, result: float, x: Optional[np.ndarray] = None, save: bool = False
     ) -> None:
         """Track a new result and update the best if necessary.
 
@@ -72,14 +72,16 @@ class Tracker:
 
 
 def generate_initial_samples(
-        objective_function: ObjectiveFunction, sample_count: int = 200, apply_scaling: bool = False
+    objective_function: ObjectiveFunction,
+    num_init_samples: int = 200,
+    apply_scaling: bool = False,
 ) -> tuple[np.ndarray, np.ndarray]:
     """
     Generate initial random samples for the given objective function.
 
     Args:
         objective_function (ObjectiveFunction): An instance of a class derived from ObjectiveFunction.
-        sample_count (int): Number of samples to generate. Default is 200.
+        num_init_samples (int): Number of samples to generate. Default is 200.
         apply_scaling (bool): Whether to apply scaling to the function output. Default is False.
 
     Returns:
@@ -87,20 +89,26 @@ def generate_initial_samples(
             input_samples (np.ndarray): Array of input points.
             output_values (float): Function output value.
     """
-    assert sample_count > 0, "sample_count must be positive"
+    assert num_init_samples > 0, "sample_count must be positive"
 
     dimension_count = objective_function.dims
     lower_bounds, upper_bounds = objective_function.lb, objective_function.ub
     step_size = objective_function.turn
 
     # Generate random points within the function's bounds
-    value_range = np.arange(lower_bounds[0], upper_bounds[0] + step_size, step_size).round(5)
-    input_samples = np.random.choice(value_range, size=(sample_count, dimension_count))
+    value_range = np.arange(
+        lower_bounds[0], upper_bounds[0] + step_size, step_size
+    ).round(5)
+    input_samples = np.random.choice(
+        value_range, size=(num_init_samples, dimension_count)
+    )
 
-    output_values = np.array([objective_function(x, apply_scaling=apply_scaling) for x in input_samples])
+    output_values = np.array(
+        [objective_function(x, apply_scaling=apply_scaling) for x in input_samples]
+    )
 
     print(f"\n{'=' * 20}")
-    print(f"{sample_count} initial data points collection completed.")
+    print(f"{num_init_samples} initial data points collection completed.")
     print(f"{'=' * 20}\n")
 
     return input_samples, output_values
