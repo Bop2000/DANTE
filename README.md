@@ -66,9 +66,9 @@ input_x, input_y = generate_initial_samples(
 for i in range(NUM_ACQUISITIONS):
     # Train surrogate model and create tree explorer
     trained_surrogate = surrogate(input_x, input_y)
+    tree_explorer = TreeExploration(func=obj_function, model=trained_surrogate, num_samples_per_acquisition=SAMPLES_PER_ACQUISITION)
     
     # Perform tree exploration to find promising samples
-    tree_explorer = TreeExploration(func=obj_function, model=trained_surrogate, num_samples_per_acquisition=SAMPLES_PER_ACQUISITION)
     new_x = tree_explorer.rollout(input_x, input_y, iteration=i)
     new_y = np.array([obj_function(x, apply_scaling=True) for x in new_x])
     
