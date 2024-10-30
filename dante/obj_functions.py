@@ -57,6 +57,9 @@ class Ackley(ObjectiveFunction):
     def scaled(self, y: float) -> float:
         return 100 / (y + 0.01)
 
+    def rescaled(self, y: float) -> float:
+        return 100 / y - 0.01
+
     def __call__(self, x: np.ndarray, apply_scaling: bool = False) -> float:
         x = self._preprocess(x)
         y = float(
@@ -83,6 +86,9 @@ class Rastrigin(ObjectiveFunction):
     def scaled(self, y: float) -> float:
         return -1 * y
 
+    def rescaled(self, y: float) -> float:
+        return -1 * y
+
     def __call__(self, x: np.ndarray, apply_scaling: bool = False) -> float:
         x = self._preprocess(x)
         n = len(x)
@@ -103,6 +109,9 @@ class Rosenbrock(ObjectiveFunction):
 
     def scaled(self, y: float) -> float:
         return 100 / (y / (self.dims * 100) + 0.01)
+
+    def rescaled(self, y: float) -> float:
+        return 100 * (self.dims * 100) / y - 0.01
 
     def __call__(self, x: np.ndarray, apply_scaling: bool = False) -> float:
         x = self._preprocess(x)
@@ -125,6 +134,9 @@ class Griewank(ObjectiveFunction):
     def scaled(self, y: float) -> float:
         return 10 / (y / self.dims + 0.001)
 
+    def rescaled(self, y: float) -> float:
+        return 10 * self.dims / y - 0.001
+
     def __call__(self, x: np.ndarray, apply_scaling: bool = False) -> float:
         x = self._preprocess(x)
         sum_term = np.sum(x**2)
@@ -145,6 +157,9 @@ class Michalewicz(ObjectiveFunction):
         self.tracker = Tracker(self.name + str(self.dims))
 
     def scaled(self, y: float) -> float:
+        return -1 * y
+
+    def rescaled(self, y: float) -> float:
         return -1 * y
 
     def __call__(self, x: np.ndarray, apply_scaling:bool=False, m:float=10) -> float:
@@ -172,6 +187,9 @@ class Schwefel(ObjectiveFunction):
             return 10000.0
         return -1 * y / 100
 
+    def rescaled(self, y: float) -> float:
+        return -1 * y * 100
+
     def __call__(self, x: np.ndarray, apply_scaling: bool = False) -> float:
         x = self._preprocess(x)
         dimension = len(x)
@@ -195,6 +213,9 @@ class Levy(ObjectiveFunction):
         self.tracker = Tracker(self.name + str(self.dims))
 
     def scaled(self, y: float) -> float:
+        return -1 * y
+
+    def rescaled(self, y: float) -> float:
         return -1 * y
 
     def __call__(self, x: np.ndarray, apply_scaling: bool = False) -> float:
