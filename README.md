@@ -55,7 +55,7 @@ SAMPLES_PER_ACQUISITION = 20
 
 # Initialise the objective function and surrogate model
 obj_function = Ackley(dims=NUM_DIMENSIONS)
-surrogate = AckleySurrogateModel(input_dims=NUM_DIMENSIONS, epochs=5)
+surrogate = AckleySurrogateModel(input_dims=NUM_DIMENSIONS, epochs=500)
 
 # Generate initial samples
 input_x, input_y = generate_initial_samples(
