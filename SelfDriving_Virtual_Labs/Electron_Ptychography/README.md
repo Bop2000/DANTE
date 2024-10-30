@@ -19,7 +19,10 @@ Moreover, to use TuRBO for optimization, you need to install TuRBO first (see in
 
 # Pipeline
 
-To run the self-driving virtual laboratory for electron ptychography reconstruction optimization, please run the following line in terminal:
+**To run the self-driving virtual laboratory for electron ptychography reconstruction optimization using DOTS, see `DOTS_VL_Electron_Ptychography_Reconstruction_Optimization.ipynb` for detailed instruction**
+
+
+To have a quick start, please run the following line in terminal:
 
 ```shell
 bash run.sh

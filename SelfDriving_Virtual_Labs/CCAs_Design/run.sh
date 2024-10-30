@@ -9,10 +9,10 @@ echo $current_dir
 # DOTS BCC
 dir="/DOTS-BCC"
 cd "$current_dir$dir"
-python3 run.py --iter 6
+python3 run.py --iter 1
 
 # DOTS FCC
 dir="/DOTS-FCC"
 cd "$current_dir$dir"
-python3 run.py --iter 6
+python3 run.py --iter 1
 
