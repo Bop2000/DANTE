@@ -75,6 +75,8 @@ for i in range(NUM_ACQUISITIONS):
     # Update dataset with new samples
     input_x = np.concatenate((input_x, new_x), axis=0)
     input_y = np.concatenate((input_y, new_y))
+    print(f'number of data is {len(input_y)}')
+    print(f'current best y value is {input_y.min()}')
     
     # Check for convergence
     if np.isclose(input_y.min(), 0.0):
