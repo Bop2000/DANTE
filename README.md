@@ -48,35 +48,37 @@ from dante.tree_exploration import TreeExploration
 from dante.utils import generate_initial_samples
 
 # Define parameters
-NUM_DIMENSIONS = 10
-NUM_INITIAL_SAMPLES = 100
-NUM_ACQUISITIONS = 30
+NUM_DIMENSIONS = 20
+NUM_INITIAL_SAMPLES = 200
+NUM_ACQUISITIONS = 1000
 SAMPLES_PER_ACQUISITION = 20
+apply_scaling = True
 
 # Initialise the objective function and surrogate model
 obj_function = Ackley(dims=NUM_DIMENSIONS)
-surrogate = AckleySurrogateModel(input_dims=NUM_DIMENSIONS, epochs=5)
+surrogate = AckleySurrogateModel(input_dims=NUM_DIMENSIONS, epochs=500)
 
 # Generate initial samples
-input_x, input_y = generate_initial_samples(
-    obj_function, num_init_samples=NUM_INITIAL_SAMPLES, apply_scaling=True
+input_x, input_scaled_y = generate_initial_samples(
+    obj_function, num_init_samples=NUM_INITIAL_SAMPLES, apply_scaling=apply_scaling
 )
 
 # Main optimisation loop
 for i in range(NUM_ACQUISITIONS):
     # Train surrogate model and create tree explorer
-    trained_surrogate = surrogate(input_x, input_y)
+    trained_surrogate = surrogate(input_x, input_scaled_y)
     tree_explorer = TreeExploration(func=obj_function, model=trained_surrogate, num_samples_per_acquisition=SAMPLES_PER_ACQUISITION)
     
     # Perform tree exploration to find promising samples
-    new_x = tree_explorer.rollout(input_x, input_y, iteration=i)
-    new_y = np.array([obj_function(x, apply_scaling=True) for x in new_x])
+    new_x = tree_explorer.rollout(input_x, input_scaled_y, iteration=i)
+    new_y = np.array([obj_function(x, apply_scaling=apply_scaling) for x in new_x])
     
     # Update dataset with new samples
     input_x = np.concatenate((input_x, new_x), axis=0)
-    input_y = np.concatenate((input_y, new_y))
+    input_scaled_y = np.concatenate((input_scaled_y, new_y))
     
     # Check for convergence
+    input_y = input_scaled_y if not apply_scaling else obj_function.rescaled(input_scaled_y)
     if np.isclose(input_y.min(), 0.0):
         print(f"Optimal solution found after {i+1} iterations.")
         break
