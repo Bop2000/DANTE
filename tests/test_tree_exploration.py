@@ -17,7 +17,7 @@ def ackley_function():
 def ackley_surrogate_model(ackley_function: ObjectiveFunction) -> keras.Model:
     surrogate = AckleySurrogateModel(input_dims=ackley_function.dims, epochs=1)
     input_x, input_scaled_y = generate_initial_samples(
-        ackley_function, sample_count=200, apply_scaling=True
+        ackley_function, num_initial_sample=200, apply_scaling=True
     )
     return surrogate(input_x, input_scaled_y)
 
