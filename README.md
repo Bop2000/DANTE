@@ -48,14 +48,14 @@ from dante.tree_exploration import TreeExploration
 from dante.utils import generate_initial_samples
 
 # Define parameters
-NUM_DIMENSIONS = 10
+NUM_DIMENSIONS = 20
 NUM_INITIAL_SAMPLES = 100
 NUM_ACQUISITIONS = 30
 SAMPLES_PER_ACQUISITION = 20
 
 # Initialise the objective function and surrogate model
 obj_function = Ackley(dims=NUM_DIMENSIONS)
-surrogate = AckleySurrogateModel(input_dims=NUM_DIMENSIONS, epochs=5)
+surrogate = AckleySurrogateModel(input_dims=NUM_DIMENSIONS, epochs=500)
 
 # Generate initial samples
 input_x, input_y = generate_initial_samples(
@@ -76,10 +76,10 @@ for i in range(NUM_ACQUISITIONS):
     input_x = np.concatenate((input_x, new_x), axis=0)
     input_y = np.concatenate((input_y, new_y))
     print(f'number of data is {len(input_y)}')
-    print(f'current best y value is {input_y.min()}')
+    print(f'current best y value is {input_y.max()}')
     
     # Check for convergence
-    if np.isclose(input_y.min(), 0.0):
+    if np.isclose(input_y.max(), 9999.0):
         print(f"Optimal solution found after {i+1} iterations.")
         break
 
