@@ -84,7 +84,7 @@ for i in range(NUM_ACQUISITIONS):
         break
 
 # Print results
-best_index = np.argmin(input_y)
+best_index = np.argmax(input_y)
 print(f"Best solution: {input_x[best_index]}")
 print(f"Best objective value: {obj_function(input_x[best_index], apply_scaling=False)}")
 ```
