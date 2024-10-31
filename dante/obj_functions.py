@@ -57,7 +57,7 @@ class Ackley(ObjectiveFunction):
     def scaled(self, y: float) -> float:
         return 100 / (y + 0.01)
 
-    def __call__(self, x: np.ndarray, apply_scaling: bool = False) -> float:
+    def __call__(self, x: np.ndarray, apply_scaling: bool = False, track: bool = True) -> float:
         x = self._preprocess(x)
         y = float(
             -20 * np.exp(-0.2 * np.sqrt(np.inner(x, x) / x.size))
@@ -65,6 +65,8 @@ class Ackley(ObjectiveFunction):
             + 20
             + np.e
         )
+        if track:
+            self.tracker.track(y, x)
         return y if not apply_scaling else self.scaled(y)
 
 
@@ -83,11 +85,13 @@ class Rastrigin(ObjectiveFunction):
     def scaled(self, y: float) -> float:
         return -1 * y
 
-    def __call__(self, x: np.ndarray, apply_scaling: bool = False) -> float:
+    def __call__(self, x: np.ndarray, apply_scaling: bool = False, track: bool = True) -> float:
         x = self._preprocess(x)
         n = len(x)
         sum_ = np.sum(x**2 - self.a * np.cos(2 * np.pi * x))
         y = float(self.a * n + sum_)
+        if track:
+            self.tracker.track(y, x)
         return y if not apply_scaling else self.scaled(y)
 
 
@@ -100,15 +104,18 @@ class Rosenbrock(ObjectiveFunction):
     def __post_init__(self):
         self.lb = -5 * np.ones(self.dims)
         self.ub = 5 * np.ones(self.dims)
+        self.tracker = Tracker(self.name + str(self.dims))
 
     def scaled(self, y: float) -> float:
         return 100 / (y / (self.dims * 100) + 0.01)
 
-    def __call__(self, x: np.ndarray, apply_scaling: bool = False) -> float:
+    def __call__(self, x: np.ndarray, apply_scaling: bool = False, track: bool = True) -> float:
         x = self._preprocess(x)
         y = float(
             np.sum(100.0 * (x[1:] - x[:-1] ** 2.0) ** 2.0 + (1 - x[:-1]) ** 2.0)
         )
+        if track:
+            self.tracker.track(y, x)
         return y if not apply_scaling else self.scaled(y)
 
 @dataclass
@@ -125,11 +132,13 @@ class Griewank(ObjectiveFunction):
     def scaled(self, y: float) -> float:
         return 10 / (y / self.dims + 0.001)
 
-    def __call__(self, x: np.ndarray, apply_scaling: bool = False) -> float:
+    def __call__(self, x: np.ndarray, apply_scaling: bool = False, track: bool = True) -> float:
         x = self._preprocess(x)
         sum_term = np.sum(x**2)
         prod_term = np.prod(np.cos(x / np.sqrt(np.arange(1, len(x) + 1))))
         y = float(1 + sum_term / 4000 - prod_term)
+        if track:
+            self.tracker.track(y, x)
         return y if not apply_scaling else self.scaled(y)
 
 
@@ -147,12 +156,14 @@ class Michalewicz(ObjectiveFunction):
     def scaled(self, y: float) -> float:
         return -1 * y
 
-    def __call__(self, x: np.ndarray, apply_scaling:bool=False, m:float=10) -> float:
+    def __call__(self, x: np.ndarray, apply_scaling:bool=False, m:float=10, track: bool = True) -> float:
         x = self._preprocess(x)
         d = len(x)
         y = 0
         for i in range(d):
             y += np.sin(x[i]) * np.sin((i + 1) * x[i] ** 2 / np.pi) ** (2 * m)
+        if track:
+            self.tracker.track(y, x)
         return float(-1 * y) if not apply_scaling else self.scaled(float(-1 * y))
 
 
@@ -172,13 +183,15 @@ class Schwefel(ObjectiveFunction):
             return 10000.0
         return -1 * y / 100
 
-    def __call__(self, x: np.ndarray, apply_scaling: bool = False) -> float:
+    def __call__(self, x: np.ndarray, apply_scaling: bool = False, track: bool = True) -> float:
         x = self._preprocess(x)
         dimension = len(x)
         sum_part = np.sum(-x * np.sin(np.sqrt(np.abs(x))))
         if np.all(np.array(x) == 421, axis=0):
             return 0.0
         y = float(418.9829 * dimension + sum_part)
+        if track:
+            self.tracker.track(y, x)
         return y if not apply_scaling else self.scaled(y)
 
 
@@ -197,7 +210,7 @@ class Levy(ObjectiveFunction):
     def scaled(self, y: float) -> float:
         return -1 * y
 
-    def __call__(self, x: np.ndarray, apply_scaling: bool = False) -> float:
+    def __call__(self, x: np.ndarray, apply_scaling: bool = False, track: bool = True) -> float:
         x = self._preprocess(x)
         w = []
         for idx in range(0, len(x)):
@@ -215,5 +228,7 @@ class Levy(ObjectiveFunction):
             term2 = term2 + new
 
         y = float(term1 + term2 + term3)
+        if track:
+            self.tracker.track(y, x)
         return y if not apply_scaling else self.scaled(y)
 
