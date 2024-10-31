@@ -79,7 +79,7 @@ for i in range(NUM_ACQUISITIONS):
     print(f'current best y value is {input_y.max()}')
     
     # Check for convergence
-    if np.isclose(np.array([obj_function(x, apply_scaling=False) for x in input_x]).min(), 0.0):
+    if np.isclose(np.array([obj_function(x, apply_scaling=False, track=False) for x in input_x]).min(), 0.0):
         print(f"Optimal solution found after {i+1} iterations.")
         break
 
