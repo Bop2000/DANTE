@@ -86,7 +86,7 @@ for i in range(NUM_ACQUISITIONS):
 # Print results
 best_index = np.argmin(input_y)
 print(f"Best solution: {input_x[best_index]}")
-print(f"Best objective value: {obj_function(input_x[best_index], apply_scaling=False)}")
+print(f"Best objective value: {obj_function(input_x[best_index], apply_scaling=False, track=False)}")
 ```
 
 ## How to use DANTE to optimise your own function?
