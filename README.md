@@ -49,8 +49,8 @@ from dante.utils import generate_initial_samples
 
 # Define parameters
 NUM_DIMENSIONS = 20
-NUM_INITIAL_SAMPLES = 100
-NUM_ACQUISITIONS = 30
+NUM_INITIAL_SAMPLES = 200
+NUM_ACQUISITIONS = 1000
 SAMPLES_PER_ACQUISITION = 20
 
 # Initialise the objective function and surrogate model
@@ -79,7 +79,7 @@ for i in range(NUM_ACQUISITIONS):
     print(f'current best y value is {input_y.max()}')
     
     # Check for convergence
-    if np.isclose(input_y.max(), 9999.0):
+    if np.isclose(np.array([obj_function(x, apply_scaling=False) for x in input_x]).min(), 0.0):
         print(f"Optimal solution found after {i+1} iterations.")
         break
 
