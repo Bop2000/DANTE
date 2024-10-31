@@ -65,8 +65,10 @@ class Ackley(ObjectiveFunction):
             + 20
             + np.e
         )
+        
         if track:
             self.tracker.track(y, x)
+            
         return y if not apply_scaling else self.scaled(y)
 
 
