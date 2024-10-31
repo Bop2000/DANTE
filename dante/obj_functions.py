@@ -65,6 +65,7 @@ class Ackley(ObjectiveFunction):
             + 20
             + np.e
         )
+        self.tracker.track( y, x)
         return y if not apply_scaling else self.scaled(y)
 
 
@@ -88,6 +89,7 @@ class Rastrigin(ObjectiveFunction):
         n = len(x)
         sum_ = np.sum(x**2 - self.a * np.cos(2 * np.pi * x))
         y = float(self.a * n + sum_)
+        self.tracker.track( y, x)
         return y if not apply_scaling else self.scaled(y)
 
 
@@ -109,6 +111,7 @@ class Rosenbrock(ObjectiveFunction):
         y = float(
             np.sum(100.0 * (x[1:] - x[:-1] ** 2.0) ** 2.0 + (1 - x[:-1]) ** 2.0)
         )
+        self.tracker.track( y, x)
         return y if not apply_scaling else self.scaled(y)
 
 @dataclass
@@ -130,6 +133,7 @@ class Griewank(ObjectiveFunction):
         sum_term = np.sum(x**2)
         prod_term = np.prod(np.cos(x / np.sqrt(np.arange(1, len(x) + 1))))
         y = float(1 + sum_term / 4000 - prod_term)
+        self.tracker.track( y, x)
         return y if not apply_scaling else self.scaled(y)
 
 
@@ -153,6 +157,7 @@ class Michalewicz(ObjectiveFunction):
         y = 0
         for i in range(d):
             y += np.sin(x[i]) * np.sin((i + 1) * x[i] ** 2 / np.pi) ** (2 * m)
+        self.tracker.track( y, x)
         return float(-1 * y) if not apply_scaling else self.scaled(float(-1 * y))
 
 
@@ -179,6 +184,7 @@ class Schwefel(ObjectiveFunction):
         if np.all(np.array(x) == 421, axis=0):
             return 0.0
         y = float(418.9829 * dimension + sum_part)
+        self.tracker.track( y, x)
         return y if not apply_scaling else self.scaled(y)
 
 
@@ -215,5 +221,6 @@ class Levy(ObjectiveFunction):
             term2 = term2 + new
 
         y = float(term1 + term2 + term3)
+        self.tracker.track( y, x)
         return y if not apply_scaling else self.scaled(y)
 
