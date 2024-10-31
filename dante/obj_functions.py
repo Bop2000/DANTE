@@ -104,6 +104,7 @@ class Rosenbrock(ObjectiveFunction):
     def __post_init__(self):
         self.lb = -5 * np.ones(self.dims)
         self.ub = 5 * np.ones(self.dims)
+        self.tracker = Tracker(self.name + str(self.dims))
 
     def scaled(self, y: float) -> float:
         return 100 / (y / (self.dims * 100) + 0.01)
