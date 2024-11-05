@@ -8,11 +8,6 @@ The `scripts` folder contains DOTS, MCMC and GD optimization algorithm used in t
 
 The `optimized_sequence` folder contains all the optimized sequences and their rosetta metrics.
 
-# Content
-The `scripts` folder contains DOTS, MCMC and GD optimization algorithm used in the paper.
-
-The `optimized_sequence` folder contains all the optimized sequences and their rosetta metrics.
-
 # Pipeline
 
 To run the self-driving virtual laboratory for cyclic peptide design, please run the following line in terminal:
