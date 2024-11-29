@@ -5,7 +5,7 @@ from tqdm import tqdm
 import os
 path=os.getcwd()
 os.chdir(path)
-exec(open('DOTS.py').read())
+exec(open('DANTE.py').read())
 exec(open('BO.py').read())
 exec(open('TuRBO5.py').read())
 
