@@ -15,7 +15,7 @@ bash run.sh
 
 We also provide a summary and key differences from other tasks.
 1) This tasks aim at optimizing the electric properties (aha and ahc)  multi-component alloy design by desiging the composition.
-2) Whats new comparing to other tasks -> helper functions to generate valid compositinon (external constraints); multi-objective.
+2) Whats new comparing to other tasks -> helper functions to generate valid composition (external constraints); multi-objective.
 3) Note -> no validation source included
 
 # Helper function
