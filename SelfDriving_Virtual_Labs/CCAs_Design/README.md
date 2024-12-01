@@ -14,8 +14,8 @@ bash run.sh
 **Note:** The environment name should be replaced by yours in `run.sh`. You can change the number of iteration by replace `1` in `python3 run.py --iter 1`
 
 we also provide a summary and key differences from other tasks.
-1) this tasks aim at optimizing the electric properties (aha and ahc)  multi-component alloy design by desiging the composition.
-2) whats new comparing to the synthetic tasks -> helper functions to generate valid compositinon (external constraints); multi-objective.
+1) This tasks aim at optimizing the electric properties (aha and ahc)  multi-component alloy design by desiging the composition.
+2) Whats new comparing to the synthetic tasks -> helper functions to generate valid compositinon (external constraints); multi-objective.
 3) Note -> no validation source included
 
 # Helper function
