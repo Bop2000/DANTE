@@ -14,14 +14,11 @@ bash run.sh
 **Note:** The environment name should be replaced by yours in `run.sh`. You can change the number of iteration by replace `1` in `python3 run.py --iter 1`
 
 we also provide a summary and key differences from other tasks.
-1) Introduction to this notebook a.k.a multi-component alloy design
-2) Scope -> optimizing the electric properties (aha and ahc) by desiging the composition
-3) whats new -> helper functions to generate valid compositinon (external constraints); multi-objective
-4) Note: No validation source included
-5) Results and results from supplements (a.k.a progress plots)
-6) dd
+1) this tasks aim at optimizing the electric properties (aha and ahc)  multi-component alloy design by desiging the composition.
+2) whats new comparing to the synthetic tasks -> helper functions to generate valid compositinon (external constraints); multi-objective
+3) Note -> no validation source included
 
-# helper function
+# Helper function
 
 ## 1. composition limitations for all elements
 ```python
