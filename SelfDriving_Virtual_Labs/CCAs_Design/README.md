@@ -1,4 +1,4 @@
-## Pipeline
+# Pipeline
 
 **To run the self-driving laboratory for compositionally complex alloy design using DANTE, see `DANTE_VL_CCAs_Design.ipynb` for detailed instruction**
 
@@ -21,9 +21,9 @@ we also provide a summary and key differences from other tasks.
 5) Results and results from supplements (a.k.a progress plots)
 6) dd
 
-## helper function
+# helper function
 
-# 1. composition limitations for all elements
+## 1. composition limitations for all elements
 ```python
 def component_generate():
     ele_range = []
@@ -40,7 +40,7 @@ def component_generate():
     ele_range = np.array(ele_range)
     return ele_range
 ```
-# 2. check the ratio of Fe/(Co+Ni)
+## 2. check the ratio of Fe/(Co+Ni)
 ```python
 def FCN_ratiocheck(x_input):
     x_output = np.array(x_input)
@@ -58,7 +58,7 @@ def FCN_ratiocheck(x_input):
     return x_output
 ```
 
-# check if Fe Co Ni has proper component, if not, adjust to a proper range
+## 3. check if Fe Co Ni has proper component, if not, adjust to a proper range
 ```python
 def sumFCN_adjust(x_input):
     if round(x_input[4],1) == 0 and round(x_input[7],1) == 0 and round(x_input[18],1) == 0:
@@ -85,7 +85,7 @@ def sumFCN_adjust(x_input):
     return x_output
 ```
 
-# mode0: change element
+## 4. mode0: change element
 ```python
 def mode0(x_input,x_output,ele_exist,index_except):
     num_to_change = np.random.randint(1, 3)
@@ -101,7 +101,7 @@ def mode0(x_input,x_output,ele_exist,index_except):
         x_output[index_other_new[i]] = 0
     return x_output
 ```
-# mode1: change component
+## 5. mode1: change component
 ```python
 def mode1(x_input,x_output,ele_exist,index_except):
     num_to_change = np.random.randint(1, 3)
@@ -122,7 +122,7 @@ def mode1(x_input,x_output,ele_exist,index_except):
     return x_output
 ```
 
-# prpose new CCAs
+## 6. prpose new CCAs
 ```python
 def create_new(x_input, num_ele):
     x_output = np.array(x_input).reshape(-1)
@@ -167,7 +167,7 @@ def create_new(x_input, num_ele):
     return x_output
 ```
 
-# check the number of elements
+## 7. check the number of elements
 ```python
 def ele_num_check(x_input, ele_num):
     x_output = np.array(x_input)
