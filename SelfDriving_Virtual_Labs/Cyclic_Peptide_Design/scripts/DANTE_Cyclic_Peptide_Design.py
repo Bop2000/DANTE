@@ -40,7 +40,7 @@ def get_native_value(pdb_file):
 
 native_value = get_native_value(pdb)
 print(native_value)
-print('nature target: ', float(nature_value['SHAPE COMPLEMENTARITY VALUE']) * float(nature_value['INTERFACE DELTA SASA']) / 100)
+print('native target: ', float(native_value['SHAPE COMPLEMENTARITY VALUE']) * float(nature_value['INTERFACE DELTA SASA']) / 100)
 
 
 class DANTE:

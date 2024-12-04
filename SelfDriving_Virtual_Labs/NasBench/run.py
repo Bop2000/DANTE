@@ -17,7 +17,7 @@ print("Random seed:",args.random_seed)
 random.seed(int(args.random_seed))
 np.random.seed(int(args.random_seed))
 
-if args.method == 'dots':
+if args.method == 'dante':
     config = {
         'exploration_weight': 1,
         'rollout_round': 100
@@ -26,11 +26,6 @@ elif args.method == 'cma':
     config = {}
 elif args.method == 'da':
     config = {}
-elif args.method == 'evolution':
-    config = {
-        'samples_per_round': 20,
-        'mutation_rate': 1.0
-    }
 elif args.method == 'lamcts':
     config = {}
 elif args.method == 'mcmc':

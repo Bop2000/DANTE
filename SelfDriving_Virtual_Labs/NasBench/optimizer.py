@@ -390,7 +390,7 @@ class Optimizer(object):
                 np.save(f'{self.method}/result/result_{self.random_seed}.npy', self.result)
             self.result = self.init_y
 
-        elif self.method == 'dots':
+        elif self.method == 'dante':
             for i in range(self.samples // self.config['samples_per_round']):
                 print("")
                 print("="*20)
@@ -398,8 +398,8 @@ class Optimizer(object):
                 print("="*20)
                 print("")
                 y = []
-                dots = DOTS(self.func, self.init_cells, self.init_X, self.init_y, self.config)
-                cells, X = dots.run()
+                dante = Dante(self.func, self.init_cells, self.init_X, self.init_y, self.config)
+                cells, X = dante.run()
                 for cell in cells:
                     y.append(dataset.fixed_statistics[cell.module_hash][1])
                 y = np.array(y)
@@ -420,7 +420,7 @@ class Optimizer(object):
 
 
 
-class DOTS:
+class Dante:
     def __init__(self, func, init_cells, init_X, init_y, config):
         self.Q = defaultdict(int)  # total reward of each node
         self.N = defaultdict(int)  # total visit count for each node
@@ -630,7 +630,7 @@ class DOTS:
 class Node(ABC):
     """
     A representation of a single board state.
-    DOTS works by constructing a tree of these Nodes.
+    Dante works by constructing a tree of these Nodes.
     Could be e.g. a chess or checkers board state.
     """
     @abstractmethod
