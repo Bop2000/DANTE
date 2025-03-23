@@ -19,9 +19,9 @@ class TreeExploration:
     N: dict[Any, int] = field(default_factory=lambda: defaultdict(int))
     children: dict[Any, Set] = field(default_factory=dict)
     rollout_round: int = 200
-    ratio: float = 0.1
+    ratio: float = 1
     exploration_weight: float = 0.1
-    num_list: list[int] = field(default_factory=lambda: [15, 3, 2])
+    num_list: list[int] = field(default_factory=lambda: [5, 1, 1])
     num_samples_per_acquisition: int = 20
 
     def choose(self, node):
@@ -69,7 +69,7 @@ class TreeExploration:
         new_x = []
         boards = np.unique(np.array(boards), axis=0)
         new_x = [board for board in boards if not np.any(np.all(board == x, axis=1))]
-        print(f"Unique number of boards: {len(new_x)}")
+        # print(f"Unique number of boards: {len(new_x)}")
         return np.array(new_x)
 
     def most_visit_node(self, x: np.ndarray, top_n: int) -> np.ndarray:
@@ -154,6 +154,8 @@ class TreeExploration:
         iteration: int,
     ) -> np.ndarray:
         """Perform rollout based on the function type."""
+        if self.func.name == BuiltInSyntheticFunction.ACKLEY:
+            self.ratio = 0.1
         if self.func.name in [
             BuiltInSyntheticFunction.RASTRIGIN,
             BuiltInSyntheticFunction.ACKLEY,
@@ -161,7 +163,7 @@ class TreeExploration:
         ]:
             return self._rollout_for_specific_functions(x, y)
         else:
-            return self._rollout_for_other_functions(x, y, self.rollout_round)
+            return self._rollout_for_other_functions(x, y, iteration)
 
     def _rollout_for_specific_functions(
         self,
@@ -181,7 +183,7 @@ class TreeExploration:
             if self.func.name == BuiltInSyntheticFunction.RASTRIGIN
             else [15, 3, 2]
         )
-        return self.single_rollout(x, self.rollout_round, board_uct, num_list=num_list)
+        return self.single_rollout(x, board_uct, num_list=num_list)
 
     def _rollout_for_other_functions(
         self,
@@ -189,6 +191,7 @@ class TreeExploration:
         y: np.ndarray,
         iteration: int,
     ) -> np.ndarray:
+        self.rollout_round = 100
         UCT_low = iteration % 100 >= 80
         x_current_top = self._get_unique_top_points(x, y)
         x_top = []
