@@ -130,8 +130,9 @@ class SurrogateModel(ABC):
             y_test (np.ndarray): True target values.
             y_pred (np.ndarray): Predicted target values.
         """
-        r_squared = stats.pearsonr(y_pred.reshape(-1), y_test.reshape(-1))[0]
-        r_squared = np.asarray(r_squared).round(3)
+        r = stats.pearsonr(y_pred.reshape(-1), y_test.reshape(-1))[0]
+        r = np.asarray(r).round(3)
+        r_squared = metrics.r2_score(y_test, y_pred)
         mae = metrics.mean_absolute_error(y_test.reshape(-1), y_pred.reshape(-1))
         mape = metrics.mean_absolute_percentage_error(
             y_test.reshape(-1), y_pred.reshape(-1)
@@ -139,7 +140,7 @@ class SurrogateModel(ABC):
         mae = np.asarray(mae).round(5)
         mape = np.asarray(mape).round(5)
         print(
-            f"Model performance: R2 {r_squared ** 2:.3f}, MAE {mae:.5f}, MAPE {mape:.5f}"
+            f"Model performance: R2 {r_squared:.3f}, MAE {mae:.5f}, MAPE {mape:.5f}"
         )
 
         plt.figure()
