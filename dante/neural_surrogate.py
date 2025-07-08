@@ -52,7 +52,7 @@ class SurrogateModel(ABC):
     batch_size: int = 64
     epochs: int = 500
     patience: int = 30
-    _model: keras.Model | None = None
+    _model: keras.Model = None
 
     @abstractmethod
     def create_model(self) -> keras.Model:
@@ -494,7 +494,7 @@ class PredefinedSurrogateModel(Enum):
 
 
 def get_surrogate_model(
-    f: PredefinedSurrogateModel | str | None = None,
+    f: PredefinedSurrogateModel = None,
 ) -> SurrogateModel:
     """
     Factory function to get the appropriate SurrogateModel.
