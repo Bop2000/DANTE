@@ -1,5 +1,5 @@
 from dataclasses import dataclass, field
-from typing import Any
+from typing import Any, Dict
 
 import numpy as np
 
@@ -14,11 +14,11 @@ class DeepActiveLearning:
     func: ObjectiveFunction
     num_data_acquisition: int
     surrogate: SurrogateModel
-    tree_explorer_args: dict[str, Any] = field(default_factory=dict)
+    tree_explorer_args: Dict[str, Any] = field(default_factory=dict)
     num_init_samples: int = 200
     num_samples_per_acquisition: int = 20
-    input_x: np.ndarray | None = None
-    input_scaled_y: np.ndarray | None = None
+    input_x: np.ndarray = None
+    input_scaled_y: np.ndarray = None
 
     def __post_init__(self):
         assert self.num_data_acquisition > 0
