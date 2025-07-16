@@ -83,6 +83,20 @@ class TreeExploration:
         X_topN = X_top[ind]
         return X_topN
 
+    def _predict_model(self, x, func):
+        """
+        自动适配Keras和sklearn/LightGBM等模型的输入shape。
+        Keras模型（带有'keras'关键字）用(n, dims, 1)，否则用(n, dims)。
+        返回一维数组（float）。
+        """
+        if hasattr(self.model, 'predict') and 'keras' in str(type(self.model)).lower():
+            x_input = np.array(x).reshape(len(x), func.dims, 1)
+            y_pred = self.model.predict(x_input, verbose=False)
+        else:
+            x_input = np.array(x).reshape(len(x), func.dims)
+            y_pred = self.model.predict(x_input)
+        return np.array(y_pred).reshape(-1)
+
     def single_rollout(self, X, board_uct, num_list: List[float]):
         """Perform a single rollout."""
         boards = []
@@ -99,12 +113,9 @@ class TreeExploration:
         # highest pred value nodes and random nodes
         new_x = self.data_process(X, boards)
         try:
-            new_pred = self.model.predict(
-                np.array(new_x).reshape(len(new_x), -1, 1), verbose=False
-            )
-            new_pred = np.array(new_pred).reshape(len(new_x))
+            new_pred = self._predict_model(new_x, self.func)
         except:
-            pass
+            new_pred = np.zeros(len(new_x))
         boards_rand = np.vstack(boards_rand)
         new_rands = self.data_process(X, boards_rand)
         top_n = num_list[0]
@@ -116,9 +127,7 @@ class TreeExploration:
                 for i in range(num_list[2])
             ]
         elif len(new_x) == 0:
-            new_pred = self.model.predict(
-                np.array(new_rands).reshape(len(new_rands), -1, 1), verbose=False
-            ).reshape(-1)
+            new_pred = self._predict_model(new_rands, self.func)
             ind = np.argsort(new_pred)[-top_n:]
             top_X = new_rands[ind]
             X_rand2 = [
@@ -165,9 +174,7 @@ class TreeExploration:
         index_max = np.argmax(y)
         print(max(y))
         initial_x = x[index_max, :]
-        values = float(
-            self.model.predict(initial_x.reshape(1, -1, 1), verbose=False).reshape(1)
-        )
+        values = float(self._predict_model([initial_x], self.func)[0])
         board_uct = OptTask(tup=tuple(initial_x), value=values, terminal=False)
         self.exploration_weight = self.ratio * abs(max(y))
         num_list = (
@@ -188,11 +195,7 @@ class TreeExploration:
         x_current_top = self._get_unique_top_points(x, y)
         x_top = []
         for initial_X in x_current_top:
-            values = float(
-                self.model.predict(
-                    initial_X.reshape(1, -1, 1), verbose=False
-                ).reshape(1)
-            )
+            values = float(self._predict_model([initial_X], self.func)[0])
             exp_weight = self.ratio * abs(max(y))
             if UCT_low:
                 exp_weight = self.ratio * 0.5 * abs(max(y))
@@ -265,11 +268,18 @@ class OptTask(_OT, Node):
             return set()
 
         all_tuples = OptTask._generate_child_tuples(board, action, func)
-        all_values = model.predict(
-            np.array(all_tuples).reshape(len(all_tuples), func.dims, 1), verbose=False
-        )
+        # 自动适配模型类型
+        if hasattr(model, 'predict') and 'keras' in str(type(model)).lower():
+            all_values = model.predict(
+                np.array(all_tuples).reshape(len(all_tuples), func.dims, 1), verbose=False
+            )
+        else:
+            all_values = model.predict(
+                np.array(all_tuples).reshape(len(all_tuples), func.dims)
+            )
+        all_values = np.array(all_values).reshape(-1)
 
-        return {OptTask(tuple(t), v[0], False) for t, v in zip(all_tuples, all_values)}
+        return {OptTask(tuple(t), float(v), False) for t, v in zip(all_tuples, all_values)}
 
     @staticmethod
     def _generate_child_tuples(board, action, func):
