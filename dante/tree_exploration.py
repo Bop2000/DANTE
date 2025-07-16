@@ -3,7 +3,8 @@ import random
 from abc import ABC, abstractmethod
 from collections import defaultdict, namedtuple
 from dataclasses import dataclass, field
-from typing import Any, Set
+from typing import Any, Set, Optional, Dict, List
+
 
 import keras
 import numpy as np
@@ -14,24 +15,19 @@ from dante.obj_functions import ObjectiveFunction, BuiltInSyntheticFunction
 @dataclass
 class TreeExploration:
     func: ObjectiveFunction = None
-    model: keras.Model | None = None
-    Q: dict[Any, int] = field(default_factory=lambda: defaultdict(int))
-    N: dict[Any, int] = field(default_factory=lambda: defaultdict(int))
-    children: dict[Any, Set] = field(default_factory=dict)
+    model: keras.Model = None
+    N: Dict[Any, int] = field(default_factory=lambda: defaultdict(int))
+    children: Dict[Any, Set] = field(default_factory=dict)
     rollout_round: int = 200
-    ratio: float = 1
+    ratio: float = 0.02 # 0.02 is suit for 'rastrigin','ackley','griewank','schwefel'
     exploration_weight: float = 0.1
-    num_list: list[int] = field(default_factory=lambda: [5, 1, 1])
+    num_list: List[int] = field(default_factory=lambda: [5, 1, 1])
     num_samples_per_acquisition: int = 20
 
     def choose(self, node):
         """Choose the best successor of node."""
         if node.is_terminal():
             raise RuntimeError(f"choose called on terminal node {node}")
-
-        if node not in self.children:
-            print("Not seen before, randomly sampled!")
-            return node.find_random_child()
 
         log_N_vertex = math.log(self.N[node])
 
@@ -41,14 +37,13 @@ class TreeExploration:
                 log_N_vertex / (self.N[n] + 1)
             )
 
-        action = list(range(len(node.tup)))
-        self.children[node] = node.find_children(node, action, self.func, self.model)
-
         media_node = max(self.children[node], key=uct)
         node_rand = [
             list(self.children[node])[i].tup
             for i in np.random.randint(0, len(self.children[node]), 2)
         ]
+        # print('uct of root:',uct(node),'value of root:',node.value)
+        # print('uct of best leaf:',uct(media_node),'value of best leaf:',media_node.value)
 
         return (
             (media_node, node_rand)
@@ -58,14 +53,11 @@ class TreeExploration:
 
     def do_rollout(self, node):
         """Make the tree one layer better. (Train for one iteration.)"""
-        path = self._select(node)
-        leaf = path[-1]
-        self._expand(leaf)
-        reward = self._simulate(leaf)
-        self._backpropagate(path, reward)
+        self._expand(node)
+        self._backpropagate(path=node)
 
     @staticmethod
-    def data_process(x: np.ndarray, boards: list[list]) -> np.ndarray:
+    def data_process(x: np.ndarray, boards: List[list]) -> np.ndarray:
         new_x = []
         boards = np.unique(np.array(boards), axis=0)
         new_x = [board for board in boards if not np.any(np.all(board == x, axis=1))]
@@ -91,7 +83,7 @@ class TreeExploration:
         X_topN = X_top[ind]
         return X_topN
 
-    def single_rollout(self, X, board_uct, num_list: list[float]):
+    def single_rollout(self, X, board_uct, num_list: List[float]):
         """Perform a single rollout."""
         boards = []
         boards_rand = []
@@ -154,12 +146,12 @@ class TreeExploration:
         iteration: int,
     ) -> np.ndarray:
         """Perform rollout based on the function type."""
-        if self.func.name == BuiltInSyntheticFunction.ACKLEY:
+        if self.func.name == 'rosenbrock':
             self.ratio = 0.1
+
         if self.func.name in [
-            BuiltInSyntheticFunction.RASTRIGIN,
-            BuiltInSyntheticFunction.ACKLEY,
-            BuiltInSyntheticFunction.LEVY,
+            'rastrigin',
+            'levy',
         ]:
             return self._rollout_for_specific_functions(x, y)
         else:
@@ -180,7 +172,7 @@ class TreeExploration:
         self.exploration_weight = self.ratio * abs(max(y))
         num_list = (
             [18, 2, 0]
-            if self.func.name == BuiltInSyntheticFunction.RASTRIGIN
+            if self.func.name == 'rastrigin'
             else [15, 3, 2]
         )
         return self.single_rollout(x, board_uct, num_list=num_list)
@@ -196,15 +188,14 @@ class TreeExploration:
         x_current_top = self._get_unique_top_points(x, y)
         x_top = []
         for initial_X in x_current_top:
-            values = max(y)
-            exp_weight = self.ratio * abs(values)
+            values = float(
+                self.model.predict(
+                    initial_X.reshape(1, -1, 1), verbose=False
+                ).reshape(1)
+            )
+            exp_weight = self.ratio * abs(max(y))
             if UCT_low:
-                values = float(
-                    self.model.predict(
-                        initial_X.reshape(1, -1, 1), verbose=False
-                    ).reshape(1)
-                )
-                exp_weight = self.ratio * 0.5 * values
+                exp_weight = self.ratio * 0.5 * abs(max(y))
             self.exploration_weight = exp_weight
             board_uct = OptTask(tup=tuple(initial_X), value=values, terminal=False)
             x_top.append(self.single_rollout(x, board_uct, self.num_list))
@@ -221,49 +212,16 @@ class TreeExploration:
             i -= 1
         return x_current_top
 
-    def _select(self, node) -> list:
-        """Find an unexplored descendent of `node`"""
-        path = []
-        for _ in range(50):  # Limit depth to 50
-            path.append(node)
-            if node not in self.children or not self.children[node]:
-                return path
-            unexplored = self.children[node] - self.children.keys()
-            if unexplored:
-                path.append(max(unexplored, key=lambda n: n.value))
-                return path
-            node = self._uct_select(node)
-        return path
-
     def _expand(self, node):
         """Update the `children` dict with the children of `node`"""
-        if node not in self.children:
-            action = list(range(len(node.tup)))
-            self.children[node] = node.find_children(
-                node, action, self.func, self.model
-            )
+        action = list(range(len(node.tup)))
+        self.children[node] = node.find_children(
+            node, action, self.func, self.model
+        )
 
-    def _simulate(self, node) -> float:
-        """Returns the reward for a random simulation (to completion) of `node`"""
-        return node.reward(node, self.model)
-
-    def _backpropagate(self, path: list, reward: float):
+    def _backpropagate(self, path):
         """Send the reward back up to the ancestors of the leaf"""
-        for node in reversed(path):
-            self.N[node] += 1
-            self.Q[node] += reward
-
-    def _uct_select(self, node):
-        """Select a child of node, balancing exploration & exploitation"""
-        assert all(n in self.children for n in self.children[node])
-        log_N_vertex = math.log(self.N[node])
-
-        def uct(n):
-            return n.value + self.exploration_weight * math.sqrt(
-                log_N_vertex / (self.N[n] + 1)
-            )
-
-        return max(self.children[node], key=uct)
+        self.N[path] += 1
 
 
 class Node(ABC):
@@ -279,19 +237,9 @@ class Node(ABC):
         return set()
 
     @abstractmethod
-    def find_random_child(self):
-        """Random successor of this board state (for more efficient simulation)"""
-        return None
-
-    @abstractmethod
     def is_terminal(self):
         """Returns True if the node has no children"""
         return True
-
-    @abstractmethod
-    def reward(self):
-        """Assumes `self` is terminal node. 1=win, 0=loss, .5=tie, etc"""
-        return 0
 
     @abstractmethod
     def __hash__(self):
@@ -364,12 +312,6 @@ class OptTask(_OT, Node):
     def _clip_to_bounds(tup, lower_bound, upper_bound):
         """Clip the tuple values to the given bounds."""
         return np.clip(tup, lower_bound, upper_bound)
-
-    @staticmethod
-    def reward(board, model):
-        """Calculate the reward for the current board state."""
-        values = model.predict(np.array(board.tup).reshape(1, -1, 1), verbose=False)
-        return float(np.array(values).reshape(1))
 
     def is_terminal(self):
         """Check if the current board state is terminal."""
