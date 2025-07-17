@@ -25,7 +25,7 @@ pip install git+https://github.com/Bop2000/DANTE.git
 Alternatively, you can clone the repository and install it locally:
 
 ```bash
-git clone git@github.com:Bop2000/DANTE.git
+git clone https://github.com/Bop2000/DAS-AI
 cd DANTE
 pip install -e .
 ```
