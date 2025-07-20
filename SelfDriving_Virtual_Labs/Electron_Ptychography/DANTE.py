@@ -271,9 +271,6 @@ df.to_csv('initial.csv')
 
 class DANTE:
     def __init__(self, exploration_weight=1):
-        self.Q = defaultdict(int)  # total reward of each node
-        self.Qa = dict.fromkeys(list(range(20)), 0)
-        self.Na = dict.fromkeys(list(range(20)), 1)
         self.N = defaultdict(int)  # total visit count for each node
         self.children = dict()  # children of each node
         self.exploration_weight = exploration_weight
@@ -282,10 +279,6 @@ class DANTE:
         "Choose the best successor of node."
         if node.is_terminal():
             raise RuntimeError(f"choose called on terminal node {node}")
-
-        if node not in self.children:
-            print('not seen before, randomly sampled!')
-            return node.find_random_child()
 
         def score(n):
             if self.N[n] == 0:
@@ -312,65 +305,19 @@ class DANTE:
         return node
 
     def do_rollout(self, node):
-        "Make the tree one layer better. (Train for one iteration.)"
-        path = self._select(node)
-        leaf = path[-1]
-        self._expand(leaf)
-        reward = self._simulate(leaf)
-        self._backpropagate(path, reward)
-
-    def _select(self, node):
-        "Find an unexplored descendent of `node`"
-        path = []
-        count = 0
-        while True:
-            path.append(node)
-            if node not in self.children or not self.children[node]:
-                # node is either unexplored or terminal
-              return path
-            unexplored = self.children[node] - self.children.keys()
-            def evaluate(n):
-              return n.value
-            if count == 50:
-              return max(path, key=evaluate)
-            if unexplored:
-              path.append(max(unexplored, key=evaluate))#
-              return path
-            node = self._uct_select(node)  # descend a layer deeper
-            count+=1
+        """Make the tree one layer better. (Train for one iteration.)"""
+        self._expand(node)
+        self._backpropagate(path=node)
 
     def _expand(self, node):
         "Update the `children` dict with the children of `node`"
-        if node in self.children:
-            return  # already expanded
         action = [p for p in range(0, len(node.tup))]
         self.children[node] = node.find_children(action)
 
-    def _simulate(self, node):
-        "Returns the reward for a random simulation (to completion) of `node`"
-        reward = node.reward()
-        return reward
-
-    def _backpropagate(self, path, reward):
-        "Send the reward back up to the ancestors of the leaf"
-        for node in reversed(path):
-          self.N[node] += 1
-          self.Q[node] += reward
-
-    def _uct_select(self, node):
-        "Select a child of node, balancing exploration & exploitation"
-        # All children of node should already be expanded:
-        assert all(n in self.children for n in self.children[node])
-        log_N_vertex = math.log(self.N[node])
-
-        def uct(n):
-            "Upper confidence bound for trees"
-            uct_value = n.value + self.exploration_weight * math.sqrt(
-                log_N_vertex / (self.N[n]+1))
-            return uct_value
-        uct_node = max(self.children[node], key=uct)
-        return uct_node
-
+    def _backpropagate(self, path):
+        """Send the reward back up to the ancestors of the leaf"""
+        self.N[path] += 1
+        
 class Node(ABC):
     """
     A representation of a single board state.
@@ -383,19 +330,9 @@ class Node(ABC):
         return set()
 
     @abstractmethod
-    def find_random_child(self):
-        "Random successor of this board state (for more efficient simulation)"
-        return None
-
-    @abstractmethod
     def is_terminal(self):
         "Returns True if the node has no children"
         return True
-
-    @abstractmethod
-    def reward(self):
-        "Assumes `self` is terminal node. 1=win, 0=loss, .5=tie, etc"
-        return 0
 
     @abstractmethod
     def __hash__(self):
@@ -418,9 +355,6 @@ class opt_task(_OT, Node):
             return set()
         return {
             board.make_move(i) for i in action}
-
-    def reward(board):
-        return board.value
 
     def is_terminal(board):
         return board.terminal
