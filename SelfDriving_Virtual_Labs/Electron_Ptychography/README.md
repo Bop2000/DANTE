@@ -19,7 +19,7 @@ Moreover, to use TuRBO for optimization, you need to install TuRBO first (see in
 
 # Pipeline
 
-**To run the self-driving virtual laboratory for electron ptychography reconstruction optimization using DANTE, see `DOTS_VL_Electron_Ptychography_Reconstruction_Optimization.ipynb` for detailed instruction**
+**To run the self-driving virtual laboratory for electron ptychography reconstruction optimization using DANTE, see `notebooks/DANTE_VL_Electron_Ptychography_Reconstruction_Optimization.ipynb` for detailed instruction**
 
 
 To have a quick start, please run the following line in terminal:
