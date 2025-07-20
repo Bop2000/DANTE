@@ -1,6 +1,6 @@
 # Pipeline
 
-**To conduct evaluations on synthetic functions using surrogate model with DOTS, see `DOTS_Rastrigin_200d.ipynb` for detailed instruction**
+**To conduct evaluations on synthetic functions using surrogate model with DOTS, see `notebooks/DANTE_Rastrigin_200d.ipynb` for detailed instruction**
 
 **Note:** If you can not open it in Github, please download it.
 
