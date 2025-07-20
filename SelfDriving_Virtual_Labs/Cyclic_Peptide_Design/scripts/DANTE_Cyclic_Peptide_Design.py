@@ -178,7 +178,7 @@ def single_run(initial_X,top_n):
     metrics = get_value(seq_folder, initial_X, pdb)
     values = float(metrics['SHAPE COMPLEMENTARITY VALUE']) * float(metrics['INTERFACE DELTA SASA']) / 100
     print(initial_X, values)
-    exp_weight = 0.8 * values
+    exp_weight = 0.08 * values
     board_uct = opt_task(tup=tuple(initial_X), value=values, terminal=False)
     rollout_round = 15
     tree_ubt = DANTE(exploration_weight=exp_weight)
