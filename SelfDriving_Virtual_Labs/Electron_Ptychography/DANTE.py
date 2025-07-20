@@ -94,7 +94,7 @@ print('NMSE of Expert params:',ms_ptycho_18nm.error)
 
 ############################### Set Paramaters ###############################
 
-weight_ratio = 0.5 # exploration weight = weight_ratio * max(score)
+weight_ratio = 0.05 # exploration weight = weight_ratio * max(score)
 
 # 8 parameters to optimize, here are the ranges of these params
 semiangle_cutoff = np.arange(1, 30.1, 0.1).round(1)
