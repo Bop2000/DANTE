@@ -103,7 +103,7 @@ if args.method == 'DANTE':
     init_X = np.random.choice(aaa,size=(args.dims))
     init_y = round(fx(init_X),10)
 
-    ratio = 0.5
+    ratio = 0.05
         
     exp_weight = ratio * init_y
     
