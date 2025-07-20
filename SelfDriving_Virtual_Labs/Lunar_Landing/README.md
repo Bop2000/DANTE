@@ -1,6 +1,6 @@
 # Pipeline
 
-**To run the self-driving virtual laboratory for Lunar Landing using DANTE, see `DANTE_VL_Lunar_Landing.ipynb` for detailed instruction**
+**To run the self-driving virtual laboratory for Lunar Landing using DANTE, see `notebooks/DANTE_VL_Lunar_Landing.ipynb` for detailed instruction**
 
 **Note:** If you can not open it in Github, please download it.
 
