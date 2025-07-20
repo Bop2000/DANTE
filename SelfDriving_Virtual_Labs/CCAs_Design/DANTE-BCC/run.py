@@ -80,7 +80,7 @@ n_model=5 # number of cnn models for predictions
 n_dim=27  # Dimension of this optimization problem
 rollout_round=100 #number of roullout steps for DANTE algorithm,By default, DANTE performs 100 rollout
 UCT_low=False
-weight = 0.2 # exploration weight = weight * max(score)
+weight = 0.02 # exploration weight = weight * max(score)
 list1=[5,8,2,5,3,1,1] ##[run times, top start points, random start points, top score samples, top rank samples, top visit samples, random samples]
 
 num_ele = 6 # number of elements
