@@ -19,7 +19,7 @@ np.random.seed(int(args.random_seed))
 
 if args.method == 'dante':
     config = {
-        'exploration_weight': 1,
+        'exploration_weight': 0.1,
         'rollout_round': 100
     }
 elif args.method == 'cma':
