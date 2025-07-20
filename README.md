@@ -1,8 +1,8 @@
-# DANTE: Deep Active learning with Neural-surrogate-guided Tree Exploration
+# DANTE: Deep Active Optimization with Neural-surrogate-guided Tree Exploration
 
 ## Introduction
 
-DANTE is a deep active learning pipeline that combines deep neural surrogate models and a novel tree search explorationalgorithm to find superior solutions in high-dimensional complex problems characterized by limited data availability and non-accumulative objectives. 
+DANTE is a deep active optimization pipeline that combines deep neural surrogate models and a novel tree search explorationalgorithm to find superior solutions in high-dimensional complex problems characterized by limited data availability and non-accumulative objectives. 
 
 For more details, please refer to our [paper](https://arxiv.org/abs/2404.04062).
 
