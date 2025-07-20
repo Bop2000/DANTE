@@ -1,6 +1,6 @@
 # Pipeline
 
-**To conduct evaluations on synthetic functions using surrogate model with DOTS, see `notebooks/DANTE_Rastrigin_200d.ipynb` for detailed instruction**
+**To conduct evaluations on synthetic functions using surrogate model with DANTE, see `notebooks/DANTE_Rastrigin_200d.ipynb` for detailed instruction**
 
 **Note:** If you can not open it in Github, please download it.
 
@@ -15,7 +15,7 @@ bash run.sh
 
 --func (specify the test function) can be: ackley rastrigin rosenbrock schwefel michalewicz griewank levy
 
---method (specify the method to search) can be: DOTS here, but extended to DOTS-Greedy DOTS-eGreedy Random DualAnnealing DifferentialEvolution CMA-ES in `more_algorithms_available`
+--method (specify the method to search) can be: DANTE here, but extended to DANTE-Greedy DANTE-eGreedy Random DualAnnealing DifferentialEvolution CMA-ES in `more_algorithms_available`
 
 --dims (specify the problem dimensions) can be: any integer more than 1
 
@@ -25,6 +25,6 @@ bash run.sh
 
 # Evaluations on synthetic functions using surrogate model
 
-We run extensive tests on well-known non-convex functions (Ackley, Rastrigin, Rosenbrock) of diverse types using surrogate model predictions and compare the performance of DOTS with other state-of-the-art algorithms. DOTS-based methods outperform other benchmark methods.
+We run extensive tests on well-known non-convex functions (Ackley, Rastrigin, Rosenbrock) of diverse types using surrogate model predictions and compare the performance of DANTE with other state-of-the-art algorithms. DANTE-based methods outperform other benchmark methods.
 
-![alt text](https://github.com/Bop2000/DOTS/blob/main/assets/figure_3.png)
+![alt text](https://github.com/Bop2000/DANTE/blob/main/assets/figure_3.png)
