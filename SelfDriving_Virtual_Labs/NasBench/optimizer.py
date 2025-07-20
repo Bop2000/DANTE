@@ -422,7 +422,6 @@ class Optimizer(object):
 
 class Dante:
     def __init__(self, func, init_cells, init_X, init_y, config):
-        self.Q = defaultdict(int)  # total reward of each node
         self.N = defaultdict(int)  # total visit count for each node
         self.children = dict()  # children of each node
         self.func = func
@@ -437,10 +436,6 @@ class Dante:
         if node.is_terminal():
             raise RuntimeError(f"choose called on terminal node {node}")
 
-        if node not in self.children:
-            print('not seen before, randomly sampled!')
-            return node.find_random_child()
-
         def evaluate(n):
             return n.value  # average reward
         log_N_vertex = math.log(self.N[node])
@@ -449,9 +444,6 @@ class Dante:
             uct_value = n.value + self.exploration_weight * math.sqrt(
                 log_N_vertex / (self.N[n]+1))
             return uct_value
-
-        action = [p for p in range(0, self.config['dim'])]
-        self.children[node] = node.find_children(action,self.func)
 
         media_node = max(self.children[node], key=uct)
         node_rand = []
@@ -465,12 +457,9 @@ class Dante:
         return node, node_rand
 
     def do_rollout(self, node):
-        "Make the tree one layer better. (Train for one iteration.)"
-        path = self._select(node)
-        leaf = path[-1]
-        self._expand(leaf)
-        reward = self._simulate(leaf)
-        self._backpropagate(path, reward)
+        """Make the tree one layer better. (Train for one iteration.)"""
+        self._expand(node)
+        self._backpropagate(path=node)
 
     def data_process(self,X,boards):
         new_board = []
@@ -575,57 +564,14 @@ class Dante:
         top_X = top_X[:20]
         return top_cell, top_X
 
-    def _select(self, node):
-        "Find an unexplored descendent of `node`"
-        path = []
-        count = 0
-        while True:
-            path.append(node)
-            if node not in self.children or not self.children[node]:
-                # node is either unexplored or terminal
-              return path
-            unexplored = self.children[node] - self.children.keys()
-            def evaluate(n):
-              return n.value
-            if count == 50:
-                return path
-            if unexplored:
-              path.append(max(unexplored, key=evaluate))#
-              return path
-            node = self._uct_select(node)  # descend a layer deeper
-            count+=1
-
     def _expand(self, node):
         "Update the `children` dict with the children of `node`"
-        if node in self.children:
-            return  # already expanded
         action = [p for p in range(0, self.config['dim'])]
         self.children[node] = node.find_children(action, self.func)
 
-    def _simulate(self, node):
-        "Returns the reward for a random simulation (to completion) of `node`"
-        reward = node.reward(self.func)
-        return reward
-
-    def _backpropagate(self, path, reward):
-        "Send the reward back up to the ancestors of the leaf"
-        for node in reversed(path):
-          self.N[node] += 1
-          self.Q[node] += reward
-
-    def _uct_select(self, node):
-        "Select a child of node, balancing exploration & exploitation"
-        # All children of node should already be expanded:
-        assert all(n in self.children for n in self.children[node])
-        log_N_vertex = math.log(self.N[node])
-
-        def uct(n):
-            "Upper confidence bound for trees"
-            uct_value = n.value + self.exploration_weight * math.sqrt(
-                log_N_vertex / (self.N[n]+1))
-            return uct_value
-        uct_node = max(self.children[node], key=uct)
-        return uct_node
+    def _backpropagate(self, path):
+        """Send the reward back up to the ancestors of the leaf"""
+        self.N[path] += 1
 
 class Node(ABC):
     """
@@ -639,19 +585,9 @@ class Node(ABC):
         return set()
 
     @abstractmethod
-    def find_random_child(self):
-        "Random successor of this board state (for more efficient simulation)"
-        return None
-
-    @abstractmethod
     def is_terminal(self):
         "Returns True if the node has no children"
         return True
-
-    @abstractmethod
-    def reward(self):
-        "Assumes `self` is terminal node. 1=win, 0=loss, .5=tie, etc"
-        return 0
 
     @abstractmethod
     def __hash__(self):
@@ -728,12 +664,5 @@ class opt_task(_OT, Node):
         except:
             task = {opt_task(c, tuple(t), v[0], is_terminal) for c, t, v in  zip(all_cell, all_tup,all_value)}
         return  task
-
-    def reward(board,model):
-        print(np.array(board.tup).reshape(1,-1,1).shape)
-        values = model.predict(np.array(board.tup).reshape(1,-1,1))
-        values = float(np.array(values).reshape(1))
-        print(values)
-        return values
     def is_terminal(board):
         return board.terminal
