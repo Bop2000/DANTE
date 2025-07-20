@@ -1,6 +1,6 @@
 # Pipeline
 
-**To run the self-driving laboratory for compositionally complex alloy design using DANTE, see `DANTE_VL_CCAs_Design.ipynb` for detailed instruction**
+**To run the self-driving laboratory for compositionally complex alloy design using DANTE, see `notebooks/DANTE_VL_CCAs_Design.ipynb` for detailed instruction**
 
 **Note:** If you can not open it in Github, please download it.
 
