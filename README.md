@@ -4,7 +4,7 @@
 
 DANTE is a deep active optimization pipeline that combines deep neural surrogate models and a novel tree search explorationalgorithm to find superior solutions in high-dimensional complex problems characterized by limited data availability and non-accumulative objectives. 
 
-For more details, please refer to our [paper](https://arxiv.org/abs/2404.04062).
+For more details, please refer to our [paper](https://www.nature.com/articles/s43588-025-00858-x).
 
 <p align="center">
   <img src="assets/figure_1.png" alt="DANTE Flowchart" width="600">
