@@ -7,7 +7,7 @@ DANTE is a deep active optimization pipeline that combines deep neural surrogate
 For more details, please refer to our [paper](https://www.nature.com/articles/s43588-025-00858-x).
 
 <p align="center">
-  <img src="assets/figure_1.png" alt="DANTE Flowchart" width="600">
+  <img src="assets/figure1.png" alt="DANTE Flowchart" width="600">
 </p>
 
 ## From low- to high-dimension, from easy- to hard-data acquisition
