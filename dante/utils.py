@@ -5,6 +5,7 @@ from dataclasses import dataclass, field
 from typing import Optional, TYPE_CHECKING
 
 import numpy as np
+import warnings
 
 if TYPE_CHECKING:
     from dante.obj_functions import ObjectiveFunction
@@ -20,6 +21,7 @@ class Tracker:
     _x_values: list[Optional[np.ndarray]] = field(init=False, default_factory=list)
     _current_best: float = field(init=False, default=float("inf"))
     _current_best_x: Optional[np.ndarray] = field(init=False, default=None)
+    log_frequency: Optional[int] = field(default=None)
 
     def __post_init__(self):
         """Initialize the tracker and create the folder after instance creation."""
@@ -55,12 +57,21 @@ class Tracker:
             self._current_best = result
             self._current_best_x = x
 
-        self._print_status()
         self._results.append(self._current_best)
         self._x_values.append(x)
 
         if save or self._counter % 20 == 0 or round(self._current_best, 5) == 0:
             self.dump_trace()
+
+        should_log = False
+        if self.log_frequency is not None and self.log_frequency > 0:
+            should_log = (
+                save
+                or self._counter % self.log_frequency == 0
+                or round(self._current_best, 5) == 0
+            )
+        if should_log:
+            self._print_status()
 
     def _print_status(self) -> None:
         """Print the current status of the optimization."""
@@ -75,6 +86,7 @@ def generate_initial_samples(
     objective_function: ObjectiveFunction,
     num_init_samples: int = 200,
     apply_scaling: bool = False,
+    **kwargs,
 ) -> tuple[np.ndarray, np.ndarray]:
     """
     Generate initial random samples for the given objective function.
@@ -89,6 +101,16 @@ def generate_initial_samples(
             input_samples (np.ndarray): Array of input points.
             output_values (float): Function output value.
     """
+    if "num_initial_sample" in kwargs:
+        warnings.warn(
+            "参数名 num_initial_sample 已废弃，请使用 num_init_samples；"
+            "此次调用将按 num_initial_sample 取值执行。",
+            DeprecationWarning,
+            stacklevel=2,
+        )
+        if kwargs["num_initial_sample"] is not None:
+            num_init_samples = kwargs["num_initial_sample"]
+
     assert num_init_samples > 0, "sample_count must be positive"
 
     dimension_count = objective_function.dims

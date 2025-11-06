@@ -24,6 +24,7 @@ class TestDeepActiveLearning:
         assert dal_instance.num_samples_per_acquisition == 10
         assert dal_instance.input_x.shape == (10, 3)
         assert dal_instance.input_scaled_y.shape == (10,)
+        assert dal_instance.input_raw_y.shape == (10,)
 
     @pytest.mark.slow
     def test_run_method(self, dal_instance: DeepActiveLearning):
@@ -32,6 +33,7 @@ class TestDeepActiveLearning:
             dal_instance.input_x.shape[0] > 10
         )  # Should have more samples after running
         assert dal_instance.input_scaled_y.shape[0] > 10
+        assert dal_instance.input_raw_y.shape[0] > 10
 
     @pytest.mark.slow
     def test_different_objective_function(self):
